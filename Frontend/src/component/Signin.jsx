@@ -76,12 +76,12 @@ const Signin = () => {
 
         <p className="mt-6 text-center text-sm text-gray-600 dark:text-gray-400">
           Don’t have an account?{" "}
-          <a
-            href="/register"
+          <Link
+            to="/signup"
             className="text-cyan-600 dark:text-cyan-400 hover:underline"
           >
             Sign Up
-          </a>
+          </Link>
         </p>
       </div>
     </div>
