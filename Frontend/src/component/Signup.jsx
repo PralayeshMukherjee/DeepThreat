@@ -14,7 +14,7 @@ const Signup = () => {
 
         <button
           type="button"
-          className="w-full flex items-center justify-center bg-white text-gray-700 font-medium py-2 px-4 rounded-full shadow hover:bg-gray-100 transition mb-6 dark:bg-gray-100"
+          className="w-full flex items-center justify-center bg-gray-50 text-gray-700 font-medium py-2 px-4 rounded-full shadow hover:bg-gray-150 transition mb-6 dark:bg-gray-100"
         >
           <FcGoogle className="mr-3 text-xl" /> Sign up with Google
         </button>
@@ -87,7 +87,7 @@ const Signup = () => {
             href="/login"
             className="text-cyan-600 dark:text-cyan-400 hover:underline"
           >
-            Log In
+            Sign In
           </a>
         </p>
       </div>
