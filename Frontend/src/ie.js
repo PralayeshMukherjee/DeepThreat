@@ -8,6 +8,7 @@ import Signin from "./component/Signin.jsx";
 import Signup from "./component/Signup.jsx";
 import JwtSuccess from "./component/JwtSuccess.jsx";
 import OTPVerification from "./component/OTPVerification.jsx"
+import MainHome from "./Pages/MainHome.jsx"
 
 
-export {Header,Footer,Layout,Home,ThemeProvider,ThemeBtn,Signin,Signup,JwtSuccess,OTPVerification};
+export {Header,Footer,Layout,Home,ThemeProvider,ThemeBtn,Signin,Signup,JwtSuccess,OTPVerification,MainHome};
