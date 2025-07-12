@@ -43,7 +43,7 @@ const Signup = () => {
             <input
               type="text"
               id="name"
-              className="w-full px-4 py-2 rounded-md bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+              className="w-full px-4 py-2 rounded-md bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 hover:border-gray-50"
               placeholder="John Doe"
               required
             />
@@ -58,7 +58,7 @@ const Signup = () => {
             <input
               type="email"
               id="email"
-              className="w-full px-4 py-2 rounded-md bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+              className="w-full px-4 py-2 rounded-md bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 hover:border-gray-50"
               placeholder="you@example.com"
               required
             />
@@ -73,7 +73,7 @@ const Signup = () => {
             <input
               type="password"
               id="password"
-              className="w-full px-4 py-2 rounded-md bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+              className="w-full px-4 py-2 rounded-md bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 hover:border-gray-50"
               placeholder="Create a strong password"
               required
             />
