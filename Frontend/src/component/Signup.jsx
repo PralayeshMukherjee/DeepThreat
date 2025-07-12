@@ -26,7 +26,7 @@ const Signup = () => {
     setLoading(true);
 
     try {
-      const response = await fetch(`http://localhost:8080/user/registration`, {
+      const response = await fetch(`http://localhost:8080/user/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
