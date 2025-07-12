@@ -54,7 +54,7 @@ const OTPVerification = () => {
       toast.success("✅ User registered successfully");
       sessionStorage.setItem("token", data.token);
       sessionStorage.setItem("isSuccessfullyRegister", true);
-      //   navigate("/chatbot", { replace: true });
+      navigate("/mainhome");
     }
   };
 
