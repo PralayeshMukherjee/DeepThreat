@@ -1,5 +1,6 @@
 package com.DeepThreat.Controller;
 
+import com.DeepThreat.Authentication.JwtUtil;
 import com.DeepThreat.DTO.AddUser;
 import com.DeepThreat.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,8 @@ import java.util.Map;
 public class UserController {
     @Autowired
     private UserService userService;
+    @Autowired
+    private JwtUtil jwtUtil;
     @PostMapping("/signup")
     public Map<String,Boolean> addNewUser(@RequestBody AddUser addUser){
         String name = addUser.getName().trim();
@@ -35,6 +38,10 @@ public class UserController {
         String emailId = addUser.getEmailId();
         String password = addUser.getPassword();
         boolean isSuccessfullyRegister = userService.successRegister(name,emailId,password);
+        if (!isSuccessfullyRegister) {
+            return Map.of("isSuccessfullyRegister", isSuccessfullyRegister);
+        }
+//        String token = jw
         return Map.of("isSuccessfullyRegister",isSuccessfullyRegister);
     }
     @PostMapping("/login")
