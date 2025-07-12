@@ -27,7 +27,7 @@ public class UserController {
     @PostMapping("/verifyOtp")
     public Map<String,Boolean> verifyTheOTP(@RequestParam String otp, String emailId, String name){
         boolean isVerified = userService.verifyOTP(emailId,otp);
-        return Map.of("isVerfied",isVerified);
+        return Map.of("isVerified",isVerified);
     }
     @PostMapping("/success")
     public Map<String,Boolean> successFullyRegister(@RequestBody AddUser addUser){
