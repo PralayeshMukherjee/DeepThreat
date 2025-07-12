@@ -12,6 +12,7 @@ import {
   Signup,
   JwtSuccess,
   OTPVerification,
+  MainHome,
 } from "./ie.js";
 
 import "./App.css";
@@ -30,6 +31,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/jwt-success" element={<JwtSuccess />} />
         <Route path="/OTPVerification" element={<OTPVerification />} />
+        <Route path="/mainhome" element={<MainHome />} />
       </>
     )
   );
