@@ -1,10 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Signup = () => {
   const handleGoogleLogin = () => {
     window.location.href = `http://localhost:8080/oauth2/authorization/google`;
+  };
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState({
+    name: "",
+    emailId: "",
+    password: "",
+  });
+  const handleChange = (e) => {
+    setData({
+      ...data,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const handelSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/user/registration`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(registerFormData),
+        }
+      );
+
+      const data = await response.json();
+
+      if (data.isSend) {
+        sessionStorage.setItem("isSend", true);
+        sessionStorage.setItem("emailId", registerFormData.emailId);
+        sessionStorage.setItem("name", registerFormData.name);
+        sessionStorage.setItem("password", registerFormData.password);
+        navigate("/OTPVerification");
+      } else {
+        sessionStorage.setItem("isSend", false);
+        toast.info("⚠️ User already exists");
+      }
+    } catch (err) {
+      toast.error("❌ Something went wrong!");
+    } finally {
+      setLoading(false);
+    }
   };
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-gray-950 dark:from-gray-900 dark:to-gray-950 from-white to-gray-100 px-4 py-10">
@@ -43,6 +91,8 @@ const Signup = () => {
             <input
               type="text"
               id="name"
+              name="name"
+              onChange={handleChange}
               className="w-full px-4 py-2 rounded-md bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 hover:border-gray-50"
               placeholder="John Doe"
               required
@@ -58,6 +108,8 @@ const Signup = () => {
             <input
               type="email"
               id="email"
+              name="emailId"
+              onChange={handleChange}
               className="w-full px-4 py-2 rounded-md bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 hover:border-gray-50"
               placeholder="you@example.com"
               required
@@ -73,6 +125,8 @@ const Signup = () => {
             <input
               type="password"
               id="password"
+              name="password"
+              onChange={handleChange}
               className="w-full px-4 py-2 rounded-md bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 hover:border-gray-50"
               placeholder="Create a strong password"
               required
@@ -80,9 +134,18 @@ const Signup = () => {
           </div>
           <button
             type="submit"
-            className="w-full bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-2 px-4 rounded-full transition shadow-md"
+            onClick={handelSubmit}
+            //   className="w-full bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-2 px-4 rounded-full transition shadow-md"
+            // >
+            //   Sign Up
+            className={`w-full py-3 cursor-pointer mt-6 rounded-xl text-lg font-semibold shadow-md transition-all duration-300
+                ${
+                  loading
+                    ? "bg-gray-400 cursor-progress"
+                    : "bg-gradient-to-r from-cyan-500 to-cyan-600 text-white hover:shadow-lg hover:from-cyan-700 hover:to-cyan-800"
+                }`}
           >
-            Sign Up
+            {loading ? "Signing Up..." : "Sign Up"}
           </button>
         </form>
 
