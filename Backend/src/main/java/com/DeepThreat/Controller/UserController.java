@@ -33,16 +33,18 @@ public class UserController {
         return Map.of("isVerified",isVerified);
     }
     @PostMapping("/success")
-    public Map<String,Boolean> successFullyRegister(@RequestBody AddUser addUser){
+    public Map<String,String> successFullyRegister(@RequestBody AddUser addUser){
         String name = addUser.getName();
         String emailId = addUser.getEmailId();
         String password = addUser.getPassword();
         boolean isSuccessfullyRegister = userService.successRegister(name,emailId,password);
         if (!isSuccessfullyRegister) {
-            return Map.of("isSuccessfullyRegister", isSuccessfullyRegister);
+            return Map.of("isSuccessfullyRegister", "false");
         }
-//        String token = jw
-        return Map.of("isSuccessfullyRegister",isSuccessfullyRegister);
+        String token = jwtUtil.generateTokenManually(emailId,name);
+        return Map.of("isSuccessfullyRegister","true",
+                "token", token
+        );
     }
     @PostMapping("/login")
     public Map<String,String> LoginUser(@RequestParam String emailId, String password){
