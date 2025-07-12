@@ -15,10 +15,8 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-    @Autowired
-    private CustomOAuth2UserService customOAuth2UserService;
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
+    public SecurityFilterChain filterChain(HttpSecurity http,CustomOAuth2UserService customOAuth2UserService) throws Exception{
         http
                 .cors(Customizer.withDefaults())
                 .csrf(csrf->csrf.disable())

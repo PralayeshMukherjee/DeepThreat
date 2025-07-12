@@ -3,10 +3,13 @@ package com.DeepThreat.Authentication;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.io.Decoders;
+import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Component;
 
+import java.security.Key;
 import java.util.Date;
 
 @Component
@@ -19,13 +22,15 @@ public class JwtUtil {
     private long expirationMs;
 
     public String generateTokan(OAuth2User user){
+        byte[] keyBytes = Decoders.BASE64.decode(jwtSecret);
+        Key key = Keys.hmacShaKeyFor(keyBytes);
         return Jwts.builder()
                 .setSubject(user.getName())
                 .claim("email",user.getAttributes())
                 .claim("name",user.getAttributes())
                 .setExpiration(new Date())
                 .setExpiration(new Date(System.currentTimeMillis()+expirationMs))
-                .signWith(SignatureAlgorithm.HS512,jwtSecret)
+                .signWith(key,SignatureAlgorithm.HS512)
                 .compact();
     }
     public Claims parseToken(String token){
