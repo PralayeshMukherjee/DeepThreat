@@ -14,6 +14,8 @@ import {
 } from "./ie.js";
 
 import "./App.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const MyRouter = createBrowserRouter(
@@ -32,6 +34,7 @@ function App() {
   return (
     <ThemeProvider>
       <RouterProvider router={MyRouter} />
+      <ToastContainer position="top-right" autoClose={3000} theme="colored" />
     </ThemeProvider>
   );
 }
