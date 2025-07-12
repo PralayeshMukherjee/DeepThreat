@@ -36,7 +36,7 @@ const Signup = () => {
 
       const dataFetch = await response.json();
 
-      if (data.isSend) {
+      if (dataFetch.isSend) {
         sessionStorage.setItem("isSend", true);
         sessionStorage.setItem("emailId", data.emailId);
         sessionStorage.setItem("name", data.name);
