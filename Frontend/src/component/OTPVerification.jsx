@@ -73,7 +73,7 @@ const OTPVerification = () => {
       }
     );
     const data = await response.json();
-    if (data.isVerfied) {
+    if (data.isVerified) {
       sessionStorage.setItem("isVerfied", true);
       toast.success("✅ OTP verified successfully");
       const updatedData = {
