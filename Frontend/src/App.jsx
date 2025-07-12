@@ -4,7 +4,14 @@ import {
   RouterProvider,
   Route,
 } from "react-router-dom";
-import { Layout, Home, ThemeProvider, Signin, Signup } from "./ie.js";
+import {
+  Layout,
+  Home,
+  ThemeProvider,
+  Signin,
+  Signup,
+  JwtSuccess,
+} from "./ie.js";
 
 import "./App.css";
 
@@ -18,6 +25,7 @@ function App() {
         </Route>
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/jwt-success" element={<JwtSuccess />} />
       </>
     )
   );

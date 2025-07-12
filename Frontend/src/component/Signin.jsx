@@ -3,6 +3,9 @@ import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 
 const Signin = () => {
+  const handleGoogleLogin = () => {
+    window.location.href = `http://localhost:8080/oauth2/authorization/google`;
+  };
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-gray-900 to-gray-950 dark:from-gray-900 dark:to-gray-950 from-white to-gray-100 px-4 py-10">
       <div className="w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-10 text-gray-900 dark:text-white border border-gray-200 dark:border-gray-700">
@@ -15,6 +18,7 @@ const Signin = () => {
 
         <button
           type="button"
+          onClick={handleGoogleLogin}
           className="w-full flex items-center justify-center bg-gray-50 text-gray-700 font-medium py-2 px-4 rounded-full shadow hover:bg-gray-150 transition mb-6 dark:bg-gray-100"
         >
           <FcGoogle className="mr-3 text-xl" /> Sign in with Google
