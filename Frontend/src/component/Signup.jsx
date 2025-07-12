@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -9,6 +9,7 @@ const Signup = () => {
     window.location.href = `http://localhost:8080/oauth2/authorization/google`;
   };
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
   const [data, setData] = useState({
     name: "",
     emailId: "",
@@ -25,24 +26,21 @@ const Signup = () => {
     setLoading(true);
 
     try {
-      const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/user/registration`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(registerFormData),
-        }
-      );
+      const response = await fetch(`http://localhost:8080/user/registration`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
-      const data = await response.json();
+      const dataFetch = await response.json();
 
       if (data.isSend) {
         sessionStorage.setItem("isSend", true);
-        sessionStorage.setItem("emailId", registerFormData.emailId);
-        sessionStorage.setItem("name", registerFormData.name);
-        sessionStorage.setItem("password", registerFormData.password);
+        sessionStorage.setItem("emailId", data.emailId);
+        sessionStorage.setItem("name", data.name);
+        sessionStorage.setItem("password", data.password);
         navigate("/OTPVerification");
       } else {
         sessionStorage.setItem("isSend", false);
@@ -135,6 +133,7 @@ const Signup = () => {
           <button
             type="submit"
             onClick={handelSubmit}
+            disabled={loading}
             //   className="w-full bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-2 px-4 rounded-full transition shadow-md"
             // >
             //   Sign Up
