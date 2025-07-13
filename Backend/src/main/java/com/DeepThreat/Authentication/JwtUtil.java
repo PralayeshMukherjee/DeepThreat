@@ -39,7 +39,7 @@ public class JwtUtil {
         return Jwts.builder()
                 .setSubject(email)
                 .claim("email",email)
-                .claim("name",password)
+                .claim("password",password)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + expirationMs))
                 .signWith(key,SignatureAlgorithm.HS512)
