@@ -51,10 +51,10 @@ const MainHome = () => {
         </motion.p>
 
         <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 z-10 relative">
-          <button className="px-6 py-3 bg-indigo-600 text-white rounded-lg text-sm md:text-base hover:bg-indigo-700 transition shadow-lg">
+          <button className="px-6 py-3 hover:scale-105 bg-indigo-600 text-white rounded-lg text-sm md:text-base hover:bg-indigo-700 transition shadow-lg">
             Check URL
           </button>
-          <button className="px-6 py-3 bg-emerald-600 text-white rounded-lg text-sm md:text-base hover:bg-emerald-700 transition shadow-lg">
+          <button className="px-6 py-3 hover:scale-105 bg-emerald-600 text-white rounded-lg text-sm md:text-base hover:bg-emerald-700 transition shadow-lg">
             Scan Document
           </button>
         </div>
