@@ -27,69 +27,7 @@ const MainHome = () => {
   ];
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
-      {/* Header */}
-      <header className="w-full px-6 py-4 flex justify-between items-center bg-slate-900 bg-opacity-90 sticky top-0 z-50 border-b border-slate-700">
-        <h1 className="text-xl md:text-2xl font-bold text-indigo-400 tracking-tight">
-          DeepThreat
-        </h1>
-
-        {/* Desktop Nav */}
-        <nav className="space-x-4 hidden md:flex">
-          <a
-            href="#features"
-            className="text-gray-300 hover:text-indigo-400 transition"
-          >
-            Features
-          </a>
-          <a
-            href="#tools"
-            className="text-gray-300 hover:text-indigo-400 transition"
-          >
-            Tools
-          </a>
-          <a
-            href="#contact"
-            className="text-gray-300 hover:text-indigo-400 transition"
-          >
-            Contact
-          </a>
-        </nav>
-
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden text-gray-300"
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-
-        {/* Mobile Nav Dropdown */}
-        {isMenuOpen && (
-          <div className="absolute top-16 left-0 w-full bg-slate-800 px-6 py-4 flex flex-col gap-3 md:hidden z-40 shadow-md">
-            <a
-              href="#features"
-              className="text-gray-300 hover:text-indigo-400 transition"
-            >
-              Features
-            </a>
-            <a
-              href="#tools"
-              className="text-gray-300 hover:text-indigo-400 transition"
-            >
-              Tools
-            </a>
-            <a
-              href="#contact"
-              className="text-gray-300 hover:text-indigo-400 transition"
-            >
-              Contact
-            </a>
-          </div>
-        )}
-      </header>
-
-      {/* Hero Section */}
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
       <section className="px-6 py-24 bg-slate-800 text-center relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-gray-800 via-gray-850 to-gray-900 rounded-xl blur-3xl opacity-50 pointer-events-none"></div>
         <motion.h2
@@ -141,18 +79,7 @@ const MainHome = () => {
           ))}
         </div>
       </section>
-
-      {/* Footer */}
-      <footer
-        id="contact"
-        className="px-6 py-10 bg-slate-900 text-center text-sm text-slate-500 border-t border-slate-700"
-      >
-        <p>
-          &copy; {new Date().getFullYear()} DeepThreat. All rights reserved.
-        </p>
-        <p className="mt-1">Built with ❤️ by Raj</p>
-      </footer>
-    </main>
+    </div>
   );
 };
 

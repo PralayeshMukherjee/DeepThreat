@@ -6,6 +6,7 @@ import Profile from "../assets/profile.png";
 import Setting from "../assets/setting.png";
 import Logout from "../assets/logout.png";
 import Help from "../assets/help.png";
+import ThemeBtn from "../contexts/ThemeBtn.jsx";
 
 const MainHeader = () => {
   const [isMenuOpenMobile, setIsMenuOpenMobile] = useState(false);
