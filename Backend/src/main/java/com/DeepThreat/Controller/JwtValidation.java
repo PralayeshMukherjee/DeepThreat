@@ -1,6 +1,7 @@
 package com.DeepThreat.Controller;
 
 import com.DeepThreat.Authentication.JwtUtil;
+import com.DeepThreat.Service.UserService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,8 @@ import java.util.Map;
 public class JwtValidation {
     @Autowired
     private JwtUtil jwtUtil;
+    @Autowired
+    private UserService userService;
     @GetMapping("/token-validation")
     public Map<String,String> tokenValidation (@RequestParam String token){
         try {
