@@ -7,11 +7,17 @@ import Setting from "../assets/setting.png";
 import Logout from "../assets/logout.png";
 import Help from "../assets/help.png";
 import ThemeBtn from "../contexts/ThemeBtn.jsx";
+import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const MainHeader = () => {
   const [isMenuOpenMobile, setIsMenuOpenMobile] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen(!menuOpen);
+  const underDev = () => {
+    toast.info("This feature is under development.");
+  };
 
   return (
     <header className="w-full px-6 py-4 flex justify-between items-center bg-slate-900 bg-opacity-90 sticky top-0 z-50 border-b border-slate-700">
