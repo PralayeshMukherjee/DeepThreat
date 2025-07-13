@@ -1,6 +1,8 @@
 package com.DeepThreat.Controller;
 
 import com.DeepThreat.Authentication.JwtUtil;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +17,13 @@ public class JwtValidation {
     private JwtUtil jwtUtil;
     @GetMapping("/token-validation")
     public Map<String,String> tokenValidation (@RequestParam String token){
-
+        try {
+            Claims claims = jwtUtil.parseToken(token);
+            String email = claims.getSubject();
+        }catch (ExpiredJwtException e){
+            return Map.of("isExpired","false");
+        }catch (Exception e){
+            return Map.of("isExpired","wrong");
+        }
     }
 }
