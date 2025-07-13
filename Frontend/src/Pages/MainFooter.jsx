@@ -41,12 +41,12 @@ const MainFooter = () => {
           <p className="mt-1">
             Developed by{" "}
             <a
-              href="https://github.com/raj"
+              href="https://github.com/PralayeshMukherjee"
               className="text-indigo-400 hover:underline"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Raj
+              Pralayesh Mukherjee
             </a>
           </p>
         </div>
