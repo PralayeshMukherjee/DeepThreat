@@ -18,6 +18,11 @@ const MainHeader = () => {
   const underDev = () => {
     toast.info("This feature is under development.");
   };
+  const LogoutUser = () => {
+    sessionStorage.removeItem("token");
+    toast.success("You have been logged out successfully.");
+    window.location.href = "/";
+  };
 
   return (
     <header className="w-full px-6 py-4 flex justify-between items-center bg-slate-900 bg-opacity-90 sticky top-0 z-50 border-b border-slate-700">
