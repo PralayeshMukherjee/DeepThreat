@@ -2,15 +2,19 @@ package com.DeepThreat.Controller;
 
 import com.DeepThreat.Authentication.JwtUtil;
 import com.DeepThreat.DTO.AddUser;
+import com.DeepThreat.Entity.UserEntity;
 import com.DeepThreat.Service.UserService;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/user")
-public class UserController {
+public class UserAuthenticationController {
     @Autowired
     private UserService userService;
     @Autowired
@@ -53,5 +57,24 @@ public class UserController {
         return Map.of("result",result,
                 "token",token
         );
+    }
+    @PostMapping("/token-validation")
+    public Map<String,String> tokenValidation (@RequestParam String token){
+        try{
+            Claims claims = jwtUtil.parseToken(token);
+            String usernameFromToken = claims.getSubject();
+            if(userService.validUser(usernameFromToken)){
+                return Map.of("isValid","true");
+            }else{
+                return Map.of("isValid","false");
+            }
+        }catch(ExpiredJwtException e){
+            System.out.println(e.getMessage());
+            return Map.of("isExpired","expired");
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+            return Map.of("isValid","wrong");
+        }
     }
 }
