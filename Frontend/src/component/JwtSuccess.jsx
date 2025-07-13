@@ -11,11 +11,9 @@ const JwtSuccess = () => {
 
     if (token) {
       localStorage.setItem("jwt", token);
-      //   navigate("/home");
+      navigate("/mainhome");
     }
   }, []);
-
-  return <div>Logging in...</div>;
 };
 
 export default JwtSuccess;
