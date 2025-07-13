@@ -32,7 +32,7 @@ const Signin = () => {
         sessionStorage.setItem("isLogin", true);
         sessionStorage.setItem("isGoogleUser", false);
         sessionStorage.setItem("token", data.token);
-        navigate("/mainhome", { replace: true });
+        navigate("/mainlayout");
         setLoading(false);
       } else if (data.result === "1") {
         toast.info("⚠️ Invalid password");
