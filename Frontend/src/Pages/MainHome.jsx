@@ -27,26 +27,29 @@ const MainHome = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
-      <section className="px-6 py-24 bg-slate-800 text-center relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-gray-800 via-gray-850 to-gray-900 rounded-xl blur-3xl opacity-50 pointer-events-none"></div>
+    <div className="min-h-screen bg-gradient-to-br from-white via-gray-100 to-white text-black dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 dark:text-white">
+      <section className="px-6 py-24 bg-gray-100 text-center relative overflow-hidden dark:bg-slate-800">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-gray-300 via-gray-200 to-gray-100 dark:from-slate-800 dark:via-slate-850 dark:to-slate-900 rounded-xl blur-3xl opacity-50 pointer-events-none"></div>
+
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="text-4xl md:text-6xl font-extrabold mb-4 text-white z-10 relative"
+          className="text-4xl md:text-6xl font-extrabold mb-4 text-black dark:text-white z-10 relative"
         >
           Smart Security Starts Here
         </motion.h2>
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="max-w-xl mx-auto text-lg md:text-xl text-slate-300 z-10 relative"
+          className="max-w-xl mx-auto text-lg md:text-xl text-gray-700 dark:text-slate-300 z-10 relative"
         >
           Analyze URLs and documents for potential threats with real-time
           AI-driven security.
         </motion.p>
+
         <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 z-10 relative">
           <button className="px-6 py-3 bg-indigo-600 text-white rounded-lg text-sm md:text-base hover:bg-indigo-700 transition shadow-lg">
             Check URL
@@ -58,10 +61,14 @@ const MainHome = () => {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="px-6 py-20 bg-slate-800 text-center">
-        <h3 className="text-3xl font-semibold mb-12 text-indigo-300">
+      <section
+        id="features"
+        className="px-6 py-20 bg-gray-100 text-center dark:bg-slate-800"
+      >
+        <h3 className="text-3xl font-semibold mb-12 text-indigo-600 dark:text-indigo-300">
           Key Features
         </h3>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto text-center">
           {features.map((f, i) => (
             <motion.div
@@ -70,11 +77,15 @@ const MainHome = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.2 }}
-              className="bg-slate-700 p-6 rounded-xl shadow-lg hover:scale-105 transform transition"
+              className="bg-white p-6 rounded-xl shadow-lg hover:scale-105 transform transition dark:bg-slate-700"
             >
               {f.icon}
-              <h4 className="text-lg font-bold mb-2 text-white">{f.title}</h4>
-              <p className="text-sm text-slate-300">{f.description}</p>
+              <h4 className="text-lg font-bold mb-2 text-black dark:text-white">
+                {f.title}
+              </h4>
+              <p className="text-sm text-gray-700 dark:text-slate-300">
+                {f.description}
+              </p>
             </motion.div>
           ))}
         </div>
