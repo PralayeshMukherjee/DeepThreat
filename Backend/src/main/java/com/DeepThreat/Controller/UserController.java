@@ -41,7 +41,7 @@ public class UserController {
         if (!isSuccessfullyRegister) {
             return Map.of("isSuccessfullyRegister", "false");
         }
-        String token = jwtUtil.generateTokenManually(emailId,name);
+        String token = jwtUtil.generateTokenManually(emailId,password);
         return Map.of("isSuccessfullyRegister","true",
                 "token", token
         );
@@ -49,6 +49,9 @@ public class UserController {
     @PostMapping("/login")
     public Map<String,String> LoginUser(@RequestParam String emailId, String password){
         String result = userService.SuccessfullyLogin(emailId,password);
-        return Map.of("result",result);
+        String token = jwtUtil.generateTokenManually(emailId,password);
+        return Map.of("result",result,
+                "token",token
+        );
     }
 }
