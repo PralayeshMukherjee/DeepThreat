@@ -1,8 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Signin = () => {
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    emailId: "",
+    password: "",
+  });
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const response = await fetch(
+        `http://localhost:8080/user/login?emailId=${formData.emailId}&password=${formData.password}`,
+        {
+          method: "POST",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const data = await response.json();
+      if (data.result === "0") {
+        toast.success("✅ Login successful");
+        sessionStorage.setItem("isLogin", true);
+        sessionStorage.setItem("isGoogleUser", false);
+        navigate("/mainhome", { replace: true });
+        setLoading(false);
+      } else if (data.result === "1") {
+        toast.info("⚠️ Invalid password");
+        setLoading(false);
+      } else if (data.result === "2") {
+        toast.info("⚠️ User not found");
+        setLoading(false);
+      } else {
+        toast.info("⚠️ something went wrong");
+        setLoading(false);
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+      toast.error("❌ An error occurred. Please try again later.");
+      setLoading(false);
+    }
+  };
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
   const handleGoogleLogin = () => {
     window.location.href = `http://localhost:8080/oauth2/authorization/google`;
   };
@@ -43,6 +96,8 @@ const Signin = () => {
             <input
               type="email"
               id="email"
+              name="emailId"
+              onChange={handleChange}
               className="w-full px-4 py-2 rounded-md bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 hover:border-gray-400 dark:hover:border-gray-50"
               placeholder="you@example.com"
               required
@@ -58,6 +113,8 @@ const Signin = () => {
             <input
               type="password"
               id="password"
+              name="password"
+              onChange={handleChange}
               className="w-full px-4 py-2 rounded-md bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 hover:border-gray-400 dark:hover:border-gray-50"
               placeholder="••••••••"
               required
@@ -73,9 +130,16 @@ const Signin = () => {
           </div>
           <button
             type="submit"
-            className="w-full bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-2 px-4 rounded-full transition shadow-md"
+            onClick={handleLogin}
+            disabled={loading}
+            className={`w-full py-3 cursor-pointer mt-6 rounded-xl text-lg font-semibold shadow-md transition-all duration-300
+                ${
+                  loading
+                    ? "bg-gray-400 cursor-progress"
+                    : "bg-gradient-to-r from-cyan-500 to-cyan-600 text-white hover:shadow-lg hover:from-cyan-700 hover:to-cyan-800"
+                }`}
           >
-            Sign In
+            {loading ? "Signing in..." : "Sign in"}
           </button>
         </form>
 
