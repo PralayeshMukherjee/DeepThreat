@@ -2,6 +2,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FaShieldAlt, FaLock, FaUpload } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Home = () => {
   const features = [
