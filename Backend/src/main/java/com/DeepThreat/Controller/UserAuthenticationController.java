@@ -58,23 +58,4 @@ public class UserAuthenticationController {
                 "token",token
         );
     }
-    @PostMapping("/token-validation")
-    public Map<String,String> tokenValidation (@RequestParam String token){
-        try{
-            Claims claims = jwtUtil.parseToken(token);
-            String usernameFromToken = claims.getSubject();
-            if(userService.validUser(usernameFromToken)){
-                return Map.of("isValid","true");
-            }else{
-                return Map.of("isValid","false");
-            }
-        }catch(ExpiredJwtException e){
-            System.out.println(e.getMessage());
-            return Map.of("isExpired","expired");
-        }
-        catch (Exception e) {
-            System.out.println(e.getMessage());
-            return Map.of("isValid","wrong");
-        }
-    }
 }
