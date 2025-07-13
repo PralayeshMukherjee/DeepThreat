@@ -45,7 +45,7 @@ const Home = () => {
         const data = await response.json();
         if (data.isExpired === "true") {
           console.log(data.isExpired);
-          navigate("/mainhome");
+          navigate("/mainlayout");
         } else {
           sessionStorage.removeItem("token");
           console.log(data.isExpired);
