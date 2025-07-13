@@ -31,6 +31,7 @@ const Signin = () => {
         toast.success("✅ Login successful");
         sessionStorage.setItem("isLogin", true);
         sessionStorage.setItem("isGoogleUser", false);
+        sessionStorage.setItem("token", data.token);
         navigate("/mainhome", { replace: true });
         setLoading(false);
       } else if (data.result === "1") {
