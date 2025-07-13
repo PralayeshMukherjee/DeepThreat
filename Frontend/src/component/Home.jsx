@@ -28,7 +28,7 @@ const Home = () => {
 
   const handleGetStarted = async () => {
     const token = sessionStorage.getItem("token");
-    if (token.length == 0) {
+    if (!token) {
       navigate("/signin");
       return;
     } else {
@@ -44,8 +44,11 @@ const Home = () => {
         );
         const data = await response.json();
         if (data.isExpired === "true") {
+          console.log(data.isExpired);
           navigate("/mainhome");
         } else {
+          sessionStorage.removeItem("token");
+          console.log(data.isExpired);
           navigate("/signin");
         }
       } catch (error) {
