@@ -23,6 +23,11 @@ public class JwtValidation {
         try {
             Claims claims = jwtUtil.parseToken(token);
             String email = claims.getSubject();
+            if(userService.validUser(email)){
+                return Map.of("isExpired","true");
+            }else {
+                return Map.of("isExpired","false");
+            }
         }catch (ExpiredJwtException e){
             return Map.of("isExpired","false");
         }catch (Exception e){
