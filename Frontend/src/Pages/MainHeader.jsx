@@ -34,6 +34,9 @@ const MainHeader = () => {
           className="w-16 h-16 rounded-md"
           alt="DeepThreat Logo"
         />
+        <h1 className="text-xl md:text-2xl font-bold text-indigo-400 tracking-tight">
+          DeepThreat
+        </h1>
       </Link>
 
       {/* Desktop Nav */}
