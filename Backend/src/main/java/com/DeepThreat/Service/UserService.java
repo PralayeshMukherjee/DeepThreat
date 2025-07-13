@@ -10,6 +10,7 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -125,6 +126,14 @@ public class UserService {
         }catch (Exception e){
             System.out.println(e.getMessage());
             return "-1";
+        }
+    }
+    public boolean validUser(String email){
+        Optional<UserEntity> ue = userRepository.findById(email);
+        if(ue.isPresent()){
+            return true;
+        }else{
+            return false;
         }
     }
 }
