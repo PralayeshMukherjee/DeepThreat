@@ -29,7 +29,7 @@ public class JwtValidation {
                 return Map.of("isExpired","false");
             }
         }catch (ExpiredJwtException e){
-            return Map.of("isExpired","false");
+            return Map.of("isExpired","expired");
         }catch (Exception e){
             return Map.of("isExpired","wrong");
         }
