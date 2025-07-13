@@ -25,8 +25,34 @@ const Home = () => {
     },
   ];
   const navigate = useNavigate();
-  const handleGetStarted = () => {
-    navigate("/signin");
+
+  const handleGetStarted = async () => {
+    const token = sessionStorage.getItem("token");
+    if (token.length == 0) {
+      navigate("/signin");
+      return;
+    } else {
+      try {
+        const response = await fetch(
+          `http://localhost:8080/api/token-validation?token=${token}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        const data = await response.json();
+        if (data.isExpired === "true") {
+          navigate("/mainhome");
+        } else {
+          navigate("/signin");
+        }
+      } catch (error) {
+        console.error("Error during token validation:", error);
+        toast.error("❌ An error occurred. Please try again later.");
+      }
+    }
   };
 
   return (
