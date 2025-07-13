@@ -9,6 +9,7 @@ import Help from "../assets/help.png";
 import ThemeBtn from "../contexts/ThemeBtn.jsx";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import deepthreatlogo from "../assets/deepthreatlogo.png";
 import "react-toastify/dist/ReactToastify.css";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -27,9 +28,13 @@ const MainHeader = () => {
 
   return (
     <header className="w-full px-6 py-4 flex justify-between items-center bg-slate-900 bg-opacity-90 sticky top-0 z-50 border-b border-slate-700">
-      <h1 className="text-xl md:text-2xl font-bold text-indigo-400 tracking-tight">
-        DeepThreat
-      </h1>
+      <Link to="/" className="flex items-center">
+        <img
+          src={deepthreatlogo}
+          className="w-16 h-16 rounded-md"
+          alt="DeepThreat Logo"
+        />
+      </Link>
 
       {/* Desktop Nav */}
       <nav className="space-x-4 hidden md:flex">
