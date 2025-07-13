@@ -129,10 +129,14 @@ public class UserService {
         }
     }
     public boolean validUser(String email){
-        Optional<UserEntity> ue = userRepository.findById(email);
-        if(ue.isPresent()){
-            return true;
-        }else{
+        try{
+            Optional<UserEntity> ue = userRepository.findById(email);
+            if(ue.isPresent()){
+                return true;
+            }else{
+                return false;
+            }
+        }catch (Exception e){
             return false;
         }
     }
