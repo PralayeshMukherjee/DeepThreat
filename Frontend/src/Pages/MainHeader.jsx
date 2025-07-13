@@ -43,19 +43,19 @@ const MainHeader = () => {
       <nav className="space-x-4 hidden md:flex">
         <a
           href="#features"
-          className="text-gray-300 hover:text-indigo-400 transition"
+          className="text-gray-300 hover:text-cyan-400 transition"
         >
           Features
         </a>
         <a
           href="#tools"
-          className="text-gray-300 hover:text-indigo-400 transition"
+          className="text-gray-300 hover:text-cyan-400 transition"
         >
           Tools
         </a>
         <a
           href="#contact"
-          className="text-gray-300 hover:text-indigo-400 transition"
+          className="text-gray-300 hover:text-cyan-400 transition"
         >
           Contact
         </a>
