@@ -33,13 +33,13 @@ public class JwtUtil {
                 .signWith(key,SignatureAlgorithm.HS512)
                 .compact();
     }
-    public String generateTokenManually(String email,String name){
+    public String generateTokenManually(String email,String password){
         byte[] keyBytes = Decoders.BASE64.decode(jwtSecret);
         Key key = Keys.hmacShaKeyFor(keyBytes);
         return Jwts.builder()
                 .setSubject(email)
                 .claim("email",email)
-                .claim("name",name)
+                .claim("name",password)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + expirationMs))
                 .signWith(key,SignatureAlgorithm.HS512)
