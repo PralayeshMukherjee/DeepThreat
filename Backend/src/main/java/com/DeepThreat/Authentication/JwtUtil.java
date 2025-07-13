@@ -24,8 +24,10 @@ public class JwtUtil {
     public String generateTokan(OAuth2User user){
         byte[] keyBytes = Decoders.BASE64.decode(jwtSecret);
         Key key = Keys.hmacShaKeyFor(keyBytes);
+        String email = (String) user.getAttribute("email");
+        String name = (String) user.getAttribute("name");
         return Jwts.builder()
-                .setSubject(user.getName())
+                .setSubject(email)
                 .claim("email",user.getAttributes())
                 .claim("name",user.getAttributes())
                 .setIssuedAt(new Date())
