@@ -50,6 +50,8 @@ const MainHome = () => {
       setShowInput(false); // Hide input after sending
     }
   };
+  //for handle the waiting state for send url
+  const [loading, setLoading] = useState(false);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-gray-100 to-white text-black dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 dark:text-white">
