@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ShieldCheck, Lock, Zap } from "lucide-react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { SendHorizonal, Loader2 } from "lucide-react";
 
 const MainHome = () => {
   //menu open for mobile
@@ -118,14 +119,22 @@ const MainHome = () => {
                 type="button"
                 onClick={handleSendClick}
                 disabled={loading}
-                className={`px-5 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition shadow
-                ${
-                  loading
-                    ? "bg-gray-400 cursor-progress"
-                    : "bg-gradient-to-r from-cyan-500 to-cyan-600 text-white hover:shadow-lg hover:from-cyan-700 hover:to-cyan-800"
-                }`}
+                className={`flex items-center justify-center gap-2 px-6 py-2 rounded-xl text-white text-sm md:text-base font-medium transition-all duration-300
+    ${
+      loading
+        ? "bg-gray-400 cursor-progress"
+        : "bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 shadow-lg hover:shadow-xl"
+    }`}
               >
-                {loading ? "Sending URL..." : "Send URL"}
+                {loading ? (
+                  <>
+                    <Loader2 className="animate-spin w-4 h-4" />
+                  </>
+                ) : (
+                  <>
+                    <SendHorizonal className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+                  </>
+                )}
               </button>
             </div>
           </motion.div>
