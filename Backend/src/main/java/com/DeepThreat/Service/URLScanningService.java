@@ -33,6 +33,19 @@ public class URLScanningService {
             return 0;
         }
     }
+    public int ipAddressAsDomain(String url){
+        try{
+            URL domain = new URL(url);
+            String host = domain.getHost().toLowerCase();
+            String ipRegex = "^\\d{1,3}(\\.\\d{1,3}){3}$";
+            if(host.matches(ipRegex)){
+                return 2;
+            }
+        }catch (MalformedURLException e){
+            throw new RuntimeException(e);
+        }
+        return 0;
+    }
     public int finalPointStable(String url){
         int pointCheck = 0;
         pointCheck += suspiciousKeywordsChecks(url);
