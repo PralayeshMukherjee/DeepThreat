@@ -27,6 +27,9 @@ const MainHome = () => {
         "Get confident results within seconds with minimal false positives.",
     },
   ];
+  const underDev = () => {
+    toast.info("This feature is under development.");
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-gray-100 to-white text-black dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 dark:text-white">
@@ -56,7 +59,10 @@ const MainHome = () => {
           <button className="px-6 py-3 hover:scale-105 bg-indigo-600 text-white rounded-lg text-sm md:text-base hover:bg-indigo-700 transition shadow-lg">
             Check URL
           </button>
-          <button className="px-6 py-3 hover:scale-105 bg-emerald-600 text-white rounded-lg text-sm md:text-base hover:bg-emerald-700 transition shadow-lg">
+          <button
+            onClick={underDev}
+            className="px-6 py-3 hover:scale-105 bg-emerald-600 text-white rounded-lg text-sm md:text-base hover:bg-emerald-700 transition shadow-lg"
+          >
             Scan Document
           </button>
         </div>
