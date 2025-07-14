@@ -112,7 +112,7 @@ const MainHome = () => {
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
                 placeholder="Enter URL to scan..."
-                className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-slate-700 dark:text-white transition-all"
+                className="w-full px-4 py-2 rounded-lg border bg-gray-200 hover:border-gray-500 hover:border-2 border-gray-700 dark:border-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-slate-900 dark:text-white transition-all"
               />
               <button
                 type="button"
