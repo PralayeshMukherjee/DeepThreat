@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Set;
 
 //login, account, verify, update, secure, bank, free, gift, c
 @Service
@@ -22,6 +23,11 @@ public class URLScanningService {
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
+    }
+    public int shortenersURL(String url){
+        Set<String> set = Set.of("bit.ly", "tinyurl.com", "t.co", "is.gd", "goo.gl", "ow.ly",
+                "buff.ly", "rebrand.ly", "shorte.st", "adf.ly", "cutt.ly", "soo.gd");
+        if()
     }
     public int finalPointStable(String url){
         int pointCheck = 0;
