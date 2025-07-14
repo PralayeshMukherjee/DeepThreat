@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
 import { ShieldCheck, Lock, Zap } from "lucide-react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const MainHome = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
