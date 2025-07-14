@@ -39,19 +39,22 @@ const MainHome = () => {
   const handleCheckURLClick = () => {
     setShowInput((prev) => !prev);
   };
+  //for handle the waiting state for send url
+  const [loading, setLoading] = useState(false);
   const handleSendClick = () => {
+    setLoading(true);
     if (!url.trim()) {
       toast.error("Please enter a valid URL.");
+      setLoading(false);
       return;
     } else {
       console.log("URL to scan:", url);
       toast.success("URL sent for scanning!");
       setUrl(""); // Clear input after sending
       setShowInput(false); // Hide input after sending
+      setLoading(false);
     }
   };
-  //for handle the waiting state for send url
-  const [loading, setLoading] = useState(false);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-gray-100 to-white text-black dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 dark:text-white">
@@ -112,10 +115,17 @@ const MainHome = () => {
                 className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-slate-700 dark:text-white transition-all"
               />
               <button
+                type="button"
                 onClick={handleSendClick}
-                className="px-5 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition shadow"
+                disabled={loading}
+                className={`px-5 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition shadow
+                ${
+                  loading
+                    ? "bg-gray-400 cursor-progress"
+                    : "bg-gradient-to-r from-cyan-500 to-cyan-600 text-white hover:shadow-lg hover:from-cyan-700 hover:to-cyan-800"
+                }`}
               >
-                Send
+                {loading ? "Sending URL..." : "Send URL"}
               </button>
             </div>
           </motion.div>
