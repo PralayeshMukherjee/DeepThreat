@@ -35,6 +35,7 @@ const MainHome = () => {
   };
   // function to handle the URL check button
   const [showInput, setShowInput] = useState(false);
+  const [url, setUrl] = useState("");
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-gray-100 to-white text-black dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 dark:text-white">
