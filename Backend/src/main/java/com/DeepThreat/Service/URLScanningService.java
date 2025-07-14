@@ -27,7 +27,11 @@ public class URLScanningService {
     public int shortenersURL(String url){
         Set<String> set = Set.of("bit.ly", "tinyurl.com", "t.co", "is.gd", "goo.gl", "ow.ly",
                 "buff.ly", "rebrand.ly", "shorte.st", "adf.ly", "cutt.ly", "soo.gd");
-        if()
+        if(set.contains(extractHostName(url))){
+            return 2;
+        }else{
+            return 0;
+        }
     }
     public int finalPointStable(String url){
         int pointCheck = 0;
