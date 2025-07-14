@@ -78,6 +78,35 @@ const MainHome = () => {
             Scan Document
           </button>
         </div>
+        {showInput && (
+          // Animated input section for URL scanning
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={
+              showInput
+                ? { height: "auto", opacity: 1 }
+                : { height: 0, opacity: 0 }
+            }
+            transition={{ duration: 0.5 }}
+            className="overflow-hidden mt-6 flex justify-center px-4"
+          >
+            <div className="flex flex-col sm:flex-row items-center gap-4 w-full max-w-xl">
+              <input
+                type="text"
+                value={url}
+                onChange={(e) => setUrl(e.target.value)}
+                placeholder="Enter URL to scan..."
+                className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-slate-700 dark:text-white transition-all"
+              />
+              <button
+                onClick={handleSendClick}
+                className="px-5 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition shadow"
+              >
+                Send
+              </button>
+            </div>
+          </motion.div>
+        )}
       </section>
 
       {/* Features Section */}
