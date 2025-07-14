@@ -1,6 +1,10 @@
 package com.DeepThreat.Service;
 
 import org.springframework.stereotype.Service;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+
 //login, account, verify, update, secure, bank, free, gift, c
 @Service
 public class URLScanningService {
@@ -9,6 +13,14 @@ public class URLScanningService {
             return 3;
         }else{
             return 0;
+        }
+    }
+    public String extractHostName(String url){
+        try{
+            URL domain = new URL(url);
+            return domain.getHost().toLowerCase();//this method return the host name from the url like if url is "https://bit.ly.com" then it return bit.ly but in lower case
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
         }
     }
     public int finalPointStable(String url){
