@@ -39,6 +39,17 @@ const MainHome = () => {
   const handleCheckURLClick = () => {
     setShowInput((prev) => !prev);
   };
+  const handleSendClick = () => {
+    if (!url.trim()) {
+      toast.error("Please enter a valid URL.");
+      return;
+    } else {
+      console.log("URL to scan:", url);
+      toast.success("URL sent for scanning!");
+      setUrl(""); // Clear input after sending
+      setShowInput(false); // Hide input after sending
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-gray-100 to-white text-black dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 dark:text-white">
