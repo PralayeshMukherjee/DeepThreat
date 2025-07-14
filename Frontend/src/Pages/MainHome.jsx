@@ -7,7 +7,9 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const MainHome = () => {
+  //menu open for mobile
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  //features data
   const features = [
     {
       icon: <ShieldCheck className="w-10 h-10 mx-auto text-cyan-500 mb-4" />,
@@ -27,6 +29,7 @@ const MainHome = () => {
         "Get confident results within seconds with minimal false positives.",
     },
   ];
+  // under development function for Scan Document button
   const underDev = () => {
     toast.info("This feature is under development.");
   };
