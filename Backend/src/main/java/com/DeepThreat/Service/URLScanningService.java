@@ -12,6 +12,7 @@ public class URLScanningService {
         }
     }
     public int finalPointStable(String url){
-
+        int pointCheck = 0;
+        pointCheck += suspiciousKeywordsChecks(url);
     }
 }
