@@ -84,5 +84,12 @@ public class URLScanningService {
     }
     public String domainChecker(String url){
         int urlCheckingProcedure = finalPointStable(url);
+        if(urlCheckingProcedure >= 6){
+            return "MALICIOUS";
+        }else if(urlCheckingProcedure >= 3 && urlCheckingProcedure<6){
+            return "SUSPICIOUS";
+        }else{
+            return "SAFE";
+        }
     }
 }
