@@ -65,9 +65,13 @@ public class URLScanningService {
             URL url1 = new URL(url);
             String domain = url1.getHost().toLowerCase();
             String[] str = domain.split("\\.");
+            if(!trustedURL.contains(str[str.length-1])){
+                return 1;
+            }
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
+        return 0;
     }
 //    public int finalPointStable(String url){
 //        int pointCheck = 0;
