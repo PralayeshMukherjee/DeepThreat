@@ -50,26 +50,29 @@ const MainHome = () => {
       return;
     } else {
       url = url.trim();
-      try{
-        const response = await fetch(`http://localhost:8080/urlChecker/check`,{
+      try {
+        const response = await fetch(`http://localhost:8080/urlChecker/check`, {
           method: "GET",
-          headers:{
-            "Content-Type": "application/json"
+          headers: {
+            "Content-Type": "application/json",
           },
-          body: JSON.stringify(url)
-        })
+          body: JSON.stringify(url),
+        });
         const data = await response.json();
-        if(data.result=== "MALICIOUS"){
+        if (data.result === "MALICIOUS") {
           toast.info("MALICIOUS");
-        }else if(data.result==="SUSPICIOUS"){
+        } else if (data.result === "SUSPICIOUS") {
           toast.info("SUSPICIOUS");
-        }else{
+        } else {
           toast.info("SAFE");
         }
         toast.success("URL sent for scanning!");
-      }
-      setUrl(""); // Clear input after sending
-      setShowInput(false); // Hide input after sending
+      } catch (error) {
+        console.error("Error sending URL:", error);
+        toast.error(
+          "❌ An error occurred while sending the URL. Please try again later."
+        );
+      } // Hide input after sending
       setLoading(false);
     }
   };
