@@ -28,7 +28,7 @@ public class URLScanningService {
         Set<String> set = Set.of("bit.ly", "tinyurl.com", "t.co", "is.gd", "goo.gl", "ow.ly",
                 "buff.ly", "rebrand.ly", "shorte.st", "adf.ly", "cutt.ly", "soo.gd");
         if(set.contains(extractHostName(url))){
-            return 2;
+            return 20;
         }else{
             return 0;
         }
@@ -52,7 +52,7 @@ public class URLScanningService {
             String domain = url1.getHost().toLowerCase();
             int dotCount = domain.split("\\.").length;
             if(dotCount>3){
-                return 1;
+                return 30;
             }
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
@@ -66,7 +66,7 @@ public class URLScanningService {
             String domain = url1.getHost().toLowerCase();
             String[] str = domain.split("\\.");
             if(!trustedURL.contains(str[str.length-1])){
-                return 1;
+                return 10;
             }
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
@@ -74,7 +74,11 @@ public class URLScanningService {
         return 0;
     }
     public int suspiciousChecking(String url){
-
+        int suspicious = 0;
+        suspicious += NoOfSubdomains(url);
+        suspicious += shortenersURL(url);
+        suspicious += mismatchedTopLevelDomain(url);
+        return suspicious;
     }
     public int finalPointStable(String url){
         int pointCheck = 0;
