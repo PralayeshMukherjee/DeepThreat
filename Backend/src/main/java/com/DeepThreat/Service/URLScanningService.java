@@ -60,7 +60,11 @@ public class URLScanningService {
         return 0;
     }
     public int mismatchedTopLevelDomain(String url){
-
+        try{
+            URL url1 = new URL(url);
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
     }
 //    public int finalPointStable(String url){
 //        int pointCheck = 0;
