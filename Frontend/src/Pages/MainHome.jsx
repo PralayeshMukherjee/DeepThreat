@@ -58,6 +58,7 @@ const MainHome = () => {
           },
           body: JSON.stringify(url)
         })
+        const data = await response.json();
       }
       toast.success("URL sent for scanning!");
       setUrl(""); // Clear input after sending
