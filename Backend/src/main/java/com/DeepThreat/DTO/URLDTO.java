@@ -5,4 +5,8 @@ public class URLDTO {
 
     public URLDTO() {
     }
+
+    public URLDTO(String url) {
+        this.url = url;
+    }
 }
