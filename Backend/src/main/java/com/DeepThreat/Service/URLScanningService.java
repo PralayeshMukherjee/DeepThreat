@@ -78,5 +78,8 @@ public class URLScanningService {
         pointCheck += suspiciousKeywordsChecks(url);
         pointCheck += shortenersURL(url);
         pointCheck += ipAddressAsDomain(url);
+        pointCheck += NoOfSubdomains(url);
+        pointCheck += mismatchedTopLevelDomain(url);
+        return pointCheck;
     }
 }
