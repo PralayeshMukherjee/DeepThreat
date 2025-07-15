@@ -49,8 +49,15 @@ const MainHome = () => {
       setLoading(false);
       return;
     } else {
+      url = url.trim();
       try{
-        const response = await fetch("http://localhost:8080/urlChecker/check")
+        const response = await fetch(`http://localhost:8080/urlChecker/check`,{
+          method: "GET",
+          headers:{
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(url)
+        })
       }
       toast.success("URL sent for scanning!");
       setUrl(""); // Clear input after sending
