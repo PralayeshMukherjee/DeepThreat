@@ -15,6 +15,6 @@ public class URLCheckingController {
     @Autowired
     private URLScanningService urlScanningService;
     public Map<String,String> urlChecker(@RequestBody URLDTO urldto){
-
+        String url = urldto.getUrl();
     }
 }
