@@ -59,6 +59,9 @@ public class URLScanningService {
         }
         return 0;
     }
+    public int mismatchedTopLevelDomain(String url){
+
+    }
 //    public int finalPointStable(String url){
 //        int pointCheck = 0;
 //        pointCheck += suspiciousKeywordsChecks(url);
