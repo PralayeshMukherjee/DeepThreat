@@ -11,7 +11,7 @@ import java.util.Set;
 public class URLScanningService {
     public int suspiciousKeywordsChecks(String url){
         if(url.contains("login")||url.contains("account")||url.contains("verify")||url.contains("update")||url.contains("secure")||url.contains("bank")||url.contains("free")||url.contains("gift")||url.contains("prize")){
-            return 3;
+            return 30;
         }else{
             return 0;
         }
@@ -39,7 +39,7 @@ public class URLScanningService {
             String host = domain.getHost().toLowerCase();
             String ipRegex = "^\\d{1,3}(\\.\\d{1,3}){3}$";
             if(host.matches(ipRegex)){
-                return 2;
+                return 20;
             }
         }catch (MalformedURLException e){
             throw new RuntimeException(e);
@@ -52,7 +52,7 @@ public class URLScanningService {
             String domain = url1.getHost().toLowerCase();
             int dotCount = domain.split("\\.").length;
             if(dotCount>3){
-                return 30;
+                return 10;
             }
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
@@ -75,28 +75,28 @@ public class URLScanningService {
     }
     public int suspiciousChecking(String url){
         int suspicious = 0;
+        suspicious += suspiciousChecking(url);
         suspicious += NoOfSubdomains(url);
         suspicious += shortenersURL(url);
         suspicious += mismatchedTopLevelDomain(url);
         return suspicious;
     }
-    public int finalPointStable(String url){
-        int pointCheck = 0;
-        pointCheck += suspiciousKeywordsChecks(url);
-        pointCheck += shortenersURL(url);
-        pointCheck += ipAddressAsDomain(url);
-        pointCheck += NoOfSubdomains(url);
-        pointCheck += mismatchedTopLevelDomain(url);
-        return pointCheck;
-    }
-    public String domainChecker(String url){
-        int urlCheckingProcedure = finalPointStable(url);
-        if(urlCheckingProcedure >= 6){
-            return "MALICIOUS";
-        }else if(urlCheckingProcedure >= 3 && urlCheckingProcedure<6){
-            return "SUSPICIOUS";
-        }else{
-            return "SAFE";
+    public int maliciousChecking(String url){
+        int malicious = 0;
+        malicious += ipAddressAsDomain(url);
+        if(malicious==0){
+            return 20;
         }
+        return malicious;
     }
+//    public String domainChecker(String url){
+//        int urlCheckingProcedure = finalPointStable(url);
+//        if(urlCheckingProcedure >= 6){
+//            return "MALICIOUS";
+//        }else if(urlCheckingProcedure >= 3 && urlCheckingProcedure<6){
+//            return "SUSPICIOUS";
+//        }else{
+//            return "SAFE";
+//        }
+//    }
 }
