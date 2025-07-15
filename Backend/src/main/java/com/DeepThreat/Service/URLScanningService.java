@@ -63,6 +63,7 @@ public class URLScanningService {
         try{
             URL url1 = new URL(url);
             String domain = url1.getHost().toLowerCase();
+            String[] str = domain.split("\\.");
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
