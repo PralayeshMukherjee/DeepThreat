@@ -83,6 +83,6 @@ public class URLScanningService {
         return pointCheck;
     }
     public String domainChecker(String url){
-
+        int urlCheckingProcedure = finalPointStable(url);
     }
 }
