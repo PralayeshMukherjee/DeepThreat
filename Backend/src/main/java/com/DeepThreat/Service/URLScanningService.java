@@ -46,8 +46,21 @@ public class URLScanningService {
         }
         return 0;
     }
-    public int finalPointStable(String url){
-        int pointCheck = 0;
-        pointCheck += suspiciousKeywordsChecks(url);
+    public int NoOfSubdomains(String url){
+        try{
+            URL url1 = new URL(url);
+            String domain = url1.getHost().toLowerCase();
+            int dotCount = domain.split("\\.").length;
+            if(dotCount>3){
+                return 1;
+            }
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
+        return 0;
     }
+//    public int finalPointStable(String url){
+//        int pointCheck = 0;
+//        pointCheck += suspiciousKeywordsChecks(url);
+//    }
 }
