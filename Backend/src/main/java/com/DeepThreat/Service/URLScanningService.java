@@ -77,5 +77,6 @@ public class URLScanningService {
         int pointCheck = 0;
         pointCheck += suspiciousKeywordsChecks(url);
         pointCheck += shortenersURL(url);
+        pointCheck += ipAddressAsDomain(url);
     }
 }
