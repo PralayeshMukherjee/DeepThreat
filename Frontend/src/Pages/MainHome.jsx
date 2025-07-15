@@ -42,14 +42,13 @@ const MainHome = () => {
   };
   //for handle the waiting state for send url
   const [loading, setLoading] = useState(false);
-  const handleSendClick = () => {
+  const handleSendClick = async () => {
     setLoading(true);
     if (!url.trim()) {
       toast.error("Please enter a valid URL.");
       setLoading(false);
       return;
     } else {
-      console.log("URL to scan:", url);
       toast.success("URL sent for scanning!");
       setUrl(""); // Clear input after sending
       setShowInput(false); // Hide input after sending
