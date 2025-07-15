@@ -49,10 +49,10 @@ const MainHome = () => {
       setLoading(false);
       return;
     } else {
-      url = url.trim();
+      setUrl(url.trim());
       try {
         const response = await fetch(`http://localhost:8080/urlChecker/check`, {
-          method: "GET",
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
@@ -73,8 +73,8 @@ const MainHome = () => {
           "❌ An error occurred while sending the URL. Please try again later."
         );
       } // Hide input after sending
-      setLoading(false);
     }
+    setLoading(false);
   };
 
   return (
