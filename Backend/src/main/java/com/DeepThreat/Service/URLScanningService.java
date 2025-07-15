@@ -62,6 +62,7 @@ public class URLScanningService {
     public int mismatchedTopLevelDomain(String url){
         try{
             URL url1 = new URL(url);
+            String domain = url1.getHost().toLowerCase();
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
