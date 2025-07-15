@@ -17,5 +17,6 @@ public class URLCheckingController {
     public Map<String,String> urlChecker(@RequestBody URLDTO urldto){
         String url = urldto.getUrl();
         String result = urlScanningService.domainChecker(url);
+        return Map.of("result",result);
     }
 }
