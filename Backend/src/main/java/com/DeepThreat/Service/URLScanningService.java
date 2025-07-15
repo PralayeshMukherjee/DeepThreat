@@ -73,8 +73,9 @@ public class URLScanningService {
         }
         return 0;
     }
-//    public int finalPointStable(String url){
-//        int pointCheck = 0;
-//        pointCheck += suspiciousKeywordsChecks(url);
-//    }
+    public int finalPointStable(String url){
+        int pointCheck = 0;
+        pointCheck += suspiciousKeywordsChecks(url);
+        pointCheck += shortenersURL(url);
+    }
 }
