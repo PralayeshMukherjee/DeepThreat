@@ -59,8 +59,15 @@ const MainHome = () => {
           body: JSON.stringify(url)
         })
         const data = await response.json();
+        if(data.result=== "MALICIOUS"){
+          toast.info("MALICIOUS");
+        }else if(data.result==="SUSPICIOUS"){
+          toast.info("SUSPICIOUS");
+        }else{
+          toast.info("SAFE");
+        }
+        toast.success("URL sent for scanning!");
       }
-      toast.success("URL sent for scanning!");
       setUrl(""); // Clear input after sending
       setShowInput(false); // Hide input after sending
       setLoading(false);
