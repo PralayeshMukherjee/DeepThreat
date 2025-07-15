@@ -82,4 +82,7 @@ public class URLScanningService {
         pointCheck += mismatchedTopLevelDomain(url);
         return pointCheck;
     }
+    public String domainChecker(String url){
+
+    }
 }
