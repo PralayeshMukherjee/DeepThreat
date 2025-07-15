@@ -60,6 +60,7 @@ public class URLScanningService {
         return 0;
     }
     public int mismatchedTopLevelDomain(String url){
+        Set<String> trustedURL = Set.of("com", "org", "net", "edu", "gov", "in");
         try{
             URL url1 = new URL(url);
             String domain = url1.getHost().toLowerCase();
