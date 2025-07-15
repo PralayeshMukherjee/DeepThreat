@@ -49,6 +49,9 @@ const MainHome = () => {
       setLoading(false);
       return;
     } else {
+      try{
+        const response = await fetch("http://localhost:8080/urlChecker/check")
+      }
       toast.success("URL sent for scanning!");
       setUrl(""); // Clear input after sending
       setShowInput(false); // Hide input after sending
