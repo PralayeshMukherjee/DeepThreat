@@ -55,6 +55,7 @@ const MainHome = () => {
       try {
         const response = await fetch(`http://localhost:8080/urlChecker/check`, {
           method: "POST",
+          credentials: "include",
           headers: {
             "Content-Type": "application/json",
           },
