@@ -6,9 +6,11 @@ import { ShieldCheck, Lock, Zap } from "lucide-react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { SendHorizonal, Loader2 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const MainHome = () => {
   //menu open for mobile
+  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   //features data
   const features = [
@@ -67,6 +69,7 @@ const MainHome = () => {
           toast.info("SAFE");
         }
         toast.success("URL sent for scanning!");
+        navigate("/mainlayout/deepthreatdashboard");
       } catch (error) {
         console.error("Error sending URL:", error);
         toast.error(
