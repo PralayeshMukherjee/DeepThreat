@@ -14,6 +14,7 @@ import {
   OTPVerification,
   MainHome,
   MainLayout,
+  DeepThreatDashboard,
 } from "./ie.js";
 
 import "./App.css";
@@ -35,6 +36,7 @@ function App() {
         <Route path="/mainlayout" element={<MainLayout />}>
           <Route index element={<MainHome />} />
           <Route path="mainhome" element={<MainHome />} />
+          <Route path="deepthreatdashboard" element={<DeepThreatDashboard />} />
         </Route>
       </>
     )
