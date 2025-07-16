@@ -38,18 +38,18 @@ const pieData = [
 
 export default function DeepThreatDashboard() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white p-6">
+    <div className="min-h-screen bg-white text-black dark:bg-gradient-to-br dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 dark:text-white p-6 transition-colors duration-300">
       <h1 className="text-3xl font-bold mb-8 text-center">
         DeepThreat Dashboard
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <Card className="bg-slate-800 text-white shadow-xl">
+      <div className="grid grid-cols-1 p-4 md:grid-cols-2 lg:grid-cols-2 gap-6">
+        <Card className="bg-gray-100 text-black dark:bg-slate-800 dark:text-white shadow-xl transition-colors">
           <CardContent>
             <h2 className="text-xl font-semibold mb-2">Threats by Category</h2>
             <ResponsiveContainer width="100%" height={200}>
               <BarChart data={trafficData}>
-                <XAxis dataKey="name" stroke="#ccc" />
+                <XAxis dataKey="name" stroke="#999" />
                 <YAxis />
                 <Tooltip />
                 <Bar dataKey="safe" fill="#00bcd4" name="Safe" />
@@ -60,13 +60,13 @@ export default function DeepThreatDashboard() {
           </CardContent>
         </Card>
 
-        <Card className="bg-slate-800 text-white shadow-xl">
+        <Card className="bg-gray-100 text-black dark:bg-slate-800 dark:text-white shadow-xl transition-colors">
           <CardContent>
             <h2 className="text-xl font-semibold mb-2">Daily Threat Trends</h2>
             <ResponsiveContainer width="100%" height={200}>
               <LineChart data={threatTrends}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#444" />
-                <XAxis dataKey="name" stroke="#ccc" />
+                <CartesianGrid strokeDasharray="3 3" stroke="#ccc" />
+                <XAxis dataKey="name" stroke="#999" />
                 <YAxis />
                 <Tooltip />
                 <Line
@@ -80,17 +80,18 @@ export default function DeepThreatDashboard() {
             </ResponsiveContainer>
           </CardContent>
         </Card>
-
-        <Card className="bg-slate-800 text-white shadow-xl flex items-center justify-center">
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+        <Card className="bg-gray-100 text-black dark:bg-slate-800 dark:text-white shadow-xl flex items-center justify-center transition-colors">
           <CardContent className="text-center">
             <p className="text-5xl font-bold text-pink-500">425</p>
-            <p className="text-sm text-slate-400 mt-2">
+            <p className="text-sm text-gray-600 dark:text-slate-400 mt-2">
               Total Detected Threats Today
             </p>
           </CardContent>
         </Card>
 
-        <Card className="bg-slate-800 text-white shadow-xl">
+        <Card className="bg-gray-100 text-black dark:bg-slate-800 dark:text-white shadow-xl transition-colors">
           <CardContent>
             <h2 className="text-xl font-semibold mb-2">
               Threat Type Distribution
