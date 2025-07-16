@@ -10,6 +10,7 @@ import JwtSuccess from "./component/JwtSuccess.jsx";
 import OTPVerification from "./component/OTPVerification.jsx"
 import MainHome from "./Pages/MainHome.jsx"
 import MainLayout from "./MainLayout.jsx"
+import DeepThreatDashboard from "./Pages/DeepThreatDashboard.jsx"
 
 
-export {Header,Footer,Layout,Home,ThemeProvider,ThemeBtn,Signin,Signup,JwtSuccess,OTPVerification,MainHome,MainLayout};
+export {Header,Footer,Layout,Home,ThemeProvider,ThemeBtn,Signin,Signup,JwtSuccess,OTPVerification,MainHome,MainLayout,DeepThreatDashboard};
