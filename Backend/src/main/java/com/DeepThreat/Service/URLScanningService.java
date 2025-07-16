@@ -75,7 +75,7 @@ public class URLScanningService {
     }
     public int suspiciousChecking(String url){
         int suspicious = 0;
-        suspicious += suspiciousChecking(url);
+        suspicious += suspiciousKeywordsChecks(url);
         suspicious += NoOfSubdomains(url);
         suspicious += shortenersURL(url);
         suspicious += mismatchedTopLevelDomain(url);
