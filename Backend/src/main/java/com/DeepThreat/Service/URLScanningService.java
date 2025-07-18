@@ -97,9 +97,9 @@ public class URLScanningService {
         return malicious;
     }
     public Map<String,String> isStatusOfUrl(String url){
-        String mal = String.valueOf(maliciousChecking(url));
-        String sus = String.valueOf(suspiciousChecking(url));
-        String safe = String.valueOf(100-(Integer.parseInt(mal)+Integer.parseInt(sus)));
+        int mal = maliciousChecking(url);
+        int sus = suspiciousChecking(url);
+        int safe = 100-mal+sus;
         URLHistoryEntity urlHistoryEntity = new URLHistoryEntity(url, LocalDate.now(),safe,sus,mal);
         return Map.of("mal",mal,
                 "sus",sus,
