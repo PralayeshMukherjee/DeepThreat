@@ -94,5 +94,9 @@ public class URLScanningService {
         String mal = String.valueOf(maliciousChecking(url));
         String sus = String.valueOf(suspiciousChecking(url));
         String safe = String.valueOf(100-(Integer.parseInt(mal)+Integer.parseInt(sus)));
+        return Map.of("mal",mal,
+                "sus",sus,
+                "safe",safe
+        );
     }
 }
