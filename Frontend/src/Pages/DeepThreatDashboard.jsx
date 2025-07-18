@@ -29,11 +29,14 @@ const threatTrends = [
   { name: "Day 4", threats: 425 },
   { name: "Day 5", threats: 275 },
 ];
+const malicious = Number.parseInt(sessionStorage.getItem("malicious")) || 0;
+const suspicious = Number.parseInt(sessionStorage.getItem("suspicious")) || 0;
+const safe = Number.parseInt(sessionStorage.getItem("safe")) || 0;
 
 const pieData = [
-  { name: "Safe", value: 55, color: "#00bcd4" },
-  { name: "Suspicious", value: 30, color: "#ff9800" },
-  { name: "Malicious", value: 15, color: "#f44336" },
+  { name: "Safe", value: safe, color: "#00bcd4" },
+  { name: "Suspicious", value: suspicious, color: "#ff9800" },
+  { name: "Malicious", value: malicious, color: "#f44336" },
 ];
 
 export default function DeepThreatDashboard() {
