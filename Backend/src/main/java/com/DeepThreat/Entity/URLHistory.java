@@ -22,4 +22,7 @@ public class URLHistory {
     private int suspicious;
     @Column(name = "suspicious")
     private int malicious;
+
+    public URLHistory() {
+    }
 }
