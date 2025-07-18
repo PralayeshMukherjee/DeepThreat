@@ -62,13 +62,9 @@ const MainHome = () => {
           body: JSON.stringify(url),
         });
         const data = await response.json();
-        if (data.result === "MALICIOUS") {
-          toast.info("MALICIOUS");
-        } else if (data.result === "SUSPICIOUS") {
-          toast.info("SUSPICIOUS");
-        } else {
-          toast.info("SAFE");
-        }
+        sessionStorage.setItem("malicious", data.mal);
+        sessionStorage.setItem("suspicious", data.sus);
+        sessionStorage.setItem("safe", data.safe);
         toast.success("URL sent for scanning!");
         navigate("/mainlayout/deepthreatdashboard");
       } catch (error) {
