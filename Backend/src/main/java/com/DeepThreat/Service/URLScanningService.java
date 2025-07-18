@@ -102,9 +102,13 @@ public class URLScanningService {
         int mal = maliciousChecking(url);
         int sus = suspiciousChecking(url);
         int safe = 100-mal+sus;
-        LocalDate localDate = LocalDate.now();
-        Date date = Date.valueOf(localDate);
-        URLHistoryEntity urlHistoryEntity = new URLHistoryEntity(url,date,safe,sus,mal);
+        try{
+            LocalDate localDate = LocalDate.now();
+            Date date = Date.valueOf(localDate);
+            URLHistoryEntity urlHistoryEntity = new URLHistoryEntity(url,date,safe,sus,mal);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
         return Map.of("mal",String.valueOf(mal),
                 "sus",String.valueOf(sus),
                 "safe",String.valueOf(safe)
