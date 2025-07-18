@@ -1,6 +1,7 @@
 package com.DeepThreat.Service;
 
 import com.DeepThreat.Repository.URLHistoryRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.net.MalformedURLException;
@@ -11,6 +12,7 @@ import java.util.Set;
 //login, account, verify, update, secure, bank, free, gift, c
 @Service
 public class URLScanningService {
+    @Autowired
     private URLHistoryRepository urlHistoryRepository;
     public int suspiciousKeywordsChecks(String url){
         if(url.contains("login")||url.contains("account")||url.contains("verify")||url.contains("update")||url.contains("secure")||url.contains("bank")||url.contains("free")||url.contains("gift")||url.contains("prize")){
