@@ -103,6 +103,7 @@ public class URLScanningService {
         int sus = suspiciousChecking(url);
         int safe = 100-mal+sus;
         LocalDate localDate = LocalDate.now();
+        Date date = Date.valueOf(localDate);
         URLHistoryEntity urlHistoryEntity = new URLHistoryEntity(url,,safe,sus,mal);
         return Map.of("mal",mal,
                 "sus",sus,
