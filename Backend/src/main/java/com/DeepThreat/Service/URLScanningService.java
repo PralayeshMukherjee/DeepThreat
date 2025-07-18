@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Map;
 import java.util.Set;
 
 //login, account, verify, update, secure, bank, free, gift, c
@@ -88,5 +89,8 @@ public class URLScanningService {
             return 20;
         }
         return malicious;
+    }
+    public Map<String,String> isStatusOfUrl(String url){
+
     }
 }
