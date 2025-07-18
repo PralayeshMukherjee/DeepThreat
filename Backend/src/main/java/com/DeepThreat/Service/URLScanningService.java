@@ -1,11 +1,13 @@
 package com.DeepThreat.Service;
 
+import com.DeepThreat.Entity.URLHistoryEntity;
 import com.DeepThreat.Repository.URLHistoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.Map;
 import java.util.Set;
 
@@ -98,6 +100,7 @@ public class URLScanningService {
         String mal = String.valueOf(maliciousChecking(url));
         String sus = String.valueOf(suspiciousChecking(url));
         String safe = String.valueOf(100-(Integer.parseInt(mal)+Integer.parseInt(sus)));
+        URLHistoryEntity urlHistoryEntity = new URLHistoryEntity(url, LocalDate.now(),safe,sus,mal);
         return Map.of("mal",mal,
                 "sus",sus,
                 "safe",safe
