@@ -25,4 +25,13 @@ public class URLHistory {
 
     public URLHistory() {
     }
+
+    public URLHistory(Long serialNo, String url, Date date, int safe, int suspicious, int malicious) {
+        this.serialNo = serialNo;
+        this.url = url;
+        this.date = date;
+        this.safe = safe;
+        this.suspicious = suspicious;
+        this.malicious = malicious;
+    }
 }
