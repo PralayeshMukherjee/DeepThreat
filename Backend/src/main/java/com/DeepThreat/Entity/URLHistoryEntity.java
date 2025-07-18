@@ -9,7 +9,7 @@ import java.sql.Date;
 
 @Entity
 @Table(name = "urlhistor")
-public class URLHistory {
+public class URLHistoryEntity {
     @Id
     private Long serialNo;
     @Column(name = "url")
@@ -23,10 +23,10 @@ public class URLHistory {
     @Column(name = "suspicious")
     private int malicious;
 
-    public URLHistory() {
+    public URLHistoryEntity() {
     }
 
-    public URLHistory(Long serialNo, String url, Date date, int safe, int suspicious, int malicious) {
+    public URLHistoryEntity(Long serialNo, String url, Date date, int safe, int suspicious, int malicious) {
         this.serialNo = serialNo;
         this.url = url;
         this.date = date;
