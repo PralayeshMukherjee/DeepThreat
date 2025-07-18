@@ -1,9 +1,6 @@
 package com.DeepThreat.Entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.sql.Date;
 
@@ -11,6 +8,7 @@ import java.sql.Date;
 @Table(name = "urlhistor")
 public class URLHistoryEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long serialNo;
     @Column(name = "url")
     private String url;
@@ -26,7 +24,7 @@ public class URLHistoryEntity {
     public URLHistoryEntity() {
     }
 
-    public URLHistoryEntity(Long serialNo, String url, Date date, int safe, int suspicious, int malicious) {
+    public URLHistoryEntity(String url, Date date, int safe, int suspicious, int malicious) {
         this.serialNo = serialNo;
         this.url = url;
         this.date = date;
