@@ -105,9 +105,9 @@ public class URLScanningService {
         LocalDate localDate = LocalDate.now();
         Date date = Date.valueOf(localDate);
         URLHistoryEntity urlHistoryEntity = new URLHistoryEntity(url,date,safe,sus,mal);
-        return Map.of("mal",mal,
-                "sus",sus,
-                "safe",safe
+        return Map.of("mal",String.valueOf(mal),
+                "sus",String.valueOf(sus),
+                "safe",String.valueOf(safe)
         );
     }
 }
