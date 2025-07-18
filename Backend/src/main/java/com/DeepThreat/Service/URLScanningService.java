@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.sql.Date;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Map;
 import java.util.Set;
 
@@ -100,7 +102,8 @@ public class URLScanningService {
         int mal = maliciousChecking(url);
         int sus = suspiciousChecking(url);
         int safe = 100-mal+sus;
-        URLHistoryEntity urlHistoryEntity = new URLHistoryEntity(url, LocalDate.now(),safe,sus,mal);
+        LocalDate localDate = LocalDate.now();
+        URLHistoryEntity urlHistoryEntity = new URLHistoryEntity(url,,safe,sus,mal);
         return Map.of("mal",mal,
                 "sus",sus,
                 "safe",safe
