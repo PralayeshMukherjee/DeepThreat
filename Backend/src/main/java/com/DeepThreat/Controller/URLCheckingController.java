@@ -19,6 +19,7 @@ public class URLCheckingController {
     public Map<String,String> urlChecker(@RequestBody URLDTO urldto){
         String url = urldto.getUrl();
         Map<String,String> map = urlScanningService.isStatusOfUrl(url);
+        map.putAll(threatDetection.isThreatDetect(url));
         return map;
     }
 }
