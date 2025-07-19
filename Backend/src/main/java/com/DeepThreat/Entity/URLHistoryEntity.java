@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.sql.Date;
 
 @Entity
-@Table(name = "urlhistor")
+@Table(name = "urlhistory")
 public class URLHistoryEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
