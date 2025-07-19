@@ -32,6 +32,7 @@ const threatTrends = [
 const malicious = Number.parseInt(sessionStorage.getItem("malicious")) || 0;
 const suspicious = Number.parseInt(sessionStorage.getItem("suspicious")) || 0;
 const safe = Number.parseInt(sessionStorage.getItem("safe")) || 0;
+const threat = Number.parseInt(sessionStorage.getItem("threat")) || 0;
 
 const pieData = [
   { name: "Safe", value: safe, color: "#00bcd4" },
@@ -87,7 +88,7 @@ export default function DeepThreatDashboard() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
         <Card className="bg-gray-100 text-black dark:bg-slate-800 dark:text-white shadow-xl flex items-center justify-center transition-colors">
           <CardContent className="text-center">
-            <p className="text-5xl font-bold text-pink-500">425</p>
+            <p className="text-5xl font-bold text-pink-500">{threat}</p>
             <p className="text-sm text-gray-600 dark:text-slate-400 mt-2">
               Total Detected Threats Today
             </p>
