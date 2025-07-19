@@ -11,6 +11,6 @@ import java.util.List;
 
 @Repository
 public interface URLHistoryRepository extends JpaRepository<URLHistoryEntity,Long> {
-    @Query(value = "SELECT * FROM urlhistory WHERE url = :url, nativeQuery=true")
+    @Query(value = "SELECT * FROM urlhistory WHERE url = :url", nativeQuery=true)
     List<URLHistoryEntity> findByURL(@Param("url")String url);
 }
