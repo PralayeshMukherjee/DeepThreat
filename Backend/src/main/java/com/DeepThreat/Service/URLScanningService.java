@@ -101,7 +101,7 @@ public class URLScanningService {
     public Map<String,String> isStatusOfUrl(String url){
         int mal = maliciousChecking(url);
         int sus = suspiciousChecking(url);
-        int safe = 100-mal+sus;
+        int safe = 100-mal-sus;
         try{
             LocalDate localDate = LocalDate.now();
             Date date = Date.valueOf(localDate);
