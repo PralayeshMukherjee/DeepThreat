@@ -15,9 +15,7 @@ public class URLCheckingController {
     @PostMapping("/check")
     public Map<String,String> urlChecker(@RequestBody URLDTO urldto){
         String url = urldto.getUrl();
-        String mal = String.valueOf(urlScanningService.maliciousChecking(url));
-        String sus = String.valueOf(urlScanningService.suspiciousChecking(url));
-        String safe = String.valueOf(100-(Integer.parseInt(mal)+Integer.parseInt(sus)));
+        Map<String,String> map = urlScanningService.isStatusOfUrl(url);
         return Map.of("mal",mal,
                 "sus",sus,
                 "safe",safe
