@@ -17,7 +17,7 @@ public class ThreatDetection {
         List<URLHistoryEntity> urlHistoryEntity = urlHistoryRepository.findByURL(url);
         int count = 0;
         for(int i=0;i<urlHistoryEntity.size();i++){
-
+            URLHistoryEntity entity = urlHistoryEntity.get(i);
         }
     }
 }
