@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 public interface URLHistoryRepository extends JpaRepository<URLHistoryEntity,Long> {
-    @Query()
+    @Query("SELECT * FROM urlhistory WHERE url = :url, nativeQuery=true")
     URLHistoryEntity findByURL(@Param("url")String url);
 }
