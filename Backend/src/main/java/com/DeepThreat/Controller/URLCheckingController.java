@@ -13,6 +13,7 @@ import java.util.Map;
 public class URLCheckingController {
     @Autowired
     private URLScanningService urlScanningService;
+    @Autowired
     private ThreatDetection threatDetection;
     @PostMapping("/check")
     public Map<String,String> urlChecker(@RequestBody URLDTO urldto){
