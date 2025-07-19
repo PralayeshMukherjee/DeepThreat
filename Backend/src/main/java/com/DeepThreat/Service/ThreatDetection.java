@@ -15,6 +15,7 @@ public class ThreatDetection {
     private URLHistoryRepository urlHistoryRepository;
     public Map<String,String> isThreatDetect(String url){
         List<URLHistoryEntity> urlHistoryEntity = urlHistoryRepository.findByURL(url);
+        int count = 0;
         for(int i=0;i<urlHistoryEntity.size();i++){
 
         }
