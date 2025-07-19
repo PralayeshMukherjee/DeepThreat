@@ -16,11 +16,10 @@ public class ThreatDetection {
     public Map<String,String> isThreatDetect(String url){
         List<URLHistoryEntity> urlHistoryEntity = urlHistoryRepository.findByURL(url);
         int count = 0;
-        for(int i=0;i<urlHistoryEntity.size();i++){
-            URLHistoryEntity entity = urlHistoryEntity.get(i);
-            if(entity.getMalicious()>=30){
+        for (URLHistoryEntity entity : urlHistoryEntity) {
+            if (entity.getMalicious() >= 30) {
                 count++;
-            } else if (entity.getSuspicious()>=40) {
+            } else if (entity.getSuspicious() >= 40) {
                 count++;
             }
         }
