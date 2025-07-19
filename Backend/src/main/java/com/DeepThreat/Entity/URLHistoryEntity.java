@@ -18,7 +18,7 @@ public class URLHistoryEntity {
     private int safe;
     @Column(name = "suspicious")
     private int suspicious;
-    @Column(name = "suspicious")
+    @Column(name = "malicious")
     private int malicious;
 
     public URLHistoryEntity() {
