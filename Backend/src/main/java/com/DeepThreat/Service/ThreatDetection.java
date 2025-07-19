@@ -18,6 +18,11 @@ public class ThreatDetection {
         int count = 0;
         for(int i=0;i<urlHistoryEntity.size();i++){
             URLHistoryEntity entity = urlHistoryEntity.get(i);
+            if(entity.getMalicious()>=30){
+                count++;
+            } else if (entity.getSuspicious()>=40) {
+                count++;
+            }
         }
     }
 }
