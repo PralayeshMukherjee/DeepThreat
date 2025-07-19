@@ -23,5 +23,6 @@ public class ThreatDetection {
                 count++;
             }
         }
+        return Map.of("threat",String.valueOf(count));
     }
 }
