@@ -25,7 +25,6 @@ public class URLHistoryEntity {
     }
 
     public URLHistoryEntity(String url, Date date, int safe, int suspicious, int malicious) {
-        this.serialNo = serialNo;
         this.url = url;
         this.date = date;
         this.safe = safe;
