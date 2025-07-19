@@ -13,6 +13,6 @@ public class ThreatDetection {
     @Autowired
     private URLHistoryRepository urlHistoryRepository;
     public Map<String,String> isThreatDetect(String url){
-        Optional<URLHistoryEntity> uhe = urlHistoryRepository.findByURL(url);
+        URLHistoryEntity urlHistoryEntity = urlHistoryRepository.findByURL(url);
     }
 }
