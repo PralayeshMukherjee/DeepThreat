@@ -65,6 +65,7 @@ const MainHome = () => {
         sessionStorage.setItem("malicious", data.mal);
         sessionStorage.setItem("suspicious", data.sus);
         sessionStorage.setItem("safe", data.safe);
+        sessionStorage.setItem("threat", data.threat);
         toast.success("URL sent for scanning!");
         navigate("/mainlayout/deepthreatdashboard");
       } catch (error) {
