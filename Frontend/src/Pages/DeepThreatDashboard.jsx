@@ -29,10 +29,10 @@ const threatTrends = [
   { name: "Day 4", threats: 425 },
   { name: "Day 5", threats: 275 },
 ];
-const malicious = Number.parseInt(sessionStorage.getItem("malicious")) || 0;
-const suspicious = Number.parseInt(sessionStorage.getItem("suspicious")) || 0;
-const safe = Number.parseInt(sessionStorage.getItem("safe")) || 0;
-const threat = Number.parseInt(sessionStorage.getItem("threat")) || 0;
+const malicious = Number.parseInt(sessionStorage.getItem("malicious"));
+const suspicious = Number.parseInt(sessionStorage.getItem("suspicious"));
+const safe = Number.parseInt(sessionStorage.getItem("safe"));
+const threat = sessionStorage.getItem("threat");
 
 const pieData = [
   { name: "Safe", value: safe, color: "#00bcd4" },
