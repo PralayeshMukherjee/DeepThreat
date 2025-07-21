@@ -12,16 +12,21 @@ import java.util.Map;
 public class ThreatDetection {
     @Autowired
     private URLHistoryRepository urlHistoryRepository;
-    public Map<String,String> isThreatDetect(String url){
-        List<URLHistoryEntity> urlHistoryEntity = urlHistoryRepository.findByURL(url);
-        int count = 0;
-        for (URLHistoryEntity entity : urlHistoryEntity) {
-            if (entity.getMalicious() >= 30) {
-                count++;
-            } else if (entity.getSuspicious() >= 40) {
-                count++;
+    public int isThreatDetect(String url){
+        try{
+            List<URLHistoryEntity> urlHistoryEntity = urlHistoryRepository.findByUrl(url);
+            int count = 0;
+            for (URLHistoryEntity entity : urlHistoryEntity) {
+                if (entity.getMalicious() >= 30) {
+                    count++;
+                } else if (entity.getSuspicious() >= 40) {
+                    count++;
+                }
             }
+            return count;
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return 0;
         }
-        return Map.of("threat",String.valueOf(count));
     }
 }
