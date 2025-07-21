@@ -6,6 +6,7 @@ import com.DeepThreat.Service.URLScanningService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.Map;
 
 @RestController
@@ -18,8 +19,9 @@ public class URLCheckingController {
     @PostMapping("/check")
     public Map<String,String> urlChecker(@RequestBody URLDTO urldto){
         String url = urldto.getUrl();
-        Map<String,String> map = urlScanningService.isStatusOfUrl(url);
-        map.putAll(threatDetection.isThreatDetect(url));
+        Map<String,String> map  = new HashMap<>();//urlScanningService.isStatusOfUrl(url);
+        String st = String.valueOf(threatDetection.isThreatDetect(url));
+        map.put("threat",st);
         return map;
     }
 }
