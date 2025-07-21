@@ -19,9 +19,9 @@ public class URLCheckingController {
     @PostMapping("/check")
     public Map<String,String> urlChecker(@RequestBody URLDTO urldto){
         String url = urldto.getUrl();
-        Map<String,String> map  = new HashMap<>();//urlScanningService.isStatusOfUrl(url);
+        Map<String,String> fianlMap  = new HashMap<>();//urlScanningService.isStatusOfUrl(url);
         String st = String.valueOf(threatDetection.isThreatDetect(url));
-        map.put("threat",st);
-        return map;
+        fianlMap.put("threat",st);
+        return fianlMap;
     }
 }
