@@ -21,6 +21,7 @@ public class URLCheckingController {
         String url = urldto.getUrl();
         Map<String,String> fianlMap  = new HashMap<>();
         Map<String,String> urlChecking = urlScanningService.isStatusOfUrl(url);
+        fianlMap.put("mal",urlChecking.get("mal"));
         String st = String.valueOf(threatDetection.isThreatDetect(url));
         fianlMap.put("threat",st);
         return fianlMap;
