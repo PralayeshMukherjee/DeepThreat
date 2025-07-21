@@ -23,6 +23,7 @@ public class URLCheckingController {
         Map<String,String> urlChecking = urlScanningService.isStatusOfUrl(url);
         fianlMap.put("mal",urlChecking.get("mal"));
         fianlMap.put("sus",urlChecking.get("sus"));
+        fianlMap.put("safe",urlChecking.get("safe"));
         String st = String.valueOf(threatDetection.isThreatDetect(url));
         fianlMap.put("threat",st);
         return fianlMap;
