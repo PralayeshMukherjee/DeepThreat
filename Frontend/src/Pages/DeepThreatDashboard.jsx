@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   BarChart,
   Bar,
@@ -29,18 +29,30 @@ const threatTrends = [
   { name: "Day 4", threats: 425 },
   { name: "Day 5", threats: 275 },
 ];
-const malicious = Number.parseInt(sessionStorage.getItem("malicious"));
-const suspicious = Number.parseInt(sessionStorage.getItem("suspicious"));
-const safe = Number.parseInt(sessionStorage.getItem("safe"));
-const threat = sessionStorage.getItem("threat");
-
-const pieData = [
-  { name: "Safe", value: safe, color: "#00bcd4" },
-  { name: "Suspicious", value: suspicious, color: "#ff9800" },
-  { name: "Malicious", value: malicious, color: "#f44336" },
-];
 
 export default function DeepThreatDashboard() {
+  const [malicious, setMalicious] = useState(0);
+  const [suspicious, setSuspicious] = useState(0);
+  const [safe, setSafe] = useState(0);
+  const [threat, setThreat] = useState(0); // if you need this
+
+  useEffect(() => {
+    const maliciousVal = parseInt(sessionStorage.getItem("malicious")) || 0;
+    const suspiciousVal = parseInt(sessionStorage.getItem("suspicious")) || 0;
+    const safeVal = parseInt(sessionStorage.getItem("safe")) || 0;
+    const threatVal = parseInt(sessionStorage.getItem("threat"));
+
+    setMalicious(maliciousVal);
+    setSuspicious(suspiciousVal);
+    setSafe(safeVal);
+    setThreat(threatVal);
+  }, []);
+
+  const pieData = [
+    { name: "Safe", value: safe, color: "#00bcd4" },
+    { name: "Suspicious", value: suspicious, color: "#ff9800" },
+    { name: "Malicious", value: malicious, color: "#f44336" },
+  ];
   return (
     <div className="min-h-screen bg-white text-black dark:bg-gradient-to-br dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 dark:text-white p-6 transition-colors duration-300">
       <h1 className="text-3xl font-bold mb-8 text-center">
