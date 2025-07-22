@@ -10,4 +10,7 @@ public class URLAPIChecking {
     private String googleSafeBrowsingApiKey;
     private static final String googleApiUrl = "https://safebrowsing.googleapis.com/v4/threatMatches:find?key=%s";
     private final RestTemplate restTemplate = new RestTemplate();
+    public boolean isGoogleSafeBrowsing(String url){
+
+    }
 }
