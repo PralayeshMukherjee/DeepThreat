@@ -27,5 +27,6 @@ public class URLAPIChecking {
                 "threatEntryTypes", List.of("URL"),
                 "threatEntries", List.of(Map.of("url", url))
         ));
+        String finalUrl = String.format(googleApiUrl,googleSafeBrowsingApiKey);
     }
 }
