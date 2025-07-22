@@ -18,6 +18,7 @@ import java.util.Set;
 public class URLScanningService {
     @Autowired
     private URLHistoryRepository urlHistoryRepository;
+    private URLAPIChecking urlapiChecking;
     public int suspiciousKeywordsChecks(String url){
         if(url.contains("login")||url.contains("account")||url.contains("verify")||url.contains("update")||url.contains("secure")||url.contains("bank")||url.contains("free")||url.contains("gift")||url.contains("prize")){
             return 30;
