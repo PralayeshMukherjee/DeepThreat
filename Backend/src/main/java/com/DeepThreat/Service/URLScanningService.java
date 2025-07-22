@@ -97,8 +97,6 @@ public class URLScanningService {
         malicious += ipAddressAsDomain(url);
         if(urlapiChecking.isGoogleSafeBrowsing(url)){
             malicious+=20;
-        }else{
-            malicious+=0;
         }
         return Math.min(malicious,40);
     }
