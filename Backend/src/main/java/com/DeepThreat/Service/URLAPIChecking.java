@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Service
 public class URLAPIChecking {
     @Value("${google.safe.browsing.api.key}")
@@ -11,6 +14,6 @@ public class URLAPIChecking {
     private static final String googleApiUrl = "https://safebrowsing.googleapis.com/v4/threatMatches:find?key=%s";
     private final RestTemplate restTemplate = new RestTemplate();
     public boolean isGoogleSafeBrowsing(String url){
-
+        Map<String,Object> map = new HashMap<>();
     }
 }
