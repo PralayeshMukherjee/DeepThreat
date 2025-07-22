@@ -93,9 +93,7 @@ public class URLScanningService {
     public int maliciousChecking(String url){
         int malicious = 0;
         malicious += ipAddressAsDomain(url);
-        if(malicious==0){
-            return 20;
-        }
+
         return malicious;
     }
     public Map<String,String> isStatusOfUrl(String url){
