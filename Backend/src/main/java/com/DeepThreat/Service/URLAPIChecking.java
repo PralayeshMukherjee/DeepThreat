@@ -1,6 +1,7 @@
 package com.DeepThreat.Service;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -28,5 +29,6 @@ public class URLAPIChecking {
                 "threatEntries", List.of(Map.of("url", url))
         ));
         String finalUrl = String.format(googleApiUrl,googleSafeBrowsingApiKey);
+        ResponseEntity<Map> response = restTemplate.postForEntity(finalUrl,map,Map.class);
     }
 }
