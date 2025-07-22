@@ -29,9 +29,13 @@ public class URLAPIChecking {
                 "threatEntries", List.of(Map.of("url", url))
         ));
         String finalUrl = String.format(googleApiUrl,googleSafeBrowsingApiKey);
-        ResponseEntity<Map> response = restTemplate.postForEntity(finalUrl,map,Map.class);
-        if(response.getBody()!=null && response.getBody().containsKey("matches")){
-            return true;//url is unsafe
+        try{
+            ResponseEntity<Map> response = restTemplate.postForEntity(finalUrl,map,Map.class);
+            if(response.getBody()!=null && response.getBody().containsKey("matches")){
+                return true;//url is unsafe
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
         }
     }
 }
