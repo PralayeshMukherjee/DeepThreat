@@ -37,5 +37,6 @@ public class URLAPIChecking {
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
+        return false;//url is safe
     }
 }
