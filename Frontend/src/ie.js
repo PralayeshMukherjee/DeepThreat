@@ -11,6 +11,6 @@ import OTPVerification from "./component/OTPVerification.jsx"
 import MainHome from "./Pages/MainHome.jsx"
 import MainLayout from "./MainLayout.jsx"
 import DeepThreatDashboard from "./Pages/DeepThreatDashboard.jsx"
+import History from "./Pages/History.jsx"
 
-
-export {Header,Footer,Layout,Home,ThemeProvider,ThemeBtn,Signin,Signup,JwtSuccess,OTPVerification,MainHome,MainLayout,DeepThreatDashboard};
+export {Header,Footer,Layout,Home,ThemeProvider,ThemeBtn,Signin,Signup,JwtSuccess,OTPVerification,MainHome,MainLayout,DeepThreatDashboard,History};
