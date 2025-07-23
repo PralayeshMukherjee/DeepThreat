@@ -47,12 +47,12 @@ const MainHeader = () => {
         >
           Home
         </Link>
-        <a
-          href="#features"
+        <Link
+          to="/mainlayout/history"
           className="text-gray-300 hover:text-cyan-400 transition"
         >
           Features
-        </a>
+        </Link>
         <a
           href="#tools"
           className="text-gray-300 hover:text-cyan-400 transition"
