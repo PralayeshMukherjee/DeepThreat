@@ -41,6 +41,12 @@ const MainHeader = () => {
 
       {/* Desktop Nav */}
       <nav className="space-x-4 hidden md:flex">
+        <Link
+          to="/mainlayout/mainhome"
+          className="text-gray-300 hover:text-cyan-400 transition"
+        >
+          Home
+        </Link>
         <a
           href="#features"
           className="text-gray-300 hover:text-cyan-400 transition"
