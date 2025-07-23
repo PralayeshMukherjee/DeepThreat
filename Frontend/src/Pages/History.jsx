@@ -1,12 +1,6 @@
 // src/pages/SearchHistory.tsx
 import React, { useEffect, useState, useRef } from "react";
-import {
-  Moon,
-  Sun,
-  ShieldAlert,
-  ShieldCheck,
-  AlertTriangle,
-} from "lucide-react";
+import { ShieldAlert, ShieldCheck, AlertTriangle } from "lucide-react";
 import { motion, useAnimation, useInView } from "framer-motion";
 
 const mockHistory = [
@@ -135,38 +129,14 @@ function HistoryEntry({ entry }) {
 }
 
 export default function History() {
-  const [darkMode, setDarkMode] = useState(true);
   const [statusFilter, setStatusFilter] = useState("All");
   const [dateFilter, setDateFilter] = useState("");
 
   const filtered = filterByDateAndStatus(mockHistory, statusFilter, dateFilter);
   const sorted = sortByMalicious(filtered);
 
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", darkMode);
-  }, [darkMode]);
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-100 to-white dark:from-gray-950 dark:to-gray-900 text-gray-800 dark:text-gray-200">
-      <header className="flex justify-between items-center px-4 sm:px-8 py-4 shadow-md sticky top-0 z-50 bg-white dark:bg-gray-950">
-        <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 to-indigo-500 dark:from-cyan-400 dark:to-purple-600">
-          DeepThreat History
-        </h1>
-        <button
-          onClick={() => setDarkMode(!darkMode)}
-          className="flex items-center gap-2 px-3 py-2 rounded-xl border dark:border-gray-700 bg-gradient-to-r from-slate-100 to-slate-200 dark:from-gray-800 dark:to-gray-900 hover:scale-105 transition-all shadow-sm"
-        >
-          {darkMode ? (
-            <Sun className="w-4 h-4 text-yellow-400" />
-          ) : (
-            <Moon className="w-4 h-4 text-blue-500" />
-          )}
-          <span className="text-sm font-semibold">
-            {darkMode ? "Light" : "Dark"} Mode
-          </span>
-        </button>
-      </header>
-
       <section className="px-4 sm:px-6 py-6 space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
           <select
