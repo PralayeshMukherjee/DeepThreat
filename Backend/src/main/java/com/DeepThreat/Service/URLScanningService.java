@@ -1,6 +1,7 @@
 package com.DeepThreat.Service;
 
 import com.DeepThreat.Entity.URLHistoryEntity;
+import com.DeepThreat.Entity.UserURLHistoryEntity;
 import com.DeepThreat.Repository.URLHistoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -109,6 +110,7 @@ public class URLScanningService {
             Date date = Date.valueOf(localDate);
             URLHistoryEntity urlHistoryEntity = new URLHistoryEntity(url,date,safe,sus,mal);
             urlHistoryRepository.save(urlHistoryEntity);
+            UserURLHistoryEntity userURLHistoryEntity = new UserURLHistoryEntity(email,url,date,mal,sus,safe);
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
