@@ -2,6 +2,7 @@ package com.DeepThreat.DTO;
 
 public class URLDTO {
     private String url;
+    private String email;
 
     public URLDTO() {
     }
