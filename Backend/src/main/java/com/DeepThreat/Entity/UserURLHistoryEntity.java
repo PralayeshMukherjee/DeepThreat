@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.sql.Date;
 
 @Entity
-public class UserURLHistory {
+public class UserURLHistoryEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long serialNo;
@@ -22,10 +22,10 @@ public class UserURLHistory {
     @Column(name = "safe")
     private int safe;
 
-    public UserURLHistory() {
+    public UserURLHistoryEntity() {
     }
 
-    public UserURLHistory(Long serialNo, String email, String url, Date date, int malicious, int suspicious, int safe) {
+    public UserURLHistoryEntity(Long serialNo, String email, String url, Date date, int malicious, int suspicious, int safe) {
         this.serialNo = serialNo;
         this.email = email;
         this.url = url;
