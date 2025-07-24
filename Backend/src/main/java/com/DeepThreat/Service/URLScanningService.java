@@ -100,7 +100,7 @@ public class URLScanningService {
         }
         return Math.min(malicious,40);
     }
-    public Map<String,String> isStatusOfUrl(String url){
+    public Map<String,String> isStatusOfUrl(String url,String email){
         int mal = maliciousChecking(url);
         int sus = suspiciousChecking(url);
         int safe = 100-mal-sus;
