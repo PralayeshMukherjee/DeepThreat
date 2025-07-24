@@ -25,22 +25,13 @@ public class UserURLHistoryEntity {
     public UserURLHistoryEntity() {
     }
 
-    public UserURLHistoryEntity(Long serialNo, String email, String url, Date date, int malicious, int suspicious, int safe) {
-        this.serialNo = serialNo;
+    public UserURLHistoryEntity(String email, String url, Date date, int malicious, int suspicious, int safe) {
         this.email = email;
         this.url = url;
         this.date = date;
         this.malicious = malicious;
         Suspicious = suspicious;
         this.safe = safe;
-    }
-
-    public Long getSerialNo() {
-        return serialNo;
-    }
-
-    public void setSerialNo(Long serialNo) {
-        this.serialNo = serialNo;
     }
 
     public String getEmail() {
