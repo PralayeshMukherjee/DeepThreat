@@ -21,4 +21,7 @@ public class UserURLHistory {
     private int Suspicious;
     @Column(name = "safe")
     private int safe;
+
+    public UserURLHistory() {
+    }
 }
