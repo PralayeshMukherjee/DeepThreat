@@ -24,4 +24,14 @@ public class UserURLHistory {
 
     public UserURLHistory() {
     }
+
+    public UserURLHistory(Long serialNo, String email, String url, Date date, int malicious, int suspicious, int safe) {
+        this.serialNo = serialNo;
+        this.email = email;
+        this.url = url;
+        this.date = date;
+        this.malicious = malicious;
+        Suspicious = suspicious;
+        this.safe = safe;
+    }
 }
