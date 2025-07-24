@@ -114,6 +114,7 @@ public class URLScanningService {
             URLHistoryEntity urlHistoryEntity = new URLHistoryEntity(url,date,safe,sus,mal);
             urlHistoryRepository.save(urlHistoryEntity);
             UserURLHistoryEntity userURLHistoryEntity = new UserURLHistoryEntity(email,url,date,mal,sus,safe);
+            userURLHistoryRepository.save(userURLHistoryEntity);
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
