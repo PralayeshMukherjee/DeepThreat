@@ -34,4 +34,60 @@ public class UserURLHistory {
         Suspicious = suspicious;
         this.safe = safe;
     }
+
+    public Long getSerialNo() {
+        return serialNo;
+    }
+
+    public void setSerialNo(Long serialNo) {
+        this.serialNo = serialNo;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public int getMalicious() {
+        return malicious;
+    }
+
+    public void setMalicious(int malicious) {
+        this.malicious = malicious;
+    }
+
+    public int getSuspicious() {
+        return Suspicious;
+    }
+
+    public void setSuspicious(int suspicious) {
+        Suspicious = suspicious;
+    }
+
+    public int getSafe() {
+        return safe;
+    }
+
+    public void setSafe(int safe) {
+        this.safe = safe;
+    }
 }
