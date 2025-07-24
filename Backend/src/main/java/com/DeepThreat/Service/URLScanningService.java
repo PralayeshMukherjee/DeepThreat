@@ -22,6 +22,7 @@ public class URLScanningService {
     private URLHistoryRepository urlHistoryRepository;
     @Autowired
     private URLAPIChecking urlapiChecking;
+    @Autowired
     private UserURLHistoryRepository userURLHistoryRepository;
     public int suspiciousKeywordsChecks(String url){
         if(url.contains("login")||url.contains("account")||url.contains("verify")||url.contains("update")||url.contains("secure")||url.contains("bank")||url.contains("free")||url.contains("gift")||url.contains("prize")){
