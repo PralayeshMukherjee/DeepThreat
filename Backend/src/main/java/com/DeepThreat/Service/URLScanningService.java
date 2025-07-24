@@ -3,6 +3,7 @@ package com.DeepThreat.Service;
 import com.DeepThreat.Entity.URLHistoryEntity;
 import com.DeepThreat.Entity.UserURLHistoryEntity;
 import com.DeepThreat.Repository.URLHistoryRepository;
+import com.DeepThreat.Repository.UserURLHistoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,7 @@ public class URLScanningService {
     private URLHistoryRepository urlHistoryRepository;
     @Autowired
     private URLAPIChecking urlapiChecking;
+    private UserURLHistoryRepository userURLHistoryRepository;
     public int suspiciousKeywordsChecks(String url){
         if(url.contains("login")||url.contains("account")||url.contains("verify")||url.contains("update")||url.contains("secure")||url.contains("bank")||url.contains("free")||url.contains("gift")||url.contains("prize")){
             return 30;
