@@ -7,8 +7,9 @@ public class URLDTO {
     public URLDTO() {
     }
 
-    public URLDTO(String url) {
+    public URLDTO(String url,String email) {
         this.url = url;
+        this.email = email;
     }
 
     public String getUrl() {
