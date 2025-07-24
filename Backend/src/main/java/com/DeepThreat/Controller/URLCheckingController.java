@@ -21,7 +21,7 @@ public class URLCheckingController {
         String url = urldto.getUrl();
         String email = urldto.getEmail();
         Map<String,String> fianlMap  = new HashMap<>();
-        Map<String,String> urlChecking = urlScanningService.isStatusOfUrl(url);
+        Map<String,String> urlChecking = urlScanningService.isStatusOfUrl(url,email);
         fianlMap.put("mal",urlChecking.get("mal"));
         fianlMap.put("sus",urlChecking.get("sus"));
         fianlMap.put("safe",urlChecking.get("safe"));
