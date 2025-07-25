@@ -47,11 +47,23 @@ function HistoryEntry({ entry }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
   const controls = useAnimation();
+  const getHistory = async (email) => {
+    const response = await fetch(
+      `http://localhost:8080/userDetails/userDetails?email=${email}`,
+      {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+  };
   useEffect(() => {
     const toke = localStorage.getItem("jwt");
     const decode = jwtDecode(toke);
     const email = decode.email.email;
-    console.log("User Email:", email);
+    getHistory(email);
   }, []);
 
   useEffect(() => {
