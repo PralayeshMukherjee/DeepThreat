@@ -13,7 +13,6 @@ public class HistoryService {
     @Autowired
     private UserURLHistoryRepository userURLHistoryRepository;
     public List<UserURLHistoryEntity> urlSearchedHistory(String email){
-        List<UserURLHistoryEntity> list = userURLHistoryRepository.findAll();
-        return list;
+        return userURLHistoryRepository.findAll();
     }
 }
