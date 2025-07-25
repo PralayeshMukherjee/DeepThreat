@@ -19,7 +19,6 @@ public class URLCheckingController {
     private URLScanningService urlScanningService;
     @Autowired
     private ThreatDetection threatDetection;
-    @Autowired
     @PostMapping("/check")
     public Map<String,String> urlChecker(@RequestBody URLDTO urldto){
         String url = urldto.getUrl();
