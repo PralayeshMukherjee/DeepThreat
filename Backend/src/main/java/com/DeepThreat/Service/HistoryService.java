@@ -12,7 +12,8 @@ import java.util.List;
 public class HistoryService {
     @Autowired
     private UserURLHistoryRepository userURLHistoryRepository;
-    public void urlSearchedHistory(String email){
+    public List<UserURLHistoryEntity> urlSearchedHistory(String email){
         List<UserURLHistoryEntity> list = userURLHistoryRepository.findAll();
+        return list;
     }
 }
