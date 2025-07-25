@@ -21,7 +21,7 @@ public class SecurityConfig {
                 .cors(Customizer.withDefaults())
                 .csrf(csrf->csrf.disable())
                 .authorizeHttpRequests(auth->auth
-                        .requestMatchers("/","/login/**","/oauth2/**","/user/**","/urlChecker/**").permitAll()
+                        .requestMatchers("/","/login/**","/oauth2/**","/user/**","/urlChecker/**","/userDetails/**").permitAll()
                         .requestMatchers("/api/token-validation").permitAll()
                         .anyRequest().authenticated()
                 )
