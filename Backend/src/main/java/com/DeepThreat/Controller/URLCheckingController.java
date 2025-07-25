@@ -32,5 +32,4 @@ public class URLCheckingController {
         fianlMap.put("threat",st);
         return fianlMap;
     }
-        return historyService.urlSearchedHistory(email);
 }
