@@ -58,6 +58,7 @@ function HistoryEntry({ entry }) {
         },
       }
     );
+    const data = await response.json();
   };
   useEffect(() => {
     const toke = localStorage.getItem("jwt");
