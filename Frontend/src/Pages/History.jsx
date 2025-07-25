@@ -2,6 +2,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { ShieldAlert, ShieldCheck, AlertTriangle } from "lucide-react";
 import { motion, useAnimation, useInView } from "framer-motion";
+import { jwtDecode } from "jwt-decode";
 
 const mockHistory = [
   {
@@ -46,6 +47,12 @@ function HistoryEntry({ entry }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
   const controls = useAnimation();
+  useEffect(() => {
+    const toke = localStorage.getItem("jwt");
+    const decode = jwtDecode(toke);
+    const email = decode.email.email;
+    console.log("User Email:", email);
+  }, []);
 
   useEffect(() => {
     if (inView) {
