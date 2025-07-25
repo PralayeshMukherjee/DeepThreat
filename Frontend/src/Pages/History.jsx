@@ -4,57 +4,22 @@ import { ShieldAlert, ShieldCheck, AlertTriangle } from "lucide-react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { jwtDecode } from "jwt-decode";
 
-// const mockHistory = [
-//   {
-//     url: "https://example.com/malware",
-//     date: "2025-07-21",
-//     status: "Malicious",
-//     malicious: 80,
-//     suspicious: 10,
-//     safe: 10,
-//   },
-//   {
-//     url: "https://trustedsite.org",
-//     date: "2025-07-20",
-//     status: "Safe",
-//     malicious: 0,
-//     suspicious: 5,
-//     safe: 95,
-//   },
-//   {
-//     url: "https://suspiciousdomain.net",
-//     date: "2025-07-18",
-//     status: "Suspicious",
-//     malicious: 20,
-//     suspicious: 60,
-//     safe: 20,
-//   },
-// ];
+const sortByMalicious = (data) => {
+  return [...data].sort((a, b) => b.malicious - a.malicious);
+};
+
+const filterByDateAndStatus = (data, status, date) => {
+  return data.filter(
+    (item) =>
+      (status === "All" || item.status === status) &&
+      (date === "" || item.date === date)
+  );
+};
 
 function HistoryEntry({ entry }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
   const controls = useAnimation();
-  const history = useState([]);
-  const getHistory = async (email) => {
-    const response = await fetch(
-      `http://localhost:8080/userDetails/userDetails?email=${email}`,
-      {
-        method: "POST",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    const data = await response.json();
-  };
-  useEffect(() => {
-    const toke = localStorage.getItem("jwt");
-    const decode = jwtDecode(toke);
-    const email = decode.email.email;
-    getHistory(email);
-  }, []);
 
   useEffect(() => {
     if (inView) {
@@ -66,17 +31,6 @@ function HistoryEntry({ entry }) {
     Malicious: "red",
     Suspicious: "yellow",
     Safe: "green",
-  };
-  const sortByMalicious = (data) => {
-    return [...data].sort((a, b) => b.malicious - a.malicious);
-  };
-
-  const filterByDateAndStatus = (data, status, date) => {
-    return data.filter(
-      (item) =>
-        (status === "All" || item.status === status) &&
-        (date === "" || item.date === date)
-    );
   };
 
   return (
@@ -121,7 +75,6 @@ function HistoryEntry({ entry }) {
       <div className="flex gap-4 overflow-x-auto scrollbar-thin scrollbar-thumb-rounded-md scrollbar-thumb-slate-400 dark:scrollbar-thumb-slate-600 sm:overflow-x-hidden">
         {["Malicious", "Suspicious", "Safe"].map((type) => {
           const value = entry[type.toLowerCase()];
-
           return (
             <div key={type} className="min-w-[100px]">
               <p
@@ -151,8 +104,37 @@ function HistoryEntry({ entry }) {
 export default function History() {
   const [statusFilter, setStatusFilter] = useState("All");
   const [dateFilter, setDateFilter] = useState("");
+  const [historyUrl, setHistoryUrl] = useState([]);
 
-  const filtered = filterByDateAndStatus(mockHistory, statusFilter, dateFilter);
+  const getHistory = async (email) => {
+    try {
+      const response = await fetch(
+        `http://localhost:8080/userDetails/userDetails?email=${email}`,
+        {
+          method: "POST",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const data = await response.json();
+      setHistoryUrl(data);
+    } catch (error) {
+      console.error("Error fetching history:", error);
+    }
+  };
+
+  useEffect(() => {
+    const token = localStorage.getItem("jwt");
+    if (token) {
+      const decode = jwtDecode(token);
+      const email = decode.email?.email || decode.email; // support both structures
+      if (email) getHistory(email);
+    }
+  }, []);
+
+  const filtered = filterByDateAndStatus(historyUrl, statusFilter, dateFilter);
   const sorted = sortByMalicious(filtered);
 
   return (
