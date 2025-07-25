@@ -6,6 +6,7 @@ import com.DeepThreat.Repository.UserURLHistoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -14,6 +15,12 @@ public class HistoryService {
     private UserURLHistoryRepository userURLHistoryRepository;
     public List<UserURLHistoryEntity> urlSearchedHistory(String email){
         List<UserURLHistoryEntity> list;
-        return userURLHistoryRepository.findAll();
+        try{
+            list = userURLHistoryRepository.findAll();
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            list = new ArrayList<>();
+        }
+        return list;
     }
 }
