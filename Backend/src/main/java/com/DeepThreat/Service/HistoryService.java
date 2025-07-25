@@ -8,4 +8,7 @@ import org.springframework.stereotype.Service;
 public class HistoryService {
     @Autowired
     private URLHistoryRepository urlHistoryRepository;
+    public void urlSearchedHistory(String email){
+
+    }
 }
