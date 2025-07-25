@@ -19,6 +19,7 @@ public class URLCheckingController {
     private URLScanningService urlScanningService;
     @Autowired
     private ThreatDetection threatDetection;
+    @Autowired
     private HistoryService historyService;
     @PostMapping("/check")
     public Map<String,String> urlChecker(@RequestBody URLDTO urldto){
@@ -34,6 +35,6 @@ public class URLCheckingController {
         return fianlMap;
     }
     public List<UserURLHistoryEntity> urlHistory(@RequestParam String email){
-
+        return historyService.urlSearchedHistory(email);
     }
 }
