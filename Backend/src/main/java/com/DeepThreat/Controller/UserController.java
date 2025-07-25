@@ -15,6 +15,6 @@ public class UserController {
     @Autowired
     private HistoryService historyService;
     public List<UserURLHistoryEntity> urlHistory(@RequestParam String email){
-
+        return historyService.urlSearchedHistory(email);
     }
 }
