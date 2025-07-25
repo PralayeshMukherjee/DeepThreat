@@ -20,7 +20,6 @@ public class URLCheckingController {
     @Autowired
     private ThreatDetection threatDetection;
     @Autowired
-    private HistoryService historyService;
     @PostMapping("/check")
     public Map<String,String> urlChecker(@RequestBody URLDTO urldto){
         String url = urldto.getUrl();
