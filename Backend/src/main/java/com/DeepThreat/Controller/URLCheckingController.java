@@ -2,6 +2,7 @@ package com.DeepThreat.Controller;
 
 import com.DeepThreat.DTO.URLDTO;
 import com.DeepThreat.Entity.UserURLHistoryEntity;
+import com.DeepThreat.Service.HistoryService;
 import com.DeepThreat.Service.ThreatDetection;
 import com.DeepThreat.Service.URLScanningService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ public class URLCheckingController {
     private URLScanningService urlScanningService;
     @Autowired
     private ThreatDetection threatDetection;
+    private HistoryService historyService;
     @PostMapping("/check")
     public Map<String,String> urlChecker(@RequestBody URLDTO urldto){
         String url = urldto.getUrl();
