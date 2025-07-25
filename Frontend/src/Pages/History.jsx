@@ -4,49 +4,38 @@ import { ShieldAlert, ShieldCheck, AlertTriangle } from "lucide-react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { jwtDecode } from "jwt-decode";
 
-const mockHistory = [
-  {
-    url: "https://example.com/malware",
-    date: "2025-07-21",
-    status: "Malicious",
-    malicious: 80,
-    suspicious: 10,
-    safe: 10,
-  },
-  {
-    url: "https://trustedsite.org",
-    date: "2025-07-20",
-    status: "Safe",
-    malicious: 0,
-    suspicious: 5,
-    safe: 95,
-  },
-  {
-    url: "https://suspiciousdomain.net",
-    date: "2025-07-18",
-    status: "Suspicious",
-    malicious: 20,
-    suspicious: 60,
-    safe: 20,
-  },
-];
-
-const sortByMalicious = (data) => {
-  return [...data].sort((a, b) => b.malicious - a.malicious);
-};
-
-const filterByDateAndStatus = (data, status, date) => {
-  return data.filter(
-    (item) =>
-      (status === "All" || item.status === status) &&
-      (date === "" || item.date === date)
-  );
-};
+// const mockHistory = [
+//   {
+//     url: "https://example.com/malware",
+//     date: "2025-07-21",
+//     status: "Malicious",
+//     malicious: 80,
+//     suspicious: 10,
+//     safe: 10,
+//   },
+//   {
+//     url: "https://trustedsite.org",
+//     date: "2025-07-20",
+//     status: "Safe",
+//     malicious: 0,
+//     suspicious: 5,
+//     safe: 95,
+//   },
+//   {
+//     url: "https://suspiciousdomain.net",
+//     date: "2025-07-18",
+//     status: "Suspicious",
+//     malicious: 20,
+//     suspicious: 60,
+//     safe: 20,
+//   },
+// ];
 
 function HistoryEntry({ entry }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
   const controls = useAnimation();
+  const history = useState([]);
   const getHistory = async (email) => {
     const response = await fetch(
       `http://localhost:8080/userDetails/userDetails?email=${email}`,
@@ -77,6 +66,17 @@ function HistoryEntry({ entry }) {
     Malicious: "red",
     Suspicious: "yellow",
     Safe: "green",
+  };
+  const sortByMalicious = (data) => {
+    return [...data].sort((a, b) => b.malicious - a.malicious);
+  };
+
+  const filterByDateAndStatus = (data, status, date) => {
+    return data.filter(
+      (item) =>
+        (status === "All" || item.status === status) &&
+        (date === "" || item.date === date)
+    );
   };
 
   return (
