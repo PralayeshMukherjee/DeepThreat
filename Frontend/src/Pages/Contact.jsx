@@ -99,19 +99,43 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="mt-8">
-            <p className="mb-2 font-semibold">Connect with me</p>
-            <div className="flex gap-4">
-              {[Github, Linkedin, ExternalLink, Send].map((Icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  target="_blank"
-                  className="bg-gray-200 dark:bg-[#1c2a3a] p-3 rounded-lg text-black dark:text-white hover:bg-gray-300 dark:hover:bg-[#263648]"
-                >
-                  <Icon />
-                </a>
-              ))}
+          <div>
+            <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+              Connect with me
+            </h4>
+            <div className="flex space-x-4">
+              <a
+                href="https://github.com/PralayeshMukherjee"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 bg-gray-900 dark:bg-gray-700 text-white rounded-lg hover:bg-gray-800 dark:hover:bg-gray-600 transition-colors duration-200"
+              >
+                <Github className="h-6 w-6" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/pralayesh-mukherjee-756a8b276/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200"
+              >
+                <Linkedin className="h-6 w-6" />
+              </a>
+              <a
+                href="https://leetcode.com/u/Pralayesh/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors duration-200"
+              >
+                <ExternalLink className="h-6 w-6" />
+              </a>
+              <a
+                href="https://pralayeshportfolio7.netlify.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200"
+              >
+                <ExternalLink className="h-6 w-6" />
+              </a>
             </div>
           </div>
         </div>
