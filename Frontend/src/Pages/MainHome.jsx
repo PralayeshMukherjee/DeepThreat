@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { SendHorizonal, Loader2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
 
 const MainHome = () => {
   //menu open for mobile
@@ -38,7 +39,7 @@ const MainHome = () => {
   };
   // function to handle the URL check button
   const [showInput, setShowInput] = useState(false);
-  const [url, setUrl] = useState("");
+  const [data, setData] = useState({ url: "", email: "" });
   const handleCheckURLClick = () => {
     setShowInput((prev) => !prev);
   };
@@ -46,12 +47,19 @@ const MainHome = () => {
   const [loading, setLoading] = useState(false);
   const handleSendClick = async () => {
     setLoading(true);
-    if (!url.trim()) {
+    const originalUrl = data.url.trim();
+    if (!originalUrl) {
       toast.error("Please enter a valid URL.");
       setLoading(false);
       return;
     } else {
-      setUrl(url.trim());
+      setData({ ...data, url: originalUrl });
+      const token = localStorage.getItem("jwt");
+      if (token) {
+        const decode = jwtDecode(token);
+        const email = decode.email?.email || decode.email; // support both structures
+        if (email) setData({ ...data, email: email });
+      }
       try {
         const response = await fetch(`http://localhost:8080/urlChecker/check`, {
           method: "POST",
@@ -59,13 +67,13 @@ const MainHome = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(url),
+          body: JSON.stringify(data),
         });
-        const data = await response.json();
-        sessionStorage.setItem("malicious", data.mal);
-        sessionStorage.setItem("suspicious", data.sus);
-        sessionStorage.setItem("safe", data.safe);
-        sessionStorage.setItem("threat", data.threat);
+        const dataReturn = await response.json();
+        sessionStorage.setItem("malicious", dataReturn.mal);
+        sessionStorage.setItem("suspicious", dataReturn.sus);
+        sessionStorage.setItem("safe", dataReturn.safe);
+        sessionStorage.setItem("threat", dataReturn.threat);
         toast.success("URL sent for scanning!");
         navigate("/mainlayout/deepthreatdashboard");
       } catch (error) {
@@ -131,8 +139,8 @@ const MainHome = () => {
             <div className="flex flex-col sm:flex-row items-center gap-4 w-full max-w-xl">
               <input
                 type="text"
-                value={url}
-                onChange={(e) => setUrl(e.target.value)}
+                value={data.url}
+                onChange={(e) => setData({ ...data, url: e.target.value })}
                 placeholder="Enter URL to scan..."
                 className="w-full px-4 py-2 rounded-lg border bg-gray-200 hover:border-gray-500 hover:border-2 border-gray-700 dark:border-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-slate-900 dark:text-white transition-all"
               />
