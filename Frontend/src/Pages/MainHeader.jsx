@@ -51,7 +51,7 @@ const MainHeader = () => {
           to="/mainlayout/history"
           className="text-gray-300 hover:text-cyan-400 transition"
         >
-          Features
+          History
         </Link>
         <a
           href="#tools"
@@ -82,7 +82,7 @@ const MainHeader = () => {
             href="#features"
             className="text-gray-300 hover:text-indigo-400 transition"
           >
-            Features
+            History
           </a>
           <a
             href="#tools"
