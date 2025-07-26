@@ -59,12 +59,12 @@ const MainHeader = () => {
         >
           Tools
         </a>
-        <a
-          href="#contact"
+        <Link
+          to="/mainlayout/contact"
           className="text-gray-300 hover:text-cyan-400 transition"
         >
           Contact
-        </a>
+        </Link>
       </nav>
 
       {/* Mobile Menu Button */}
@@ -78,12 +78,12 @@ const MainHeader = () => {
       {/* Mobile Nav Dropdown */}
       {isMenuOpenMobile && (
         <div className="absolute top-16 left-0 w-full bg-slate-800 px-6 py-4 flex flex-col gap-3 md:hidden z-40 shadow-md">
-          <a
-            href="#features"
+          <Link
+            to="/mainlayout/history"
             className="text-gray-300 hover:text-indigo-400 transition"
           >
             History
-          </a>
+          </Link>
           <a
             href="#tools"
             className="text-gray-300 hover:text-indigo-400 transition"
