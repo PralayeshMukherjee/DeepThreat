@@ -165,7 +165,13 @@ const Contact = () => {
             </div>
             <button
               type="submit"
-              className="w-full py-3 rounded-xl bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 font-bold text-white"
+              disabled={loading}
+              className={`w-full py-3 cursor-pointer mt-6 rounded-xl text-lg font-semibold shadow-md transition-all duration-300
+                  ${
+                    loading
+                      ? "bg-gray-400 cursor-progress"
+                      : "bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 font-bold text-white"
+                  }`}
             >
               {loading ? "Sending..." : "Send Message"}
             </button>
