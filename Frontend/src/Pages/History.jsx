@@ -9,6 +9,7 @@ const sortByMalicious = (data) => {
 };
 
 const filterByDateAndStatus = (data, status, date) => {
+  if (!Array.isArray(data)) return [];
   return data.filter(
     (item) =>
       (status === "All" || item.status === status) &&
@@ -109,7 +110,7 @@ export default function History() {
   const getHistory = async (email) => {
     try {
       const response = await fetch(
-        `http://localhost:8080/userDetails/userDetails?email=${email}`,
+        `http://localhost:8080/userDetails/urlHistory?email=${email}`,
         {
           method: "POST",
           credentials: "include",
@@ -118,8 +119,14 @@ export default function History() {
           },
         }
       );
+
       const data = await response.json();
-      setHistoryUrl(data);
+      if (Array.isArray(data)) {
+        setHistoryUrl(data);
+      } else {
+        console.error("API returned non-array data:", data);
+        setHistoryUrl([]);
+      }
     } catch (error) {
       console.error("Error fetching history:", error);
     }
@@ -129,7 +136,8 @@ export default function History() {
     const token = localStorage.getItem("jwt");
     if (token) {
       const decode = jwtDecode(token);
-      const email = decode.email?.email || decode.email; // support both structures
+      const email = decode.email?.email || decode.email;
+      console.log(email); // support both structures
       if (email) getHistory(email);
     }
   }, []);
