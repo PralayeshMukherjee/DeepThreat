@@ -10,11 +10,23 @@ const sortByMalicious = (data) => {
 
 const filterByDateAndStatus = (data, status, date) => {
   if (!Array.isArray(data)) return [];
-  return data.filter(
-    (item) =>
-      (status === "All" || item.status === status) &&
-      (date === "" || item.date === date)
-  );
+
+  return data.filter((item) => {
+    const statusMatch =
+      status === "All" ||
+      (item.status && item.status.toLowerCase() === status.toLowerCase());
+
+    const dateMatch = !date || (item.date && item.date.trim() === date.trim());
+
+    return statusMatch && dateMatch;
+  });
+};
+
+const computeStatus = (entry) => {
+  const { malicious = 0, suspicious = 0, safe = 0 } = entry;
+  if (malicious >= suspicious && malicious >= safe) return "Malicious";
+  if (suspicious >= malicious && suspicious >= safe) return "Suspicious";
+  return "Safe";
 };
 
 function HistoryEntry({ entry }) {
@@ -33,6 +45,14 @@ function HistoryEntry({ entry }) {
     Suspicious: "yellow",
     Safe: "green",
   };
+  const getStatus = (entry) => {
+    const { malicious = 0, suspicious = 0, safe = 0 } = entry;
+    if (malicious >= suspicious && malicious >= safe) return "Malicious";
+    if (suspicious >= malicious && suspicious >= safe) return "Suspicious";
+    return "Safe";
+  };
+
+  const status = getStatus(entry);
 
   return (
     <motion.div
@@ -59,18 +79,16 @@ function HistoryEntry({ entry }) {
           </a>
         </div>
         <div className="flex items-center text-sm font-semibold">
-          {entry.status === "Malicious" && (
+          {status === "Malicious" && (
             <ShieldAlert className="w-4 h-4 text-red-500 mr-1" />
           )}
-          {entry.status === "Suspicious" && (
+          {status === "Suspicious" && (
             <AlertTriangle className="w-4 h-4 text-yellow-500 mr-1" />
           )}
-          {entry.status === "Safe" && (
+          {status === "Safe" && (
             <ShieldCheck className="w-4 h-4 text-green-500 mr-1" />
           )}
-          <span className={`text-${colorMap[entry.status]}-500`}>
-            {entry.status}
-          </span>
+          <span className={`text-${colorMap[entry.status]}-500`}>{status}</span>
         </div>
       </div>
       <div className="flex gap-4 overflow-x-auto scrollbar-thin scrollbar-thumb-rounded-md scrollbar-thumb-slate-400 dark:scrollbar-thumb-slate-600 sm:overflow-x-hidden">
@@ -122,7 +140,11 @@ export default function History() {
 
       const data = await response.json();
       if (Array.isArray(data)) {
-        setHistoryUrl(data);
+        const updatedData = data.map((entry) => ({
+          ...entry,
+          status: computeStatus(entry),
+        }));
+        setHistoryUrl(updatedData);
       } else {
         console.error("API returned non-array data:", data);
         setHistoryUrl([]);
