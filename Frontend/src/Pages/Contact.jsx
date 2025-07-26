@@ -1,6 +1,6 @@
 // src/pages/Contact.jsx
 import React, { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
+import emailjs from "emailjs-com";
 import {
   Mail,
   Phone,
@@ -15,7 +15,6 @@ import "react-toastify/dist/ReactToastify.css";
 
 const Contact = () => {
   const form = useRef();
-  const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const sendEmail = (e) => {
@@ -23,20 +22,20 @@ const Contact = () => {
     setLoading(true);
     emailjs
       .sendForm(
-        "your_service_id",
-        "your_template_id",
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         form.current,
-        "your_public_key"
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
       .then(
         () => {
-          setSuccess(true);
           setLoading(false);
+          toast.success("Message sent successfully!");
           form.current.reset();
         },
         () => {
-          setSuccess(false);
           setLoading(false);
+          toast.error("Failed to send message. Please try again later.");
         }
       );
   };
@@ -60,7 +59,7 @@ const Contact = () => {
               <Phone className="text-blue-400" />
               <div>
                 <p className="font-semibold">Phone</p>
-                <p className="text-gray-300">+91 9382530377</p>
+                <p className="text-gray-300">+91 9382XXXX77</p>
               </div>
             </div>
 
@@ -170,11 +169,6 @@ const Contact = () => {
             >
               {loading ? "Sending..." : "Send Message"}
             </button>
-            {success && (
-              <p className="text-green-400 text-center font-semibold">
-                Message sent successfully!
-              </p>
-            )}
           </form>
         </div>
       </div>
