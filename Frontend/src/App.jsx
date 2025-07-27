@@ -17,6 +17,7 @@ import {
   DeepThreatDashboard,
   History,
   Contact,
+  EditProfile,
 } from "./ie.js";
 
 import "./App.css";
@@ -41,6 +42,7 @@ function App() {
           <Route path="deepthreatdashboard" element={<DeepThreatDashboard />} />
           <Route path="history" element={<History />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="editprofile" element={<EditProfile />} />
         </Route>
       </>
     )
