@@ -1,5 +1,5 @@
 // src/components/LandingPage.jsx
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
 import { ShieldCheck, Lock, Zap } from "lucide-react";
@@ -12,6 +12,14 @@ import { jwtDecode } from "jwt-decode";
 const MainHome = () => {
   //menu open for mobile
   const navigate = useNavigate();
+  useEffect(() => {
+    const tokenForOauth = localStorage.getItem("jwt");
+    const tokenForManual = sessionStorage.getItem("token");
+    const isLogin = sessionStorage.getItem("isLogin");
+    if (!isLogin && tokenForManual === null && tokenForOauth === null) {
+      navigate("/signin");
+    }
+  });
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   //features data
   const features = [
