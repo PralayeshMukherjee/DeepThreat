@@ -63,11 +63,18 @@ const MainHome = () => {
     } else {
       setData({ ...data, url: originalUrl });
       const token = localStorage.getItem("jwt");
+      let email = "";
       if (token) {
         const decode = jwtDecode(token);
-        const email = decode.email?.email || decode.email; // support both structures
+        email = decode.email?.email || decode.email; // support both structures
         if (email) setData({ ...data, email: email });
+        console.log(data);
       }
+      const payload = {
+        url: data.url,
+        email: email || "",
+      };
+      console.log(payload);
       try {
         const response = await fetch(`http://localhost:8080/urlChecker/check`, {
           method: "POST",
@@ -75,7 +82,7 @@ const MainHome = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(data),
+          body: JSON.stringify(payload),
         });
         const dataReturn = await response.json();
         sessionStorage.setItem("malicious", dataReturn.mal);
