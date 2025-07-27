@@ -22,6 +22,8 @@ const MainHeader = () => {
   };
   const LogoutUser = () => {
     sessionStorage.removeItem("token");
+    localStorage.removeItem("jwt");
+    sessionStorage.removeItem("isLogin");
     toast.success("You have been logged out successfully.");
     window.location.href = "/";
   };
