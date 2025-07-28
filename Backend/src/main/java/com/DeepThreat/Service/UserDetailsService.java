@@ -17,6 +17,7 @@ public class UserDetailsService {
              Optional<UserEntity> userEntity1 = userRepository.findById(email);
              if(userEntity1.isPresent()){
                  userEntity = userEntity1.get();
+                 userEntity.setPassword("");
              }
         }catch (Exception e){
             System.out.println(e.getMessage());
