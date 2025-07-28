@@ -10,6 +10,6 @@ public class UserDetailsService {
     @Autowired
     private UserRepository userRepository;
     public UserEntity getUserAllDetails(String email){
-
+        userRepository.findById(email);
     }
 }
