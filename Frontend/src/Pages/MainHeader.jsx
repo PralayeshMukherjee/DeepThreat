@@ -16,10 +16,9 @@ import { motion, AnimatePresence } from "framer-motion";
 const MainHeader = () => {
   const navigate = useNavigate();
   useEffect(() => {
-    const tokenForOauth = localStorage.getItem("jwt");
-    const tokenForManual = localStorage.getItem("token");
+    const isValidEndpoint = sessionStorage.getItem("isValidEndpoint");
     const isLogin = sessionStorage.getItem("isLogin");
-    if (!isLogin && tokenForManual === null && tokenForOauth === null) {
+    if (!isLogin && !isValidEndpoint) {
       navigate("/signin");
     }
   });
