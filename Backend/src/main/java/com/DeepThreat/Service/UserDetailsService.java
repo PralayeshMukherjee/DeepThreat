@@ -30,6 +30,7 @@ public class UserDetailsService {
             UserEntity userEntity = userEntity1.get();
             userEntity.setName(name);
             userEntity.setPhone(phone);
+            userRepository.save(userEntity);
         }
     }
 }
