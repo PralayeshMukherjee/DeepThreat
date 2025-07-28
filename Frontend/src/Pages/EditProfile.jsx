@@ -84,6 +84,10 @@ export default function EditProfile() {
         body: JSON.stringify(formData),
       })
       const data = await response.json();
+      if(response.ok){
+        setFormData({...formData, name:data.name, phone:data.phone})
+        toast.success("Profile updated successfully!");
+      }
     }
   };
 
