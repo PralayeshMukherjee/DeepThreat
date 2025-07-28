@@ -1,12 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { UserIcon, MailIcon, PhoneIcon, KeyRoundIcon } from "lucide-react";
+import { jwtDecode } from "jwt-decode";
 
 export default function EditProfile() {
   const [formData, setFormData] = useState({
-    name: "Raj Mukherjee",
-    email: "rajmukherjee2807@gmail.com",
-    phone: "9382XXXX77",
+    name: "",
+    email: "abc@email.com",
+    phone: "",
+  });
+  useEffect(() => {
+    const token = localStorage.getItem("jwt");
+    let email = "";
+    if (token) {
+      const decode = jwtDecode(token);
+      email = decode.email?.email || decode.email;
+      console.log(email);
+      if (email) setFormData((prev) => ({ ...prev, email }));
+    }
+    try{
+      const response = fetch(`http://localhost:8080/userDetails/getUser?email=${email}`{
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+    }
   });
 
   const [showForgotPassword, setShowForgotPassword] = useState(false);
