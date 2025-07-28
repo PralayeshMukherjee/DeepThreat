@@ -28,8 +28,8 @@ public class JwtUtil {
         String name = (String) user.getAttribute("name");
         return Jwts.builder()
                 .setSubject(email)
-                .claim("email",user.getAttributes())
-                .claim("name",user.getAttributes())
+                .claim("email",email)
+                .claim("name",name)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis()+expirationMs))
                 .signWith(key,SignatureAlgorithm.HS512)
@@ -47,10 +47,16 @@ public class JwtUtil {
                 .signWith(key,SignatureAlgorithm.HS512)
                 .compact();
     }
-    public Claims parseToken(String token){
-        return Jwts.parser()
-                .setSigningKey(jwtSecret)
+    public Claims parseToken(String token) {
+        byte[] keyBytes = Decoders.BASE64.decode(jwtSecret); // correctly decode your secret
+        Key key = Keys.hmacShaKeyFor(keyBytes);
+
+        return Jwts
+                .parserBuilder()
+                .setSigningKey(key)
+                .build()
                 .parseClaimsJws(token)
                 .getBody();
     }
+
 }
