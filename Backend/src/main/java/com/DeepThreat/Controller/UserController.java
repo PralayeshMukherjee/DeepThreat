@@ -29,6 +29,8 @@ public class UserController {
         return ResponseEntity.ok(userEntity);
     }
     public ResponseEntity<UserEntity> saveUserDetails(@RequestBody UserDetailsUpdateDto userDetailsUpdateDto){
-
+        String email = userDetailsUpdateDto.getEmail();
+        String name = userDetailsUpdateDto.getName();
+        String phone = userDetailsUpdateDto.getPhone();
     }
 }
