@@ -25,6 +25,7 @@ public class UserDetailsService {
         return userEntity;
     }
     public UserEntity saveUserAllDetails(String email,String name,String phone){
+        UserEntity afterUpdation = null;
         try{
             Optional<UserEntity> userEntity1 = userRepository.findById(email);
             if(userEntity1.isPresent()){
