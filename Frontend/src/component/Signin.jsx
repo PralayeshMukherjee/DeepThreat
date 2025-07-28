@@ -1,3 +1,4 @@
+import { Cookie } from "lucide-react";
 import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
@@ -31,7 +32,7 @@ const Signin = () => {
         toast.success("✅ Login successful");
         sessionStorage.setItem("isLogin", true);
         sessionStorage.setItem("isGoogleUser", false);
-        sessionStorage.setItem("token", data.token);
+        localStorage.setItem("token", data.token);
         navigate("/mainlayout");
         setLoading(false);
       } else if (data.result === "1") {

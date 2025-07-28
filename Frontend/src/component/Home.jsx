@@ -30,7 +30,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   const handleGetStarted = async () => {
-    const manualToken = sessionStorage.getItem("token");
+    const manualToken = localStorage.getItem("token");
     const OauthToken = localStorage.getItem("jwt");
     if (manualToken === null && OauthToken === null) {
       navigate("/signin");

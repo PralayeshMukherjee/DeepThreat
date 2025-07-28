@@ -52,7 +52,7 @@ const OTPVerification = () => {
     const data = await response.json();
     if (data.isSuccessfullyRegister === "true") {
       toast.success("✅ User registered successfully");
-      sessionStorage.setItem("token", data.token);
+      localStorage.setItem("token", data.token);
       sessionStorage.setItem("isSuccessfullyRegister", true);
       navigate("/mainlayout");
     }
