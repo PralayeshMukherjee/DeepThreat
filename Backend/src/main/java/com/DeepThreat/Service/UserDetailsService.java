@@ -10,6 +10,10 @@ public class UserDetailsService {
     @Autowired
     private UserRepository userRepository;
     public UserEntity getUserAllDetails(String email){
-        userRepository.findById(email);
+        try{
+            userRepository.findById(email);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 }
