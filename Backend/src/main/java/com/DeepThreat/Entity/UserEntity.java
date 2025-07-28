@@ -14,6 +14,7 @@ public class UserEntity {
     private String name;
     @Column(name = "password")
     private String password;
+    private String phone;
 
     public UserEntity() {
     }
