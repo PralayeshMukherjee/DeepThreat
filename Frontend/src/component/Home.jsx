@@ -36,6 +36,7 @@ const Home = () => {
       navigate("/signin");
       return;
     } else {
+      setLoading(true);
       let token = "";
       if (manualToken !== null) {
         token = manualToken;
@@ -55,14 +56,17 @@ const Home = () => {
         const data = await response.json();
         if (data.isExpired === "true") {
           console.log(data.isExpired);
+          setLoading(false);
           navigate("/mainlayout");
         } else {
           sessionStorage.removeItem("token");
           console.log(data.isExpired);
+          setLoading(false);
           navigate("/signin");
         }
       } catch (error) {
         console.error("Error during token validation:", error);
+        setLoading(false);
         toast.error("❌ An error occurred. Please try again later.");
       }
     }
