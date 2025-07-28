@@ -1,5 +1,6 @@
 package com.DeepThreat.Service;
 
+import com.DeepThreat.Entity.UserEntity;
 import com.DeepThreat.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,4 +9,7 @@ import org.springframework.stereotype.Service;
 public class UserDetailsService {
     @Autowired
     private UserRepository userRepository;
+    public UserEntity getUserAllDetails(){
+
+    }
 }
