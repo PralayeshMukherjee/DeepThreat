@@ -98,11 +98,17 @@ const Home = () => {
         </motion.p>
         <motion.button
           onClick={handleGetStarted}
+          disabled={loading}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
-          className="bg-cyan-500 hover:bg-cyan-600 px-10 py-3 rounded-full font-semibold text-lg shadow-lg transition text-white"
+          className={`px-10 py-3 rounded-full font-semibold text-lg shadow-lg transition text-white
+                ${
+                  loading
+                    ? "bg-gray-400 cursor-progress"
+                    : "bg-cyan-500 hover:bg-cyan-600"
+                }`}
         >
-          Get Started
+          {loading ? "Starting..." : "Get Started"}
         </motion.button>
       </section>
 
