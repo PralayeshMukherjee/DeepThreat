@@ -29,11 +29,18 @@ const Home = () => {
   const navigate = useNavigate();
 
   const handleGetStarted = async () => {
-    const token = sessionStorage.getItem("token");
-    if (!token) {
+    const manualToken = sessionStorage.getItem("token");
+    const OauthToken = localStorage.getItem("jwt");
+    if (manualToken === null && OauthToken === null) {
       navigate("/signin");
       return;
     } else {
+      let token = "";
+      if (manualToken !== null) {
+        token = manualToken;
+      } else {
+        token = OauthToken;
+      }
       try {
         const response = await fetch(
           `http://localhost:8080/api/token-validation?token=${token}`,
