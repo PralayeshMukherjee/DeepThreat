@@ -83,6 +83,7 @@ export default function EditProfile() {
         },
         body: JSON.stringify(formData),
       })
+      const data = await response.json();
     }
   };
 
