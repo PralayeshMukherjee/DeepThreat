@@ -24,4 +24,7 @@ public class UserDetailsService {
         }
         return userEntity;
     }
+    public UserEntity saveUserAllDetails(String name,String phone){
+
+    }
 }
