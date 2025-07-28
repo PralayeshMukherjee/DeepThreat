@@ -31,6 +31,7 @@ public class JwtValidation {
         }catch (ExpiredJwtException e){
             return Map.of("isExpired","expired");
         }catch (Exception e){
+            System.out.println(e.getMessage());
             return Map.of("isExpired","wrong");
         }
     }
