@@ -26,6 +26,7 @@ export default function EditProfile() {
           "Content-Type": "application/json",
         },
       })
+      const data = response.json();
     }
   });
 
