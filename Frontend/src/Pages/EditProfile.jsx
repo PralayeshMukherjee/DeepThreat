@@ -73,7 +73,11 @@ export default function EditProfile() {
       alert("Invalid OTP");
     }
   };
-  const handleSaveChanges = async () => {};
+  const handleSaveChanges = async () => {
+    try{
+
+    }
+  };
 
   return (
     <div
@@ -98,7 +102,7 @@ export default function EditProfile() {
 
         {!showForgotPassword ? (
           <>
-            <form className="grid gap-6 sm:grid-cols-2">
+            <form onSubmit={handleSaveChanges} className="grid gap-6 sm:grid-cols-2">
               <div>
                 <label className="block text-sm font-semibold mb-2">Name</label>
                 <div className="relative">
@@ -154,6 +158,7 @@ export default function EditProfile() {
             </form>
 
             <motion.button
+              type="submit"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="mt-10 w-full py-3 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-semibold rounded-xl shadow-md transition-transform duration-300"
