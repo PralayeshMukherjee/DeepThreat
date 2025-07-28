@@ -87,6 +87,8 @@ export default function EditProfile() {
       if(response.ok){
         setFormData({...formData, name:data.name, phone:data.phone})
         toast.success("Profile updated successfully!");
+      }else{
+        toast.error("Failed to update profile. Please try again.");
       }
     }
   };
