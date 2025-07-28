@@ -1,5 +1,5 @@
 // src/components/Header.jsx
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import User from "../assets/user.png";
 import Profile from "../assets/profile.png";
@@ -7,13 +7,22 @@ import Setting from "../assets/setting.png";
 import Logout from "../assets/logout.png";
 import Help from "../assets/help.png";
 import ThemeBtn from "../contexts/ThemeBtn.jsx";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import deepthreatlogo from "../assets/deepthreatlogo.png";
 import "react-toastify/dist/ReactToastify.css";
 import { motion, AnimatePresence } from "framer-motion";
 
 const MainHeader = () => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const tokenForOauth = localStorage.getItem("jwt");
+    const tokenForManual = localStorage.getItem("token");
+    const isLogin = sessionStorage.getItem("isLogin");
+    if (!isLogin && tokenForManual === null && tokenForOauth === null) {
+      navigate("/signin");
+    }
+  });
   const [isMenuOpenMobile, setIsMenuOpenMobile] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen(!menuOpen);
@@ -21,7 +30,7 @@ const MainHeader = () => {
     toast.info("This feature is under development.");
   };
   const LogoutUser = () => {
-    sessionStorage.removeItem("token");
+    localStorage.removeItem("token");
     localStorage.removeItem("jwt");
     sessionStorage.removeItem("isLogin");
     toast.success("You have been logged out successfully.");
