@@ -28,6 +28,7 @@ public class UserController {
         UserEntity userEntity = userDetailsService.getUserAllDetails(email);
         return ResponseEntity.ok(userEntity);
     }
+    @PutMapping("/updateData")
     public ResponseEntity<UserEntity> saveUserDetails(@RequestBody UserDetailsUpdateDto userDetailsUpdateDto){
         String email = userDetailsUpdateDto.getEmail();
         String name = userDetailsUpdateDto.getName();
