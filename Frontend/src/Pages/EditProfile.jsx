@@ -108,7 +108,7 @@ export default function EditProfile() {
                   <input
                     type="text"
                     name="name"
-                    value={formData.name}
+                    defaultValue={formData.name}
                     onChange={handleChange}
                     className="pl-10 pr-4 py-2 w-full rounded-xl bg-gray-100 dark:bg-[#27394c] outline-none focus:ring-2 ring-blue-400 dark:ring-blue-500"
                   />
@@ -126,7 +126,7 @@ export default function EditProfile() {
                   <input
                     type="email"
                     name="email"
-                    value={formData.email}
+                    defaultValue={formData.email}
                     onChange={handleChange}
                     className="pl-10 pr-4 py-2 w-full rounded-xl bg-gray-100 dark:bg-[#27394c] outline-none focus:ring-2 ring-blue-400 dark:ring-blue-500"
                   />
@@ -144,7 +144,7 @@ export default function EditProfile() {
                   <input
                     type="tel"
                     name="phone"
-                    value={formData.phone}
+                    defaultValue={formData.phone}
                     onChange={handleChange}
                     className="pl-10 pr-4 py-2 w-full rounded-xl bg-gray-100 dark:bg-[#27394c] outline-none focus:ring-2 ring-blue-400 dark:ring-blue-500"
                   />
