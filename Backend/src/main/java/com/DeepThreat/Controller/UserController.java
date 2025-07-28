@@ -42,5 +42,6 @@ public class UserController {
     }
     public ResponseEntity<Map<String,String>> otpSendForForgotPassword(@RequestParam String email){
         boolean isOTPSend = userService.sendOTPToEmail("",email);
+        return ResponseEntity.ok(Map.of("isOTPSend",String.valueOf(isOTPSend)));
     }
 }
