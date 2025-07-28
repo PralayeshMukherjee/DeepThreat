@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function EditProfile() {
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -75,6 +76,7 @@ export default function EditProfile() {
   };
   const handleSaveChanges = async () => {
     try {
+      setLoading(true);
       const response = await fetch(
         `http://localhost:8080/userDetails/updateData`,
         {
@@ -89,8 +91,11 @@ export default function EditProfile() {
       const data = await response.json();
       if (response.ok) {
         setFormData({ ...formData, name: data.name, phone: data.phone });
+        console.log("ok");
+        setLoading(false);
         toast.success("Profile updated successfully!");
       } else {
+        setLoading(false);
         toast.error("Failed to update profile. Please try again.");
       }
     } catch (error) {
@@ -179,14 +184,19 @@ export default function EditProfile() {
                 </div>
               </div>
             </form>
-
             <motion.button
-              type="submit"
+              onClick={handleSaveChanges}
+              disabled={loading}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="mt-10 w-full py-3 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-semibold rounded-xl shadow-md transition-transform duration-300"
+              className={`mt-10 w-full py-3 font-semibold rounded-xl shadow-md transition-transform duration-300
+                  ${
+                    loading
+                      ? "bg-gray-400 cursor-progress"
+                      : "bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white"
+                  }`}
             >
-              Save Changes
+              {loading ? "Saving..." : "Save Changes"}
             </motion.button>
 
             <div className="text-center mt-6">
