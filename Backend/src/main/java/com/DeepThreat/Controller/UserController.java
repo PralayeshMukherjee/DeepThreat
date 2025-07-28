@@ -33,5 +33,6 @@ public class UserController {
         String name = userDetailsUpdateDto.getName();
         String phone = userDetailsUpdateDto.getPhone();
         UserEntity updateEntity = userDetailsService.saveUserAllDetails(email,name,phone);
+        return ResponseEntity.ok(updateEntity);
     }
 }
