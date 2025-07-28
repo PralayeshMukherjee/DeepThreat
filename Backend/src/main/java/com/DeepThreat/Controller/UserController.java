@@ -1,15 +1,13 @@
 package com.DeepThreat.Controller;
 
+import com.DeepThreat.DTO.UserDetailsUpdateDto;
 import com.DeepThreat.Entity.UserEntity;
 import com.DeepThreat.Entity.UserURLHistoryEntity;
 import com.DeepThreat.Service.HistoryService;
 import com.DeepThreat.Service.UserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,5 +27,8 @@ public class UserController {
     public ResponseEntity<UserEntity> getUserDetails(@RequestParam String email){
         UserEntity userEntity = userDetailsService.getUserAllDetails(email);
         return ResponseEntity.ok(userEntity);
+    }
+    public ResponseEntity<UserEntity> saveUserDetails(@RequestBody UserDetailsUpdateDto userDetailsUpdateDto){
+
     }
 }
