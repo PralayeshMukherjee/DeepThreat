@@ -5,6 +5,8 @@ import com.DeepThreat.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserDetailsService {
     @Autowired
@@ -12,7 +14,7 @@ public class UserDetailsService {
     public UserEntity getUserAllDetails(String email){
         UserEntity userEntity = new UserEntity();
         try{
-             userRepository.findById(email);
+             Optional<UserEntity> userEntity1 = userRepository.findById(email);
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
