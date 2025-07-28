@@ -12,14 +12,6 @@ import { jwtDecode } from "jwt-decode";
 const MainHome = () => {
   //menu open for mobile
   const navigate = useNavigate();
-  useEffect(() => {
-    const tokenForOauth = localStorage.getItem("jwt");
-    const tokenForManual = sessionStorage.getItem("token");
-    const isLogin = sessionStorage.getItem("isLogin");
-    if (!isLogin && tokenForManual === null && tokenForOauth === null) {
-      navigate("/signin");
-    }
-  });
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   //features data
   const features = [
