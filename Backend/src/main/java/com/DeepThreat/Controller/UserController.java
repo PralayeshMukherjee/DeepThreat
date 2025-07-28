@@ -20,6 +20,7 @@ public class UserController {
     private HistoryService historyService;
     @Autowired
     private UserDetailsService userDetailsService;
+    @Autowired
     private UserService userService;
     @PostMapping("/urlHistory")
     public ResponseEntity<List<UserURLHistoryEntity>> urlHistory(@RequestParam String email){
