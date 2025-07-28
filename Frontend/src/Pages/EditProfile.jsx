@@ -148,7 +148,7 @@ export default function EditProfile() {
                 <label className="block text-sm font-semibold mb-2">
                   Email
                 </label>
-                <div className="relative">
+                <div className="relative group">
                   <MailIcon
                     className="absolute top-3 left-3 text-blue-500"
                     size={20}
@@ -158,8 +158,11 @@ export default function EditProfile() {
                     name="email"
                     defaultValue={formData.email}
                     readOnly
-                    className="pl-10 pr-4 py-2 w-full rounded-xl bg-gray-100 dark:bg-[#27394c] outline-none focus:ring-2 ring-blue-400 dark:ring-blue-500"
+                    className="pl-10 pr-4 py-2 w-full rounded-xl hover: bg-gray-100 dark:bg-[#27394c] outline-none focus:ring-2 ring-blue-400 dark:ring-blue-500"
                   />
+                  <span class="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                    This field is read-only
+                  </span>
                 </div>
               </div>
               <div>
