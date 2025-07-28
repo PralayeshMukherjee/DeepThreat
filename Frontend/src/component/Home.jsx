@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Home = () => {
+  const [loading, setLoading] = useState(false);
   const features = [
     {
       icon: <FaShieldAlt size={40} className="text-cyan-400 mx-auto mb-3" />,
