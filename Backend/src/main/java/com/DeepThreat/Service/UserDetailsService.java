@@ -24,7 +24,8 @@ public class UserDetailsService {
         }
         return userEntity;
     }
-    public UserEntity saveUserAllDetails(String name,String phone){
-
+    public UserEntity saveUserAllDetails(String email,String name,String phone){
+        Optional<UserEntity> userEntity1 = userRepository.findById(email);
+        
     }
 }
