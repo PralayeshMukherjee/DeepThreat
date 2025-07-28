@@ -56,6 +56,7 @@ const Home = () => {
         const data = await response.json();
         if (data.isExpired === "true") {
           console.log(data.isExpired);
+          sessionStorage.setItem("isValidEndpoint", true);
           setLoading(false);
           navigate("/mainlayout");
         } else {
