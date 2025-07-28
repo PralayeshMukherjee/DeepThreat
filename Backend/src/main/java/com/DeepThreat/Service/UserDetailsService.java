@@ -33,6 +33,7 @@ public class UserDetailsService {
                 userEntity.setName(name);
                 userEntity.setPhone(phone);
                 userRepository.save(userEntity);
+                afterUpdation = userEntity;
             }
         }catch (Exception e){
             System.out.println(e.getMessage());
