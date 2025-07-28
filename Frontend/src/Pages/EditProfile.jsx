@@ -127,10 +127,7 @@ export default function EditProfile() {
 
         {!showForgotPassword ? (
           <>
-            <form
-              onSubmit={handleSaveChanges}
-              className="grid gap-6 sm:grid-cols-2"
-            >
+            <form className="grid gap-6 sm:grid-cols-2">
               <div>
                 <label className="block text-sm font-semibold mb-2">Name</label>
                 <div className="relative">
