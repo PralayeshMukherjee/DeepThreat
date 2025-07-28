@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/userDetails")
@@ -35,5 +36,8 @@ public class UserController {
         String phone = userDetailsUpdateDto.getPhone();
         UserEntity updateEntity = userDetailsService.saveUserAllDetails(email,name,phone);
         return ResponseEntity.ok(updateEntity);
+    }
+    public ResponseEntity<Map<String,String>> otpSendForForgotPassword(@RequestParam String email){
+
     }
 }
