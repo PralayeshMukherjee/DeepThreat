@@ -26,6 +26,6 @@ public class UserController {
         return ResponseEntity.ok(list);
     }
     public ResponseEntity<UserEntity> getUserDetails(@RequestParam String email){
-
+        UserEntity userEntity = userDetailsService.getUserAllDetails(email);
     }
 }
