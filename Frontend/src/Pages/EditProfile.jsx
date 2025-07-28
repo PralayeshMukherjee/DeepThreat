@@ -75,7 +75,14 @@ export default function EditProfile() {
   };
   const handleSaveChanges = async () => {
     try{
-
+      const response = await fetch(`http://localhost:8080/userDetails/updateData`,{
+        method: "PUT",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
     }
   };
 
