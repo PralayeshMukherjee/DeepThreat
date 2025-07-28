@@ -24,7 +24,7 @@ export default function EditProfile() {
         }
       );
       const data = await response.json();
-      if (data.ok) {
+      if (response.ok) {
         setFormData((prev) => ({
           ...prev,
           email: data.emailId,
