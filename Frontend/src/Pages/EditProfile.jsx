@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { UserIcon, MailIcon, PhoneIcon, KeyRoundIcon } from "lucide-react";
 import { jwtDecode } from "jwt-decode";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function EditProfile() {
   const [formData, setFormData] = useState({
@@ -27,6 +29,11 @@ export default function EditProfile() {
         },
       })
       const data = response.json();
+      if(data.ok){
+        setFormData((prev) => ({ ...prev,email:data.emailId, name: data.name, phone: data.phone }));
+      }else{
+        toast.error("Something went wrong while fetching user details.");
+      }
     }
   });
 
