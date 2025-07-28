@@ -25,12 +25,16 @@ public class UserDetailsService {
         return userEntity;
     }
     public UserEntity saveUserAllDetails(String email,String name,String phone){
-        Optional<UserEntity> userEntity1 = userRepository.findById(email);
-        if(userEntity1.isPresent()){
-            UserEntity userEntity = userEntity1.get();
-            userEntity.setName(name);
-            userEntity.setPhone(phone);
-            userRepository.save(userEntity);
+        try{
+            Optional<UserEntity> userEntity1 = userRepository.findById(email);
+            if(userEntity1.isPresent()){
+                UserEntity userEntity = userEntity1.get();
+                userEntity.setName(name);
+                userEntity.setPhone(phone);
+                userRepository.save(userEntity);
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
         }
     }
 }
