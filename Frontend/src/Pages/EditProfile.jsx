@@ -74,22 +74,28 @@ export default function EditProfile() {
     }
   };
   const handleSaveChanges = async () => {
-    try{
-      const response = await fetch(`http://localhost:8080/userDetails/updateData`,{
-        method: "PUT",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      })
+    try {
+      const response = await fetch(
+        `http://localhost:8080/userDetails/updateData`,
+        {
+          method: "PUT",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
       const data = await response.json();
-      if(response.ok){
-        setFormData({...formData, name:data.name, phone:data.phone})
+      if (response.ok) {
+        setFormData({ ...formData, name: data.name, phone: data.phone });
         toast.success("Profile updated successfully!");
-      }else{
+      } else {
         toast.error("Failed to update profile. Please try again.");
       }
+    } catch (error) {
+      console.error("Error updating profile:", error);
+      toast.error("An error occurred while updating your profile.");
     }
   };
 
@@ -116,7 +122,10 @@ export default function EditProfile() {
 
         {!showForgotPassword ? (
           <>
-            <form onSubmit={handleSaveChanges} className="grid gap-6 sm:grid-cols-2">
+            <form
+              onSubmit={handleSaveChanges}
+              className="grid gap-6 sm:grid-cols-2"
+            >
               <div>
                 <label className="block text-sm font-semibold mb-2">Name</label>
                 <div className="relative">
