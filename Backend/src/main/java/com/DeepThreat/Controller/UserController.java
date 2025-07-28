@@ -25,6 +25,7 @@ public class UserController {
         List<UserURLHistoryEntity> list =  historyService.urlSearchedHistory(email);
         return ResponseEntity.ok(list);
     }
+    @PostMapping("/getUser")
     public ResponseEntity<UserEntity> getUserDetails(@RequestParam String email){
         UserEntity userEntity = userDetailsService.getUserAllDetails(email);
         return ResponseEntity.ok(userEntity);
