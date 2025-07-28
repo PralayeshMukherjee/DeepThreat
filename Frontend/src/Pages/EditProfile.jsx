@@ -20,22 +20,32 @@ export default function EditProfile() {
       console.log(email);
       if (email) setFormData((prev) => ({ ...prev, email }));
     }
-    try{
-      const response = fetch(`http://localhost:8080/userDetails/getUser?email=${email}`{
-        method: "POST",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
+    try {
+      const response = fetch(
+        `http://localhost:8080/userDetails/getUser?email=${email}`,
+        {
+          method: "POST",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       const data = response.json();
-      if(data.ok){
-        setFormData((prev) => ({ ...prev,email:data.emailId, name: data.name, phone: data.phone }));
-      }else{
+      if (data.ok) {
+        setFormData((prev) => ({
+          ...prev,
+          email: data.emailId,
+          name: data.name,
+          phone: data.phone,
+        }));
+      } else {
         toast.error("Something went wrong while fetching user details.");
       }
+    } catch (error) {
+      console.error("Error fetching user details:", error);
     }
-  });
+  }, []);
 
   const [showForgotPassword, setShowForgotPassword] = useState(false);
   const [otpSent, setOtpSent] = useState(false);
