@@ -10,8 +10,9 @@ public class UserDetailsService {
     @Autowired
     private UserRepository userRepository;
     public UserEntity getUserAllDetails(String email){
+        UserEntity userEntity = new UserEntity();
         try{
-            userRepository.findById(email);
+             userRepository.findById(email);
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
