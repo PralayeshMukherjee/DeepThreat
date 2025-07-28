@@ -11,17 +11,9 @@ export default function EditProfile() {
     email: "abc@email.com",
     phone: "",
   });
-  useEffect(() => {
-    const token = localStorage.getItem("jwt");
-    let email = "";
-    if (token) {
-      const decode = jwtDecode(token);
-      email = decode.email?.email || decode.email;
-      console.log(email);
-      if (email) setFormData((prev) => ({ ...prev, email }));
-    }
+  const handleDataFetching = async (email) => {
     try {
-      const response = fetch(
+      const response = await fetch(
         `http://localhost:8080/userDetails/getUser?email=${email}`,
         {
           method: "POST",
@@ -31,7 +23,7 @@ export default function EditProfile() {
           },
         }
       );
-      const data = response.json();
+      const data = await response.json();
       if (data.ok) {
         setFormData((prev) => ({
           ...prev,
@@ -44,6 +36,15 @@ export default function EditProfile() {
       }
     } catch (error) {
       console.error("Error fetching user details:", error);
+    }
+  };
+  useEffect(() => {
+    const token = localStorage.getItem("jwt");
+    if (token) {
+      const decode = jwtDecode(token);
+      const email = decode.email?.email || decode.email;
+      console.log(email);
+      handleDataFetching(email);
     }
   }, []);
 
