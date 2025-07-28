@@ -3,6 +3,7 @@ package com.DeepThreat.Controller;
 import com.DeepThreat.Entity.UserEntity;
 import com.DeepThreat.Entity.UserURLHistoryEntity;
 import com.DeepThreat.Service.HistoryService;
+import com.DeepThreat.Service.UserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +18,7 @@ import java.util.List;
 public class UserController {
     @Autowired
     private HistoryService historyService;
+    private UserDetailsService userDetailsService;
     @PostMapping("/urlHistory")
     public ResponseEntity<List<UserURLHistoryEntity>> urlHistory(@RequestParam String email){
         List<UserURLHistoryEntity> list =  historyService.urlSearchedHistory(email);
