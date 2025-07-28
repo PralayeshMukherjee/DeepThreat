@@ -18,6 +18,7 @@ import java.util.List;
 public class UserController {
     @Autowired
     private HistoryService historyService;
+    @Autowired
     private UserDetailsService userDetailsService;
     @PostMapping("/urlHistory")
     public ResponseEntity<List<UserURLHistoryEntity>> urlHistory(@RequestParam String email){
