@@ -15,6 +15,9 @@ public class UserDetailsService {
         UserEntity userEntity = new UserEntity();
         try{
              Optional<UserEntity> userEntity1 = userRepository.findById(email);
+             if(userEntity1.isPresent()){
+                 userEntity = userEntity1.get();
+             }
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
