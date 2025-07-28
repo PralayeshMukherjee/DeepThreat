@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 export default function EditProfile() {
   const [formData, setFormData] = useState({
     name: "",
-    email: "abc@email.com",
+    email: "",
     phone: "",
   });
   const handleDataFetching = async (email) => {
@@ -73,6 +73,7 @@ export default function EditProfile() {
       alert("Invalid OTP");
     }
   };
+  const handleSaveChanges = async () => {};
 
   return (
     <div
