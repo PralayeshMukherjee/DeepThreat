@@ -1,5 +1,6 @@
 package com.DeepThreat.Controller;
 
+import com.DeepThreat.Entity.UserEntity;
 import com.DeepThreat.Entity.UserURLHistoryEntity;
 import com.DeepThreat.Service.HistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,5 +21,8 @@ public class UserController {
     public ResponseEntity<List<UserURLHistoryEntity>> urlHistory(@RequestParam String email){
         List<UserURLHistoryEntity> list =  historyService.urlSearchedHistory(email);
         return ResponseEntity.ok(list);
+    }
+    public ResponseEntity<UserEntity> getUserDetails(@RequestParam String email){
+
     }
 }
