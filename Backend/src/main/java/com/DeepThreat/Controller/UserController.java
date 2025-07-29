@@ -43,7 +43,7 @@ public class UserController {
     }
     @PostMapping("/sendOTPtoForgot")
     public ResponseEntity<Map<String,String>> otpSendForForgotPassword(@RequestParam String email){
-        boolean isOTPSend = userService.sendOTPToEmail("",email);
+        boolean isOTPSend = otpServiceForgotPassword.sendOTPToEmail(email);
         return ResponseEntity.ok(Map.of("isOTPSend",String.valueOf(isOTPSend)));
     }
 }
