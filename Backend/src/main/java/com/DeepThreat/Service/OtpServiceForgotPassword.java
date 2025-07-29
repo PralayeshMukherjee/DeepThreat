@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -18,6 +19,7 @@ import java.util.concurrent.TimeUnit;
 public class OtpServiceForgotPassword {
     @Autowired
     private JavaMailSender javaMailSender;
+    private PasswordEncoder passwordEncoder;
     private static final int otpLenght = 6;
     private Map<String,String > otpMapping = new HashMap<>();
     public boolean generateOTP(String emailId){
