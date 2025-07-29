@@ -45,8 +45,6 @@ public class OtpServiceForgotPassword {
             messageHelper.setFrom("rajmukherjeegcp@gmail.com");
             messageHelper.setTo(email);
             messageHelper.setSubject("🔐 DeepThreat - OTP for Password Reset");
-            ClassPathResource logo = new ClassPathResource("deepthreat_logo.png");
-            messageHelper.addInline("deepThreatLogo", logo);
             String emailBody =
                     "<!DOCTYPE html>" +
                             "<html>" +
@@ -62,9 +60,10 @@ public class OtpServiceForgotPassword {
 
                             // Logo and Title
                             "<div style='text-align: center; margin-bottom: 20px;'>" +
-                            "<img src='cid:deepThreatLogo' alt='DeepThreat Logo' style='height: 60px; margin-bottom: 15px;'/>" +
-                            "<h2 style='color: #38bdf8;'>Reset Your Password</h2>" +
-                            "</div>" +
+                            "  <img src='cid:deepThreatLogo' alt='DeepThreat Logo' style='height: 60px; margin-bottom: 15px; display: block;' />" +
+                            "  <div style=\"color: white; font-size: 14px;\">DeepThreat Logo</div>" +
+                            "  <h2 style='color: #38bdf8;'>Reset Your Password</h2>" +
+                            "</div>"+
 
                             // Message
                             "<p style='font-size: 16px; color: #cbd5e1;'>We received a request to reset your password associated with this email. Please use the One-Time Password (OTP) below to proceed with resetting your password:</p>" +
