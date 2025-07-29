@@ -4,6 +4,7 @@ import com.DeepThreat.DTO.UserDetailsUpdateDto;
 import com.DeepThreat.Entity.UserEntity;
 import com.DeepThreat.Entity.UserURLHistoryEntity;
 import com.DeepThreat.Service.HistoryService;
+import com.DeepThreat.Service.OtpServiceForgotPassword;
 import com.DeepThreat.Service.UserDetailsService;
 import com.DeepThreat.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class UserController {
     private HistoryService historyService;
     @Autowired
     private UserDetailsService userDetailsService;
-
+    private OtpServiceForgotPassword otpServiceForgotPassword;
     @PostMapping("/urlHistory")
     public ResponseEntity<List<UserURLHistoryEntity>> urlHistory(@RequestParam String email){
         List<UserURLHistoryEntity> list =  historyService.urlSearchedHistory(email);
