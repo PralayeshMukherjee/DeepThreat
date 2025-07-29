@@ -6,5 +6,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class OtpServiceForgotPassword {
+    @Autowired
     private JavaMailSender javaMailSender;
 }
