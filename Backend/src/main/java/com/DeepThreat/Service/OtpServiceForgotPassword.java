@@ -45,7 +45,7 @@ public class OtpServiceForgotPassword {
             messageHelper.setFrom("rajmukherjeegcp@gmail.com");
             messageHelper.setTo(email);
             messageHelper.setSubject("🔐 DeepThreat - OTP for Password Reset");
-            ClassPathResource logo = new ClassPathResource("static/images/deepthreat_logo.png");
+            ClassPathResource logo = new ClassPathResource("deepthreat_logo.png");
             messageHelper.addInline("deepThreatLogo", logo);
             String emailBody =
                     "<!DOCTYPE html>" +
