@@ -101,4 +101,16 @@ public class OtpServiceForgotPassword {
             return false;
         }
     }
+    public boolean verifyOTP(String emailId, String otp){
+        if(otpMapping.containsKey(emailId)){
+            if(otpMapping.get(emailId).equals(otp)){
+                otpMapping.remove(emailId);
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+    }
 }
