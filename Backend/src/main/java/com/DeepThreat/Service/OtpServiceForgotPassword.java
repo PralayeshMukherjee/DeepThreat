@@ -19,6 +19,7 @@ import java.util.concurrent.TimeUnit;
 public class OtpServiceForgotPassword {
     @Autowired
     private JavaMailSender javaMailSender;
+    @Autowired
     private PasswordEncoder passwordEncoder;
     private static final int otpLenght = 6;
     private Map<String,String > otpMapping = new HashMap<>();
