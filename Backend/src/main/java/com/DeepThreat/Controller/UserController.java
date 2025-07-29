@@ -21,6 +21,7 @@ public class UserController {
     private HistoryService historyService;
     @Autowired
     private UserDetailsService userDetailsService;
+    @Autowired
     private OtpServiceForgotPassword otpServiceForgotPassword;
     @PostMapping("/urlHistory")
     public ResponseEntity<List<UserURLHistoryEntity>> urlHistory(@RequestParam String email){
