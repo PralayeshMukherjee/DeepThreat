@@ -123,5 +123,8 @@ public class OtpServiceForgotPassword {
     }
     public boolean updatePassword(String email, String newPassword){
         Optional<UserEntity> userEntity = userRepository.findById(email);
+        if(userEntity.isPresent()){
+            UserEntity user = userEntity.get();
+        }
     }
 }
