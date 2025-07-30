@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 export default function EditProfile() {
   const [loading, setLoading] = useState(false);
+  const [loadingOTP,setLoadingOTP] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
