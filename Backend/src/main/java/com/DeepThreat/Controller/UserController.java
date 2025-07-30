@@ -50,4 +50,7 @@ public class UserController {
         }
         return ResponseEntity.ok(Map.of("isOTPSend",String.valueOf(isOTPSend)));
     }
+    public ResponseEntity<Map<String,String>> verifyOTP(@RequestParam String email,String otp,String newPassword){
+
+    }
 }
