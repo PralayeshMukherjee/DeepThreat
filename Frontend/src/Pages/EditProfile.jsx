@@ -9,8 +9,9 @@ export default function EditProfile() {
   const [loading, setLoading] = useState(false);
   const [loadingOTP, setLoadingOTP] = useState(false);
   const [loadingForgot, setLoadingForgot] = useState(false);
-  const [timer, setTimer] = useState(300); // 5 minutes
+  const [timer, setTimer] = useState(120); // 2 minutes
   const [canResend, setCanResend] = useState(false);
+  const [resending, setResending] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -81,9 +82,8 @@ export default function EditProfile() {
 
   const handleOtpRequest = async () => {
     try {
+      setResending(true);
       setLoadingOTP(true);
-      setTimer(300);
-      setCanResend(false);
       const response = await fetch(
         `http://localhost:8080/userDetails/sendOTPtoForgot?email=${formData.email}`,
         {
@@ -98,6 +98,9 @@ export default function EditProfile() {
       if (response.ok) {
         setLoadingOTP(false);
         setOtpSent(true);
+        setTimer(120);
+        setCanResend(false);
+        setResending(false);
         toast.success(`OTP sent successfully to ${formData.email}`);
       }
     } catch (error) {
@@ -333,17 +336,41 @@ export default function EditProfile() {
                   <span className="text-gray-600 dark:text-gray-300">
                     OTP expires in: {formatTime(timer)}
                   </span>
-                  <button
+                  <motion.button
+                    whileHover={{ scale: canResend && !resending ? 1.05 : 1 }}
+                    whileTap={{ scale: canResend && !resending ? 0.95 : 1 }}
                     onClick={handleOtpRequest}
-                    disabled={!canResend}
-                    className={`text-blue-600 font-medium ${
-                      !canResend
+                    disabled={!canResend || resending}
+                    className={`flex items-center gap-1 text-blue-600 font-medium ${
+                      !canResend || resending
                         ? "opacity-50 cursor-not-allowed"
                         : "hover:underline"
                     }`}
                   >
+                    {resending && (
+                      <svg
+                        className="animate-spin h-4 w-4 text-blue-600"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        ></circle>
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8v8H4z"
+                        ></path>
+                      </svg>
+                    )}
                     Resend OTP
-                  </button>
+                  </motion.button>
                 </div>
                 <div className="mb-4">
                   <label className="block text-sm font-semibold mb-2">
