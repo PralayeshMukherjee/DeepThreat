@@ -58,6 +58,8 @@ public class UserController {
             return ResponseEntity.ok(Map.of("isUpdate","wrongotp"));
         }else if(result.equals("2")){
             return ResponseEntity.ok(Map.of("isUpdate","wrongemail"));
+        }else {
+            return ResponseEntity.ok(Map.of("isUpdate","wrong"));
         }
     }
 }
