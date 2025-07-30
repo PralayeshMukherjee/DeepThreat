@@ -1,5 +1,6 @@
 package com.DeepThreat.Service;
 
+import com.DeepThreat.Repository.UserRepository;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,8 @@ public class OtpServiceForgotPassword {
     private JavaMailSender javaMailSender;
     @Autowired
     private PasswordEncoder passwordEncoder;
+    private UserRepository userRepository;
+
     private static final int otpLenght = 6;
     private Map<String,String > otpMapping = new HashMap<>();
     public boolean generateOTP(String emailId){
