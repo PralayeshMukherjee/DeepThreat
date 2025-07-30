@@ -122,12 +122,17 @@ public class OtpServiceForgotPassword {
         }
     }
     public boolean updatePassword(String email, String newPassword){
-        Optional<UserEntity> userEntity = userRepository.findById(email);
-        if(userEntity.isPresent()){
-            UserEntity user = userEntity.get();
-            user.setPassword(newPassword);
-            userRepository.save(user);
-            return true;
+        try{
+            Optional<UserEntity> userEntity = userRepository.findById(email);
+            if(userEntity.isPresent()){
+                UserEntity user = userEntity.get();
+                user.setPassword(newPassword);
+                userRepository.save(user);
+                return true;
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
         }
+        return false;
     }
 }
