@@ -7,8 +7,8 @@ import "react-toastify/dist/ReactToastify.css";
 
 export default function EditProfile() {
   const [loading, setLoading] = useState(false);
-  const [loadingOTP,setLoadingOTP] = useState(false);
-  const [loadingForgot,setLoadingForgot] = useState(false);
+  const [loadingOTP, setLoadingOTP] = useState(false);
+  const [loadingForgot, setLoadingForgot] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -61,63 +61,68 @@ export default function EditProfile() {
   };
 
   const handleOtpRequest = async () => {
-    try{
-      setLoadingOTP(true)
-      const response = await fetch(`http://localhost:8080/userDetails/sendOTPtoForgot?email=${formData.email}`,{
-        method: "POST",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
+    try {
+      setLoadingOTP(true);
+      const response = await fetch(
+        `http://localhost:8080/userDetails/sendOTPtoForgot?email=${formData.email}`,
+        {
+          method: "POST",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       const data = await response.json();
-      if(response.ok){
+      if (response.ok) {
         setLoadingOTP(false);
         setOtpSent(true);
-        toast.success(`OTP sent successfully to ${formData.email}`)
+        toast.success(`OTP sent successfully to ${formData.email}`);
       }
-    }catch(error){
+    } catch (error) {
       console.log(error);
-      toast.error("Something went wrong. Please try again later!")
+      toast.error("Something went wrong. Please try again later!");
     }
   };
 
   const handleOtpVerification = async () => {
-    try{
-      setLoadingForgot(true)
-      const response = await fetch(`http://localhost:8080/userDetails/verifyotp?email=${formData.email}&otp=${otp}&newPassword=${newPassword}`,{
-        method: "POST",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-      const data = await response.json();
-      if(response.ok){
-        const result = data.isUpdate;
-        if(result==="true"){
-          toast.success("Update Password Successfullly!")
-        }else if(response==="wrongotp"){
-          toast.error("Wrong OTP Given!")
-        }else if(response==="wrongemail"){
-          toast.error("Wrong Email Given, Please Try Again Later...");
-        }else if(response==="wrong"){
-          toast.error("Password Not Updated, Please Try Again Later...")
+    try {
+      setLoadingForgot(true);
+      const response = await fetch(
+        `http://localhost:8080/userDetails/verifyotp?email=${formData.email}&otp=${otp}&newPassword=${newPassword}`,
+        {
+          method: "POST",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
         }
+      );
+      const data = await response.json();
+      if (response.ok) {
+        const result = data.isUpdate;
+        if (result === "true") {
+          toast.success("Update Password Successfullly!");
+        } else if (response === "wrongotp") {
+          toast.error("Invalid OTP!");
+        } else if (response === "wrongemail") {
+          toast.error("Wrong Email Given, Please Try Again Later...");
+        } else if (response === "wrong") {
+          toast.error("Password Not Updated, Please Try Again Later...");
+        }
+        setShowForgotPassword(false);
+        setOtpSent(false);
+        setOtp("");
+        setNewPassword("");
         setLoadingForgot(false);
       }
-    }catch(error){
+    } catch (error) {
       console.error(error);
-      toast.error("Something Went Wrong, Please Try Again Later...");
-    }
-    if (otp === "123456") {
-      alert("Password reset successful!");
       setShowForgotPassword(false);
       setOtpSent(false);
       setOtp("");
       setNewPassword("");
-    } else {
-      alert("Invalid OTP");
+      toast.error("Something Went Wrong, Please Try Again Later...");
     }
   };
   const handleSaveChanges = async () => {
@@ -284,8 +289,8 @@ export default function EditProfile() {
                 className={`w-full py-3 font-semibold rounded-xl cursor-pointer
                   ${
                     loadingOTP
-                    ? "bg-gray-400 cursor-progress"
-                    : "bg-blue-600 hover:bg-blue-700 text-white"
+                      ? "bg-gray-400 cursor-progress"
+                      : "bg-blue-600 hover:bg-blue-700 text-white"
                   }`}
               >
                 {loadingOTP ? "Sending..." : "Send OTP"}
@@ -321,19 +326,19 @@ export default function EditProfile() {
                   </div>
                 </div>
                 <motion.button
-                disabled={loadingOTP}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={handleOtpRequest}
-                className={`w-full py-3 font-semibold rounded-xl cursor-pointer
+                  disabled={loadingOTP}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={handleOtpRequest}
+                  className={`w-full py-3 font-semibold rounded-xl cursor-pointer
                   ${
                     loadingOTP
-                    ? "bg-gray-400 cursor-progress"
-                    : "bg-blue-600 hover:bg-blue-700 text-white"
+                      ? "bg-gray-400 cursor-progress"
+                      : "bg-blue-600 hover:bg-blue-700 text-white"
                   }`}
-              >
-                {loadingOTP ? "Sending..." : "Send OTP"}
-              </motion.button>
+                >
+                  {loadingOTP ? "Sending..." : "Send OTP"}
+                </motion.button>
                 <motion.button
                   disabled={loadingForgot}
                   whileHover={{ scale: 1.05 }}
@@ -342,11 +347,13 @@ export default function EditProfile() {
                   className={`w-full py-3 font-semibold rounded-xl cursor-pointer
                     ${
                       loadingForgot
-                      ? "bg-gray-400 cursor-progress"
-                      : "bg-green-600 hover:bg-green-700 text-white"
+                        ? "bg-gray-400 cursor-progress"
+                        : "bg-green-600 hover:bg-green-700 text-white"
                     }`}
                 >
-                  {loadingForgot ? "Verifying..&Reseting.." : "Verify & Reset Password"}
+                  {loadingForgot
+                    ? "Verifying..&Reseting.."
+                    : "Verify & Reset Password"}
                 </motion.button>
               </>
             )}
