@@ -118,7 +118,7 @@ public class OtpServiceForgotPassword {
                 return false;
             }
         }else{
-            return false;
+            return "2";
         }
     }
     public boolean updatePassword(String email, String newPassword){
