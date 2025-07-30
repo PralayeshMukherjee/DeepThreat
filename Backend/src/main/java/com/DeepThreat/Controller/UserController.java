@@ -50,6 +50,7 @@ public class UserController {
         }
         return ResponseEntity.ok(Map.of("isOTPSend",String.valueOf(isOTPSend)));
     }
+    @PostMapping("/verifyotp")
     public ResponseEntity<Map<String,String>> verifyOTP(@RequestParam String email,String otp,String newPassword){
         String result = otpServiceForgotPassword.verifyOTP(email, otp, newPassword);
         if(result.equals("0")){
