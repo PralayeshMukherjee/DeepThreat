@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 export default function EditProfile() {
   const [loading, setLoading] = useState(false);
   const [loadingOTP,setLoadingOTP] = useState(false);
+  const [loadingForgot,setLoadingForgot] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -93,6 +94,9 @@ export default function EditProfile() {
       const data = await response.json();
       if(response.ok){
         const result = data.isUpdate;
+        if(result==="true"){
+          
+        }
       }
     }catch(error){
     }
