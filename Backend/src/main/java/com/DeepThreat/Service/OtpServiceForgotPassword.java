@@ -115,7 +115,7 @@ public class OtpServiceForgotPassword {
                 otpMapping.remove(emailId);
                 return true;
             }else{
-                return false;
+                return "1";
             }
         }else{
             return "2";
