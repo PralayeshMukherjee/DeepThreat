@@ -54,6 +54,8 @@ public class UserController {
         String result = otpServiceForgotPassword.verifyOTP(email, otp, newPassword);
         if(result.equals("0")){
             return ResponseEntity.ok(Map.of("isUpdate","true"));
+        }else if(result.equals("1")){
+            return ResponseEntity.ok(Map.of("isUpdate","wrongotp"));
         }
     }
 }
