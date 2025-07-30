@@ -83,7 +83,7 @@ export default function EditProfile() {
 
   const handleOtpVerification = async () => {
     try{
-      const response = await fetch(`http://localhost:8080/userDetails/verifyotp`,{
+      const response = await fetch(`http://localhost:8080/userDetails/verifyotp?email=${formData.email}&otp=${otp}&newPassword=${newPassword}`,{
         method: "POST",
         credentials: "include",
         headers: {
