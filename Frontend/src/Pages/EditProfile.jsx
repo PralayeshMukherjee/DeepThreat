@@ -104,6 +104,7 @@ export default function EditProfile() {
         }else if(response==="wrong"){
           toast.error("Password Not Updated, Please Try Again Later...")
         }
+        setLoadingForgot(false);
       }
     }catch(error){
     }
