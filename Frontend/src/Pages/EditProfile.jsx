@@ -96,7 +96,13 @@ export default function EditProfile() {
       if(response.ok){
         const result = data.isUpdate;
         if(result==="true"){
-          
+          toast.success("Update Password Successfullly!")
+        }else if(response==="wrongotp"){
+          toast.error("Wrong OTP Given!")
+        }else if(response==="wrongemail"){
+          toast.error("Wrong Email Given, Please Try Again Later...");
+        }else if(response==="wrong"){
+          toast.error("Password Not Updated, Please Try Again Later...")
         }
       }
     }catch(error){
