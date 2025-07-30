@@ -1,5 +1,6 @@
 package com.DeepThreat.Service;
 
+import com.DeepThreat.Entity.UserEntity;
 import com.DeepThreat.Repository.UserRepository;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -120,6 +122,6 @@ public class OtpServiceForgotPassword {
         }
     }
     public boolean updatePassword(String email, String newPassword){
-
+        Optional<UserEntity> userEntity = userRepository.findById(email);
     }
 }
