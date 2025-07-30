@@ -126,6 +126,7 @@ public class OtpServiceForgotPassword {
         if(userEntity.isPresent()){
             UserEntity user = userEntity.get();
             user.setPassword(newPassword);
+            userRepository.save(user);
         }
     }
 }
