@@ -81,7 +81,17 @@ export default function EditProfile() {
     }
   };
 
-  const handleOtpVerification = () => {
+  const handleOtpVerification = async () => {
+    try{
+      const response = await fetch(`http://localhost:8080/userDetails/verifyotp`,{
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+    }catch(error){
+    }
     if (otp === "123456") {
       alert("Password reset successful!");
       setShowForgotPassword(false);
