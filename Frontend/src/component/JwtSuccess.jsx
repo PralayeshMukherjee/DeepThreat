@@ -11,6 +11,7 @@ const JwtSuccess = () => {
 
     if (token) {
       localStorage.setItem("jwt", token);
+      sessionStorage.setItem("isValidEndpoint", true);
       navigate("/mainlayout");
     }
   }, []);
