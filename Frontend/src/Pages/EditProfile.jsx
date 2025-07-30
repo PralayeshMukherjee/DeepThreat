@@ -311,12 +311,32 @@ export default function EditProfile() {
                   </div>
                 </div>
                 <motion.button
+                disabled={loadingOTP}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={handleOtpRequest}
+                className={`w-full py-3 font-semibold rounded-xl cursor-pointer
+                  ${
+                    loadingOTP
+                    ? "bg-gray-400 cursor-progress"
+                    : "bg-blue-600 hover:bg-blue-700 text-white"
+                  }`}
+              >
+                {loadingOTP ? "Sending..." : "Send OTP"}
+              </motion.button>
+                <motion.button
+                  disabled={loadingForgot}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={handleOtpVerification}
-                  className="w-full py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl"
+                  className={`w-full py-3 font-semibold rounded-xl cursor-pointer
+                    ${
+                      loadingForgot
+                      ? "bg-gray-400 cursor-progress"
+                      : "bg-green-600 hover:bg-green-700 text-white"
+                    }`}
                 >
-                  Verify & Reset Password
+                  {loadingForgot ? "Verifying..&Reseting.." : "Verify & Reset Password"}
                 </motion.button>
               </>
             )}
