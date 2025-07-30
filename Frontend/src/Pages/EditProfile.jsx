@@ -232,12 +232,18 @@ export default function EditProfile() {
 
             {!otpSent ? (
               <motion.button
+                disabled={loadingOTP}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={handleOtpRequest}
-                className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl"
+                className={`w-full py-3 font-semibold rounded-xl cursor-pointer
+                  ${
+                    loadingOTP
+                    ? "bg-gray-400 cursor-progress"
+                    : "bg-blue-600 hover:bg-blue-700 text-white"
+                  }`}
               >
-                Send OTP
+                {loadingOTP ? "Sending..." : "Send OTP"}
               </motion.button>
             ) : (
               <>
