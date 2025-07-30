@@ -22,6 +22,7 @@ public class OtpServiceForgotPassword {
     private JavaMailSender javaMailSender;
     @Autowired
     private PasswordEncoder passwordEncoder;
+    @Autowired
     private UserRepository userRepository;
 
     private static final int otpLenght = 6;
