@@ -9,11 +9,30 @@ export default function EditProfile() {
   const [loading, setLoading] = useState(false);
   const [loadingOTP, setLoadingOTP] = useState(false);
   const [loadingForgot, setLoadingForgot] = useState(false);
+  const [timer, setTimer] = useState(300); // 5 minutes
+  const [canResend, setCanResend] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
   });
+  useEffect(() => {
+    if (timer > 0) {
+      const countdown = setInterval(() => {
+        setTimer((prev) => prev - 1);
+      }, 1000);
+      return () => clearInterval(countdown);
+    } else {
+      setCanResend(true);
+    }
+  }, [timer]);
+  const formatTime = (seconds) => {
+    const m = Math.floor(seconds / 60)
+      .toString()
+      .padStart(2, "0");
+    const s = (seconds % 60).toString().padStart(2, "0");
+    return `${m}:${s}`;
+  };
   const handleDataFetching = async (email) => {
     try {
       const response = await fetch(
@@ -63,6 +82,8 @@ export default function EditProfile() {
   const handleOtpRequest = async () => {
     try {
       setLoadingOTP(true);
+      setTimer(300);
+      setCanResend(false);
       const response = await fetch(
         `http://localhost:8080/userDetails/sendOTPtoForgot?email=${formData.email}`,
         {
@@ -211,7 +232,7 @@ export default function EditProfile() {
                     readOnly
                     className="pl-10 pr-4 py-2 w-full rounded-xl hover: bg-gray-100 dark:bg-[#27394c] outline-none focus:ring-2 ring-blue-400 dark:ring-blue-500"
                   />
-                  <span class="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                  <span className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                     This field is read-only
                   </span>
                 </div>
@@ -308,6 +329,22 @@ export default function EditProfile() {
                     className="w-full py-2 px-4 rounded-xl bg-gray-100 dark:bg-[#27394c] outline-none focus:ring-2 ring-blue-400 dark:ring-blue-500"
                   />
                 </div>
+                <div className="flex justify-between items-center mt-2 text-sm">
+                  <span className="text-gray-600 dark:text-gray-300">
+                    OTP expires in: {formatTime(timer)}
+                  </span>
+                  <button
+                    onClick={handleOtpRequest}
+                    disabled={!canResend}
+                    className={`text-blue-600 font-medium ${
+                      !canResend
+                        ? "opacity-50 cursor-not-allowed"
+                        : "hover:underline"
+                    }`}
+                  >
+                    Resend OTP
+                  </button>
+                </div>
                 <div className="mb-4">
                   <label className="block text-sm font-semibold mb-2">
                     New Password
@@ -325,20 +362,6 @@ export default function EditProfile() {
                     />
                   </div>
                 </div>
-                <motion.button
-                  disabled={loadingOTP}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={handleOtpRequest}
-                  className={`w-full py-3 font-semibold rounded-xl cursor-pointer
-                  ${
-                    loadingOTP
-                      ? "bg-gray-400 cursor-progress"
-                      : "bg-blue-600 hover:bg-blue-700 text-white"
-                  }`}
-                >
-                  {loadingOTP ? "Sending..." : "Send OTP"}
-                </motion.button>
                 <motion.button
                   disabled={loadingForgot}
                   whileHover={{ scale: 1.05 }}
