@@ -61,6 +61,7 @@ export default function EditProfile() {
 
   const handleOtpRequest = async () => {
     try{
+      setLoadingOTP(true)
       const response = await fetch(`http://localhost:8080/userDetails/sendOTPtoForgot?email=${formData.email}`,{
         method: "POST",
         credentials: "include",
