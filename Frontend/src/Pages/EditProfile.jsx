@@ -72,14 +72,13 @@ export default function EditProfile() {
       const data = await response.json();
       if(response.ok){
         setLoadingOTP(false);
+        setOtpSent(true);
         toast.success(`OTP sent successfully to ${formData.email}`)
       }
     }catch(error){
       console.log(error);
       toast.error("Something went wrong. Please try again later!")
     }
-    setOtpSent(true);
-    alert("OTP sent to email: " + formData.email);
   };
 
   const handleOtpVerification = () => {
