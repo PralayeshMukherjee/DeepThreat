@@ -59,7 +59,19 @@ export default function EditProfile() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleOtpRequest = () => {
+  const handleOtpRequest = async () => {
+    try{
+      const response = await fetch(`http://localhost:8080/userDetails/sendOTPtoForgot?email=${formData.email}`,{
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+    }catch(error){
+      console.log(error);
+      toast.error("Something went wrong. Please try again later!")
+    }
     setOtpSent(true);
     alert("OTP sent to email: " + formData.email);
   };
