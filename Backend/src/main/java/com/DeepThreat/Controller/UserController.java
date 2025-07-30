@@ -52,5 +52,8 @@ public class UserController {
     }
     public ResponseEntity<Map<String,String>> verifyOTP(@RequestParam String email,String otp,String newPassword){
         String result = otpServiceForgotPassword.verifyOTP(email, otp, newPassword);
+        if(result.equals("0")){
+            return ResponseEntity.ok(Map.of("isUpdate","true"));
+        }
     }
 }
