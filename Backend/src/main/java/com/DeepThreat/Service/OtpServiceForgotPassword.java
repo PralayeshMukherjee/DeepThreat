@@ -119,4 +119,7 @@ public class OtpServiceForgotPassword {
             return false;
         }
     }
+    public boolean updatePassword(String email, String newPassword){
+
+    }
 }
