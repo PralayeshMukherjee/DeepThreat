@@ -69,6 +69,7 @@ export default function EditProfile() {
           "Content-Type": "application/json",
         },
       })
+      const data = await response.json();
     }catch(error){
       console.log(error);
       toast.error("Something went wrong. Please try again later!")
