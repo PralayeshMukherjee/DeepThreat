@@ -107,6 +107,8 @@ export default function EditProfile() {
         setLoadingForgot(false);
       }
     }catch(error){
+      console.error(error);
+      toast.error("Something Went Wrong, Please Try Again Later...");
     }
     if (otp === "123456") {
       alert("Password reset successful!");
