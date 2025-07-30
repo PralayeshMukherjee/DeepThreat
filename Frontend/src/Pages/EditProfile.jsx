@@ -71,6 +71,7 @@ export default function EditProfile() {
       })
       const data = await response.json();
       if(response.ok){
+        setLoadingOTP(false);
         toast.success(`OTP sent successfully to ${formData.email}`)
       }
     }catch(error){
