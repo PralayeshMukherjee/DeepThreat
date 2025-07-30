@@ -91,6 +91,9 @@ export default function EditProfile() {
         },
       })
       const data = await response.json();
+      if(response.ok){
+        const result = data.isUpdate;
+      }
     }catch(error){
     }
     if (otp === "123456") {
