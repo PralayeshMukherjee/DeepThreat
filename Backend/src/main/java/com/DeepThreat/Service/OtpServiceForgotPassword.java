@@ -113,6 +113,9 @@ public class OtpServiceForgotPassword {
         if(otpMapping.containsKey(emailId)){
             if(otpMapping.get(emailId).equals(otp)){
                 otpMapping.remove(emailId);
+                if(updatePassword(emailId,newPassword)){
+                    return "0";
+                }
                 return true;
             }else{
                 return "1";
