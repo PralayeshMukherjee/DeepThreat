@@ -130,7 +130,7 @@ public class OtpServiceForgotPassword {
             Optional<UserEntity> userEntity = userRepository.findById(email);
             if(userEntity.isPresent()){
                 UserEntity user = userEntity.get();
-                user.setPassword(newPassword);
+                user.setPassword(passwordEncoder.encode(newPassword));
                 userRepository.save(user);
                 return true;
             }
