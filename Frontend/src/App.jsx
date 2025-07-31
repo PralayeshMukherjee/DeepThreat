@@ -18,6 +18,7 @@ import {
   History,
   Contact,
   EditProfile,
+  HelpSupport,
 } from "./ie.js";
 
 import "./App.css";
@@ -43,6 +44,7 @@ function App() {
           <Route path="history" element={<History />} />
           <Route path="contact" element={<Contact />} />
           <Route path="editprofile" element={<EditProfile />} />
+          <Route path="helpsupport" element={<HelpSupport />} />
         </Route>
       </>
     )
