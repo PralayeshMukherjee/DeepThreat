@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Sun, Moon, ThumbsUp, ThumbsDown,Mail, Phone, HelpCircle, Bot } from "lucide-react";
+import { ThumbsUp, ThumbsDown,Mail, Phone, HelpCircle, Bot } from "lucide-react";
 
 const faqsData = [
   {
@@ -56,7 +56,6 @@ const recentActivities = [
 ];
 
 export default function HelpSupport() {
-  const [darkMode, setDarkMode] = useState(true);
   const [search, setSearch] = useState("");
   const [faqFeedback, setFaqFeedback] = useState({});
   const [showChatbot, setShowChatbot] = useState(false);
@@ -103,9 +102,6 @@ export default function HelpSupport() {
       <div className="flex justify-between p-4 items-center">
         <h1 className="text-2xl font-bold">Help & Support</h1>
         <div className="flex items-center gap-4">
-          <button onClick={() => setDarkMode(!darkMode)} className="p-2 rounded-full hover:bg-slate-700">
-            {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-          </button>
           <button onClick={() => setShowChatbot(!showChatbot)} className="p-2 rounded-full hover:bg-slate-700">
             <Bot size={20} />
           </button>
