@@ -98,7 +98,7 @@ export default function HelpSupport() {
   }, []);
 
   return (
-    <div className={`min-h-screen transition-all ${darkMode ? "bg-slate-900 text-white" : "bg-white text-slate-900"}`}>
+    <div className={`min-h-screen transition-all dark:bg-slate-900 dark:text-white  bg-white text-slate-900`}>
       <div className="flex justify-between p-4 items-center">
         <h1 className="text-2xl font-bold">Help & Support</h1>
         <div className="flex items-center gap-4">
@@ -215,37 +215,31 @@ export default function HelpSupport() {
 
       <section className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
         <div
-          className={`p-6 rounded-xl shadow flex flex-col items-center gap-3 ${
-            darkMode ? "bg-[#1e40af]" : "bg-blue-200"
-          }`}
+          className={`p-6 rounded-xl shadow flex flex-col items-center gap-3 bg-blue-200 dark:bg-[#1e40af]`}
         >
           <HelpCircle size={28} />
           <h3 className="text-lg font-semibold">Guides & Tutorials</h3>
-          <p className={`${darkMode ? "text-gray-200" : "text-gray-800"}`}>
+          <p className={`dark:text-gray-200  text-gray-800`}>
             Learn how to use the platform effectively with our step-by-step guides.
           </p>
         </div>
 
         <div
-          className={`p-6 rounded-xl shadow flex flex-col items-center gap-3 ${
-            darkMode ? "bg-[#059669]" : "bg-green-200"
-          }`}
+          className={`p-6 rounded-xl shadow flex flex-col items-center gap-3 dark:bg-[#059669]  bg-green-200`}
         >
           <Mail size={28} />
           <h3 className="text-lg font-semibold">Security & Account</h3>
-          <p className={`${darkMode ? "text-gray-200" : "text-gray-800"}`}>
+          <p className={`dark:text-gray-200 text-gray-800`}>
             Help on login issues, password changes, and securing your account.
           </p>
         </div>
 
         <div
-          className={`p-6 rounded-xl shadow flex flex-col items-center gap-3 ${
-            darkMode ? "bg-[#6366f1]" : "bg-indigo-200"
-          }`}
+          className={`p-6 rounded-xl shadow flex flex-col items-center gap-3 dark:bg-[#6366f1] bg-indigo-200`}
         >
           <Phone size={28} />
           <h3 className="text-lg font-semibold">Billing & Subscriptions</h3>
-          <p className={`${darkMode ? "text-gray-200" : "text-gray-800"}`}>
+          <p className={`dark:text-gray-200  text-gray-800`}>
             Get info on payments, invoices, refunds, and subscriptions.
           </p>
         </div>
