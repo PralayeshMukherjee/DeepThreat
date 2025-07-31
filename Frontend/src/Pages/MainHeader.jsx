@@ -164,7 +164,7 @@ const MainHeader = () => {
                     Settings & Privacy
                   </Link>
                   <Link
-                    onClick={underDev}
+                    to={"/mainlayout/helpsupport"}
                     className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center rounded-md"
                   >
                     <img
