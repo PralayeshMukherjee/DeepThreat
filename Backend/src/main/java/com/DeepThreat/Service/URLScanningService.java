@@ -103,6 +103,10 @@ public class URLScanningService {
         }
         return count > 5 ? 10 : 0;
     }
+    public int isHttpProtocol(String url){
+        if(url.toLowerCase().startsWith("http://")) return 10;
+        return 0;
+    }
     public int suspiciousChecking(String url){
         int suspicious = 0;
         suspicious += suspiciousKeywordsChecks(url);
