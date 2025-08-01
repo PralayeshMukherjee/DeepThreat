@@ -5,6 +5,7 @@ import com.DeepThreat.Entity.UserURLHistoryEntity;
 import com.DeepThreat.Repository.URLHistoryRepository;
 import com.DeepThreat.Repository.UserURLHistoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.net.MalformedURLException;
@@ -107,6 +108,7 @@ public class URLScanningService {
         if(url.toLowerCase().startsWith("http://")) return 10;
         return 0;
     }
+    private String virustotalapikey;
     public int virusTotalCheck(String url){
 
     }
