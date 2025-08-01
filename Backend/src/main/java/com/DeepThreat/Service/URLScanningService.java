@@ -113,6 +113,7 @@ public class URLScanningService {
         suspicious += NoOfSubdomains(url);
         suspicious += shortenersURL(url);
         suspicious += mismatchedTopLevelDomain(url);
+        suspicious += mismatchedTopLevelDomain(url);
         return Math.min(suspicious,60);
     }
     public int maliciousChecking(String url){
