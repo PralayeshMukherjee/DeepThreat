@@ -54,7 +54,7 @@ public class URLScanningService {
             String host = domain.getHost().toLowerCase();
             String ipRegex = "^\\d{1,3}(\\.\\d{1,3}){3}$";
             if(host.matches(ipRegex)){
-                return 20;
+                return 5;
             }
         }catch (MalformedURLException e){
             throw new RuntimeException(e);
