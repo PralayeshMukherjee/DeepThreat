@@ -88,6 +88,10 @@ public class URLScanningService {
         }
         return 0;
     }
+    public int urlLengthCheck(String url){
+        if(url.length()>75) return 10;
+        return 0;
+    }
     public int suspiciousChecking(String url){
         int suspicious = 0;
         suspicious += suspiciousKeywordsChecks(url);
