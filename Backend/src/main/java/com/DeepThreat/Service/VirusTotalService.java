@@ -6,5 +6,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class VirusTotalService {
     @Value("${virustotal.api.key}")
-    private String virustotalapikey;
+    private String apikey;
+    private String apiUrl;
 }
