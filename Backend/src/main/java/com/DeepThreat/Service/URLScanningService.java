@@ -97,7 +97,11 @@ public class URLScanningService {
         return 0;
     }
     public int suspiciousCharsCount(String url){
-
+        int count = 0;
+        for(char ch:url.toCharArray()){
+            if("-=@%$&!*".indexOf(ch)!=-1) count++;
+        }
+        return count > 5 ? 10 : 0;
     }
     public int suspiciousChecking(String url){
         int suspicious = 0;
