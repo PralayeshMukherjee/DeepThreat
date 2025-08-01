@@ -9,4 +9,7 @@ public class VirusTotalService {
     private String apikey;
     @Value("${virustotal.api.url}")
     private String apiUrl;
+    public int virusTotalCheck(String url){
+
+    }
 }
