@@ -129,7 +129,7 @@ public class URLScanningService {
         if(urlapiChecking.isGoogleSafeBrowsing(url)){
             malicious+=10;
         }
-        malicious +=
+        malicious += virusTotalService.virusTotalCheck(url);
         return Math.min(malicious,40);
     }
     public Map<String,String> isStatusOfUrl(String url,String email){
