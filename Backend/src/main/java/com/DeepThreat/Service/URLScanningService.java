@@ -96,6 +96,9 @@ public class URLScanningService {
         if (url.contains("@")) return 10;
         return 0;
     }
+    public int suspiciousCharsCount(String url){
+
+    }
     public int suspiciousChecking(String url){
         int suspicious = 0;
         suspicious += suspiciousKeywordsChecks(url);
