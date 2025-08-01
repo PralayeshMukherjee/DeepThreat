@@ -25,6 +25,7 @@ public class URLScanningService {
     private URLAPIChecking urlapiChecking;
     @Autowired
     private UserURLHistoryRepository userURLHistoryRepository;
+    private VirusTotalService virusTotalService;
     public int suspiciousKeywordsChecks(String url){
         if(url.contains("login")||url.contains("account")||url.contains("verify")||url.contains("update")||url.contains("secure")||url.contains("bank")||url.contains("free")||url.contains("gift")||url.contains("prize")){
             return 10;
@@ -108,11 +109,6 @@ public class URLScanningService {
         if(url.toLowerCase().startsWith("http://")) return 10;
         return 0;
     }
-    @Value("${virustotal.api.key}")
-    private String virustotalapikey;
-    public int virusTotalCheck(String url){
-
-    }
     public int suspiciousChecking(String url){
         int suspicious = 0;
         suspicious += suspiciousKeywordsChecks(url);
@@ -132,6 +128,7 @@ public class URLScanningService {
         if(urlapiChecking.isGoogleSafeBrowsing(url)){
             malicious+=10;
         }
+        malicious +=
         return Math.min(malicious,40);
     }
     public Map<String,String> isStatusOfUrl(String url,String email){
