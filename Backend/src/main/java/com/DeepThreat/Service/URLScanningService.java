@@ -92,6 +92,10 @@ public class URLScanningService {
         if(url.length()>75) return 10;
         return 0;
     }
+    public int hasAnySymbol(String url){
+        if (url.contains("@")) return 10;
+        return 0;
+    }
     public int suspiciousChecking(String url){
         int suspicious = 0;
         suspicious += suspiciousKeywordsChecks(url);
