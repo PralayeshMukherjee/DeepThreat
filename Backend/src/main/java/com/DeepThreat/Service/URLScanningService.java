@@ -107,6 +107,9 @@ public class URLScanningService {
         if(url.toLowerCase().startsWith("http://")) return 10;
         return 0;
     }
+    public int virusTotalCheck(String url){
+
+    }
     public int suspiciousChecking(String url){
         int suspicious = 0;
         suspicious += suspiciousKeywordsChecks(url);
