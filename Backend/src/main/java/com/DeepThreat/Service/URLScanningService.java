@@ -116,6 +116,7 @@ public class URLScanningService {
         suspicious += mismatchedTopLevelDomain(url);
         suspicious += urlLengthCheck(url);
         suspicious += hasAnySymbol(url);
+        suspicious += suspiciousCharsCount(url);
         return Math.min(suspicious,60);
     }
     public int maliciousChecking(String url){
