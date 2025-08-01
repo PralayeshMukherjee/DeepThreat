@@ -118,7 +118,7 @@ public class URLScanningService {
         suspicious += hasAnySymbol(url);
         suspicious += suspiciousCharsCount(url);
         suspicious += isHttpProtocol(url);
-        return Math.min(suspicious,60);
+        return Math.min(suspicious,40);
     }
     public int maliciousChecking(String url){
         int malicious = 0;
