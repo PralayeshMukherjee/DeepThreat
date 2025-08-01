@@ -43,7 +43,7 @@ public class URLScanningService {
         Set<String> set = Set.of("bit.ly", "tinyurl.com", "t.co", "is.gd", "goo.gl", "ow.ly",
                 "buff.ly", "rebrand.ly", "shorte.st", "adf.ly", "cutt.ly", "soo.gd");
         if(set.contains(extractHostName(url))){
-            return 20;
+            return 5;
         }else{
             return 0;
         }
