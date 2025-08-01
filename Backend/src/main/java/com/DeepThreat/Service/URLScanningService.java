@@ -108,6 +108,7 @@ public class URLScanningService {
         if(url.toLowerCase().startsWith("http://")) return 10;
         return 0;
     }
+    @Value("${virustotal.api.key}")
     private String virustotalapikey;
     public int virusTotalCheck(String url){
 
