@@ -114,6 +114,7 @@ public class URLScanningService {
         suspicious += shortenersURL(url);
         suspicious += mismatchedTopLevelDomain(url);
         suspicious += mismatchedTopLevelDomain(url);
+        suspicious += urlLengthCheck(url);
         return Math.min(suspicious,60);
     }
     public int maliciousChecking(String url){
