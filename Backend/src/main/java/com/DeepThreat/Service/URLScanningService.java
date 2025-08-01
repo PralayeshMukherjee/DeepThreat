@@ -67,7 +67,7 @@ public class URLScanningService {
             String domain = url1.getHost().toLowerCase();
             int dotCount = domain.split("\\.").length;
             if(dotCount>3){
-                return 10;
+                return 5;
             }
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
