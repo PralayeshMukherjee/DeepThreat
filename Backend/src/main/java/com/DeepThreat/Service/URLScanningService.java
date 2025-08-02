@@ -116,7 +116,6 @@ public class URLScanningService {
         suspicious += NoOfSubdomains(url);
         suspicious += shortenersURL(url);
         suspicious += mismatchedTopLevelDomain(url);
-        suspicious += mismatchedTopLevelDomain(url);
         suspicious += urlLengthCheck(url);
         suspicious += hasAnySymbol(url);
         suspicious += suspiciousCharsCount(url);
