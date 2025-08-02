@@ -24,8 +24,8 @@ const filterByDateAndStatus = (data, status, date) => {
 
 const computeStatus = (entry) => {
   const { malicious = 0, suspicious = 0, safe = 0 } = entry;
-  if (malicious >= suspicious && malicious >= safe) return "Malicious";
-  if (suspicious >= malicious && suspicious >= safe) return "Suspicious";
+  if (malicious >= 10) return "Malicious";
+  if (suspicious >= 20) return "Suspicious";
   return "Safe";
 };
 
@@ -47,8 +47,8 @@ function HistoryEntry({ entry }) {
   };
   const getStatus = (entry) => {
     const { malicious = 0, suspicious = 0, safe = 0 } = entry;
-    if (malicious >= suspicious && malicious >= safe) return "Malicious";
-    if (suspicious >= malicious && suspicious >= safe) return "Suspicious";
+    if (malicious >= 10) return "Malicious";
+    if (suspicious >= 20) return "Suspicious";
     return "Safe";
   };
 

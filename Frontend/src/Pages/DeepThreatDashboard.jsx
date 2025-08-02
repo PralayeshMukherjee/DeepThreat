@@ -16,12 +16,6 @@ import {
 } from "recharts";
 import { Card, CardContent } from "@/components/ui/card";
 
-const trafficData = [
-  { name: "Google.com", safe: 55, suspicious: 25, malicious: 20 },
-  { name: "Phishy.net", safe: 20, suspicious: 35, malicious: 45 },
-  { name: "Secure.org", safe: 80, suspicious: 10, malicious: 10 },
-];
-
 const threatTrends = [
   { name: "Day 1", threats: 120 },
   { name: "Day 2", threats: 220 },
@@ -31,6 +25,7 @@ const threatTrends = [
 ];
 
 export default function DeepThreatDashboard() {
+  const [trafficData, setTrafficData] = useState([]);
   const [malicious, setMalicious] = useState(0);
   const [suspicious, setSuspicious] = useState(0);
   const [safe, setSafe] = useState(0);
