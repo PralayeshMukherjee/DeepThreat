@@ -55,6 +55,7 @@ public class VirusTotalService {
 
             // Score calculation (max 15)
             int score = malicious * 5 + suspicious * 2;
+            System.out.println(score);
             return Math.min(score, 15);
         }catch (Exception e){
             System.out.println(e.getMessage());

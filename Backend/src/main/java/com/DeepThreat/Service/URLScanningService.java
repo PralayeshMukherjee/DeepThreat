@@ -125,7 +125,9 @@ public class URLScanningService {
     public int maliciousChecking(String url){
         int malicious = 0;
         malicious += ipAddressAsDomain(url);
-        if(urlapiChecking.isGoogleSafeBrowsing(url)){
+        boolean googleSafeBrowsingResult = urlapiChecking.isGoogleSafeBrowsing(url);
+        System.out.println(googleSafeBrowsingResult);
+        if(googleSafeBrowsingResult){
             malicious+=10;
         }
         malicious += virusTotalService.virusTotalCheck(url);

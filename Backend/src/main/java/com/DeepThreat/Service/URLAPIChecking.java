@@ -32,6 +32,7 @@ public class URLAPIChecking {
         try{
             ResponseEntity<Map> response = restTemplate.postForEntity(finalUrl,map,Map.class);
             if(response.getBody()!=null && response.getBody().containsKey("matches")){
+                System.out.println(true);
                 return true;//url is unsafe
             }
         }catch (Exception e){
