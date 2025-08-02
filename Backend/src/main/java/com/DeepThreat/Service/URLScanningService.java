@@ -129,7 +129,7 @@ public class URLScanningService {
             malicious+=10;
         }
         malicious += virusTotalService.virusTotalCheck(url);
-        return Math.min(malicious,40);
+        return Math.min(malicious,60);
     }
     public Map<String,String> isStatusOfUrl(String url,String email){
         int mal = maliciousChecking(url);
