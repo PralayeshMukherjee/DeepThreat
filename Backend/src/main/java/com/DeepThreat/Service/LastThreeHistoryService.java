@@ -22,6 +22,7 @@ public class LastThreeHistoryService {
             userPastData.setMalicious(userUrl.getMalicious());
             userPastData.setSuspicious(userUrl.getSuspicious());
             userPastData.setSafe(userUrl.getSafe());
+            fianlList.add(userPastData);
         }
     }
 }
