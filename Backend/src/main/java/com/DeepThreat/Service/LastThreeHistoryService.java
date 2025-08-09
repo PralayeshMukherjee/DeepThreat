@@ -24,5 +24,6 @@ public class LastThreeHistoryService {
             userPastData.setSafe(userUrl.getSafe());
             fianlList.add(userPastData);
         }
+        return fianlList;
     }
 }
