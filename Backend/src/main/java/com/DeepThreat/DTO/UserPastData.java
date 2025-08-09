@@ -8,4 +8,11 @@ public class UserPastData {
 
     public UserPastData() {
     }
+
+    public UserPastData(String url, int malicious, int suspicious, int safe) {
+        this.url = url;
+        this.malicious = malicious;
+        this.suspicious = suspicious;
+        this.safe = safe;
+    }
 }
