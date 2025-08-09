@@ -5,4 +5,7 @@ public class UserPastData {
     private int malicious;
     private int suspicious;
     private int safe;
+
+    public UserPastData() {
+    }
 }
