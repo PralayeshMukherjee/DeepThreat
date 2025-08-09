@@ -18,7 +18,10 @@ public class LastThreeHistoryService {
         List<UserPastData> fianlList = new ArrayList<>();
         for(UserURLHistoryEntity userUrl:getDataFromDataBase){
             UserPastData userPastData = new UserPastData();
-            u
+            userPastData.setUrl(userUrl.getUrl());
+            userPastData.setMalicious(userUrl.getMalicious());
+            userPastData.setSuspicious(userUrl.getSuspicious());
+            userPastData.setSafe(userUrl.getSafe());
         }
     }
 }
