@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserURLHistoryRepository extends JpaRepository<UserURLHistoryEntity,Long> {
-//    UserURLHistoryEntity findBy(){}
+    UserURLHistoryEntity findLastThreeURL();
 }
