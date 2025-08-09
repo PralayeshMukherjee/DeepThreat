@@ -16,5 +16,6 @@ public class LastThreeData {
     private LastThreeHistoryService lastThreeHistoryService;
     public ResponseEntity<List<UserPastData>> lastThreeDatas(@RequestParam String email){
         List<UserPastData> list = lastThreeHistoryService.getLastThreeHistory(email);
+        return ResponseEntity.ok(list);
     }
 }
