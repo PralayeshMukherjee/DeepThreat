@@ -11,6 +11,6 @@ import java.util.Optional;
 
 @Repository
 public interface UserURLHistoryRepository extends JpaRepository<UserURLHistoryEntity,Long> {
-    @Query()
+    @Query(value =  "select * from userurlhistory_entity where email= :email limit 3")
     List<UserURLHistoryEntity> findLastThreeURL(@Param("email")String email);
 }
