@@ -15,4 +15,36 @@ public class UserPastData {
         this.suspicious = suspicious;
         this.safe = safe;
     }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public int getMalicious() {
+        return malicious;
+    }
+
+    public void setMalicious(int malicious) {
+        this.malicious = malicious;
+    }
+
+    public int getSuspicious() {
+        return suspicious;
+    }
+
+    public void setSuspicious(int suspicious) {
+        this.suspicious = suspicious;
+    }
+
+    public int getSafe() {
+        return safe;
+    }
+
+    public void setSafe(int safe) {
+        this.safe = safe;
+    }
 }
