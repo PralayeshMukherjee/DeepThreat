@@ -16,5 +16,8 @@ public class LastThreeHistoryService {
     public List<UserPastData> getLastThreeHistory(String email){
         List<UserURLHistoryEntity> getDataFromDataBase = userURLHistoryRepository.findLastThreeURL(email);
         List<UserPastData> fianlList = new ArrayList<>();
+        for(UserURLHistoryEntity userUrl:getDataFromDataBase){
+
+        }
     }
 }
