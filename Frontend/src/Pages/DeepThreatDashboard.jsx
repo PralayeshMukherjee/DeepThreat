@@ -15,6 +15,7 @@ import {
   Legend,
 } from "recharts";
 import { Card, CardContent } from "@/components/ui/card";
+import { jwtDecode } from "jwt-decode";
 
 const threatTrends = [
   { name: "Day 1", threats: 120 },
@@ -30,6 +31,31 @@ export default function DeepThreatDashboard() {
   const [suspicious, setSuspicious] = useState(0);
   const [safe, setSafe] = useState(0);
   const [threat, setThreat] = useState(0); // if you need this
+  const getTraficData = async (email) => {
+    const response = await fetch(
+      `http://localhost:8080/lastData/getDatas?email=${email}`,
+      {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    const data = await response.json();
+    console.log(data);
+    if (response.ok) {
+      const formatted = data.map((item) => ({
+        name: item.url.length > 10 ? item.url.slice(0, 10) + "..." : item.url,
+        fullUrl: item.url, // store full version for tooltip
+        safe: item.safe,
+        suspicious: item.suspicious,
+        malicious: item.malicious,
+      }));
+
+      setTrafficData(formatted);
+    }
+  };
 
   useEffect(() => {
     const maliciousVal = parseInt(sessionStorage.getItem("malicious")) || 0;
@@ -41,6 +67,13 @@ export default function DeepThreatDashboard() {
     setSuspicious(suspiciousVal);
     setSafe(safeVal);
     setThreat(threatVal);
+    const token = localStorage.getItem("jwt");
+    if (token) {
+      const decode = jwtDecode(token);
+      const email = decode.email?.email || decode.email;
+      console.log(email); // support both structures
+      if (email) getTraficData(email);
+    }
   }, []);
 
   const pieData = [
@@ -62,7 +95,12 @@ export default function DeepThreatDashboard() {
               <BarChart data={trafficData}>
                 <XAxis dataKey="name" stroke="#999" />
                 <YAxis />
-                <Tooltip />
+                <Tooltip
+                  labelFormatter={(label, payload) =>
+                    payload[0]?.payload.fullUrl
+                  }
+                />
+
                 <Bar dataKey="safe" fill="#00bcd4" name="Safe" />
                 <Bar dataKey="suspicious" fill="#ff9800" name="Suspicious" />
                 <Bar dataKey="malicious" fill="#f44336" name="Malicious" />
