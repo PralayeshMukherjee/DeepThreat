@@ -30,7 +30,7 @@ export default function DeepThreatDashboard() {
   const [malicious, setMalicious] = useState(0);
   const [suspicious, setSuspicious] = useState(0);
   const [safe, setSafe] = useState(0);
-  const [finalStatus,setFinalStatus] = useState("");
+  const [finalStatus, setFinalStatus] = useState("");
   const [threat, setThreat] = useState(0); // if you need this
   const getTraficData = async (email) => {
     const response = await fetch(
@@ -63,11 +63,11 @@ export default function DeepThreatDashboard() {
     const suspiciousVal = parseInt(sessionStorage.getItem("suspicious")) || 0;
     const safeVal = parseInt(sessionStorage.getItem("safe")) || 0;
     const threatVal = parseInt(sessionStorage.getItem("threat"));
-    if(maliciousVal>=10){
+    if (maliciousVal >= 10) {
       setFinalStatus("Malicious");
-    }else if(suspiciousVal>=20){
+    } else if (suspiciousVal >= 20) {
       setFinalStatus("Suspicious");
-    }else{
+    } else {
       setFinalStatus("Safe");
     }
     setMalicious(maliciousVal);
@@ -173,8 +173,18 @@ export default function DeepThreatDashboard() {
             </ResponsiveContainer>
           </CardContent>
         </Card>
-        
       </div>
+      <h2
+        className={`mt-4 text-lg font-bold text-center ${
+          finalStatus.includes("Malicious")
+            ? "text-red-500"
+            : finalStatus.includes("Suspicious")
+            ? "text-yellow-500"
+            : "text-green-500"
+        }`}
+      >
+        Final Result: {finalStatus}
+      </h2>
     </div>
   );
 }
