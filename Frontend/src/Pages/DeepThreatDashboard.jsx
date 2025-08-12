@@ -67,6 +67,8 @@ export default function DeepThreatDashboard() {
       setFinalStatus("Malicious");
     }else if(suspiciousVal>=20){
       setFinalStatus("Suspicious");
+    }else{
+      setFinalStatus("Safe");
     }
     setMalicious(maliciousVal);
     setSuspicious(suspiciousVal);
