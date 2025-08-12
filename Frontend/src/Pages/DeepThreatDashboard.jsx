@@ -30,6 +30,7 @@ export default function DeepThreatDashboard() {
   const [malicious, setMalicious] = useState(0);
   const [suspicious, setSuspicious] = useState(0);
   const [safe, setSafe] = useState(0);
+  const [finalStatus,setFinalStatus] = useState(0);
   const [threat, setThreat] = useState(0); // if you need this
   const getTraficData = async (email) => {
     const response = await fetch(
@@ -166,6 +167,7 @@ export default function DeepThreatDashboard() {
             </ResponsiveContainer>
           </CardContent>
         </Card>
+        
       </div>
     </div>
   );
