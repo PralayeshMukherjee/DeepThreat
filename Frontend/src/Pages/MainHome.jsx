@@ -1,11 +1,11 @@
 // src/components/LandingPage.jsx
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
 import { ShieldCheck, Lock, Zap } from "lucide-react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { SendHorizonal, Loader2 } from "lucide-react";
+import { SendHorizonal, Loader2, FileText, Send } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 
@@ -92,7 +92,45 @@ const MainHome = () => {
     }
     setLoading(false);
   };
+  const fileInputRef = useRef(null);
+  const [file, setFile] = useState(null);
+  const [previewUrl, setPreviewUrl] = useState("");
+  const [uploaded, setUploaded] = useState(false);
 
+  const handleButtonClick = () => {
+    fileInputRef.current.click(); // trigger hidden input
+  };
+
+  const handleFileChange = (e) => {
+    const selectedFile = e.target.files[0];
+    if (selectedFile) {
+      setFile(selectedFile);
+      setUploaded(false); // reset uploaded state
+
+      // preview only for images
+      if (selectedFile.type.startsWith("image/")) {
+        setPreviewUrl(URL.createObjectURL(selectedFile));
+      } else {
+        setPreviewUrl("");
+      }
+    }
+  };
+  const handleSend = () => {
+    if (!file) return;
+    const formData = new FormData();
+    formData.append("file", file);
+
+    fetch("http://localhost:8080/upload", {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.text())
+      .then((data) => {
+        alert("File uploaded successfully: " + data);
+        setUploaded(true); // mark upload success
+      })
+      .catch((err) => alert("Error: " + err));
+  };
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-gray-100 to-white text-black dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 dark:text-white">
       <section className="px-6 py-24 bg-gray-100 text-center relative overflow-hidden dark:bg-slate-800">
@@ -118,18 +156,74 @@ const MainHome = () => {
         </motion.p>
 
         <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 z-10 relative">
-          <button
-            onClick={handleCheckURLClick}
-            className="px-6 py-3 hover:scale-105 bg-indigo-600 text-white rounded-lg text-sm md:text-base hover:bg-indigo-700 transition shadow-lg"
-          >
-            Check URL
-          </button>
-          <button
-            onClick={underDev}
-            className="px-6 py-3 hover:scale-105 bg-emerald-600 text-white rounded-lg text-sm md:text-base hover:bg-emerald-700 transition shadow-lg"
-          >
-            Scan Document
-          </button>
+          <div className="mt-10 flex flex-col items-center gap-6 z-10 relative">
+            {/* Button Row */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              {/* Check URL Button */}
+              <button
+                onClick={handleCheckURLClick}
+                className="px-6 py-3 hover:scale-105 bg-indigo-600 text-white rounded-lg text-sm md:text-base hover:bg-indigo-700 transition shadow-lg"
+              >
+                Check URL
+              </button>
+
+              {/* Hidden File Input */}
+              <input
+                type="file"
+                accept=".pdf,.doc,.docx,.png,.jpg,.jpeg"
+                ref={fileInputRef}
+                className="hidden"
+                onChange={handleFileChange}
+              />
+
+              {/* Upload Button */}
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={handleButtonClick}
+                className="px-6 py-3 bg-emerald-600 text-white rounded-lg text-sm md:text-base hover:bg-emerald-700 transition shadow-lg"
+              >
+                Scan Document
+              </motion.button>
+            </div>
+
+            {/* File Info Card */}
+            {file && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="w-full max-w-md bg-gray-800 rounded-xl shadow-lg p-4 flex items-center gap-3"
+              >
+                <FileText className="text-gray-300" size={20} />
+                <span className="text-gray-200 text-sm md:text-base truncate">
+                  {file.name}
+                </span>
+
+                {!uploaded && (
+                  <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    onClick={handleSend}
+                    className="ml-auto flex items-center gap-1 px-3 py-1 text-xs bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+                  >
+                    <Send size={14} />
+                    Send
+                  </motion.button>
+                )}
+              </motion.div>
+            )}
+
+            {/* Image Preview */}
+            {previewUrl && (
+              <motion.img
+                src={previewUrl}
+                alt="Preview"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="max-w-sm mt-3 rounded-lg shadow-lg border border-gray-600 hover:scale-105 transition-transform"
+              />
+            )}
+          </div>
         </div>
         {showInput && (
           // Animated input section for URL scanning
