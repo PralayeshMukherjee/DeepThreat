@@ -115,21 +115,15 @@ const MainHome = () => {
       }
     }
   };
-  const handleSend = () => {
+  const handleSend =async () => {
     if (!file) return;
     const formData = new FormData();
     formData.append("file", file);
 
-    fetch("http://localhost:8080/upload", {
+    const response = await fetch("http://localhost:8080/upload", {
       method: "POST",
       body: formData,
-    })
-      .then((res) => res.text())
-      .then((data) => {
-        alert("File uploaded successfully: " + data);
-        setUploaded(true); // mark upload success
-      })
-      .catch((err) => alert("Error: " + err));
+    });
   };
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-gray-100 to-white text-black dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 dark:text-white">
