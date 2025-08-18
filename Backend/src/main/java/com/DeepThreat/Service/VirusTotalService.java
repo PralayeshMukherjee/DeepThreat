@@ -68,6 +68,6 @@ public class VirusTotalService {
     }
     private final WebClient webClient = WebClient.create();
     public void SendFiles(File file){
-
+        webClient.post()
     }
 }
