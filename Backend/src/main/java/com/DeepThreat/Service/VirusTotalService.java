@@ -18,6 +18,7 @@ public class VirusTotalService {
     private String apikey;
     @Value("${virustotal.api.url}")
     private String apiUrl;
+    @Value("${virustotal.api.files}")
     private String apiURLForFiles;
     public int virusTotalCheck(String url){
         try{
