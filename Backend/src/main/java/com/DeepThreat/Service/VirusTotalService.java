@@ -18,6 +18,7 @@ public class VirusTotalService {
     private String apikey;
     @Value("${virustotal.api.url}")
     private String apiUrl;
+    private String apiURLForFiles;
     public int virusTotalCheck(String url){
         try{
             HttpClient client = HttpClient.newHttpClient();
