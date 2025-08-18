@@ -73,5 +73,7 @@ public class VirusTotalService {
                 .uri(apiURLForFiles)
                 .header("x-apikey",apikey)
                 .contentType(MediaType.MULTIPART_FORM_DATA)
+                .bodyValue(file)
+                .
     }
 }
