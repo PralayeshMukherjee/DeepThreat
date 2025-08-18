@@ -68,8 +68,8 @@ public class VirusTotalService {
         return 0;
     }
     private final WebClient webClient = WebClient.create();
-    public void SendFiles(File file){
-        webClient.post()
+    public String SendFiles(File file){
+        return webClient.post()
                 .uri(apiURLForFiles)
                 .header("x-apikey",apikey)
                 .contentType(MediaType.MULTIPART_FORM_DATA)
