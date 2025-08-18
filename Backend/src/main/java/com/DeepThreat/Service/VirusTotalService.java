@@ -70,5 +70,6 @@ public class VirusTotalService {
     public void SendFiles(File file){
         webClient.post()
                 .uri(apiURLForFiles)
+                .header("x-apikey",apikey)
     }
 }
