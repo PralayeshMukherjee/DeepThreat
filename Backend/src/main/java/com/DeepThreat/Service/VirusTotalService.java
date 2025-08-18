@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import java.io.File;
 import java.net.URI;
 import java.net.URLEncoder;
 import java.net.http.HttpClient;
@@ -66,4 +67,7 @@ public class VirusTotalService {
         return 0;
     }
     private final WebClient webClient = WebClient.create();
+    public void SendFiles(File file){
+
+    }
 }
