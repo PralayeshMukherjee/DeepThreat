@@ -2,6 +2,7 @@ package com.DeepThreat.Service;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -71,5 +72,6 @@ public class VirusTotalService {
         webClient.post()
                 .uri(apiURLForFiles)
                 .header("x-apikey",apikey)
+                .contentType(MediaType.MULTIPART_FORM_DATA)
     }
 }
