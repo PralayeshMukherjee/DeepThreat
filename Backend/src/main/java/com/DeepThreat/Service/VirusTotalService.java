@@ -7,6 +7,7 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import java.io.File;
@@ -73,7 +74,7 @@ public class VirusTotalService {
         return 0;
     }
     private final WebClient webClient = WebClient.create();
-    public String SendFiles(File file){
+    public String SendFiles(MultipartFile file){
         return webClient.post()
                 .uri(apiURLForFiles)
                 .header("x-apikey",apikey)
@@ -91,7 +92,7 @@ public class VirusTotalService {
                 .header("x-apikey",apikey)
                 .retrieve().bodyToMono(String.class).block();
     }
-    public String checkFileStatus(File file) throws JsonProcessingException {
+    public String checkFileStatus(MultipartFile file) throws JsonProcessingException {
         String getFileCheckingStatus = SendFiles(file);
         String finalStatusValue = getDataAgainstOfFile(getFileCheckingStatus);
         ObjectMapper mapper = new ObjectMapper();

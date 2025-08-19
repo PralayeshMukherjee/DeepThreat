@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.util.Map;
@@ -18,7 +19,7 @@ public class FileCheckerController {
     private FileScannerService fileScannerService;
     @PostMapping("/check")
     public ResponseEntity<Map<String,String>> FileScan(FileDTO fileDTO){
-        File file = fileDTO.getFile();
+        MultipartFile file = fileDTO.getFile();
         String fileSafetyCheck = fileScannerService.checkFile(file);
         return ResponseEntity.ok(Map.of("fileStatus",fileSafetyCheck));
     }

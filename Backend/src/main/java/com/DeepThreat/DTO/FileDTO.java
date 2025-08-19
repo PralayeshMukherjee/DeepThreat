@@ -1,22 +1,24 @@
 package com.DeepThreat.DTO;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import java.io.File;
 
 public class FileDTO {
-    private File file;
+    private MultipartFile file;
 
     public FileDTO() {
     }
 
-    public FileDTO(File file) {
+    public FileDTO(MultipartFile file) {
         this.file = file;
     }
 
-    public File getFile() {
+    public MultipartFile getFile() {
         return file;
     }
 
-    public void setFile(File file) {
+    public void setFile(MultipartFile file) {
         this.file = file;
     }
 }
