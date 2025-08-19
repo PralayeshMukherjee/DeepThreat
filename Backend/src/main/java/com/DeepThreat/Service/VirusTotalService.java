@@ -1,5 +1,6 @@
 package com.DeepThreat.Service;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
@@ -77,6 +78,6 @@ public class VirusTotalService {
                 .retrieve().bodyToMono(String.class).block();
     }
     public String getDataAgainstOfFile(String fileData){
-
+        ObjectMapper objectMapper = new ObjectMapper();
     }
 }
