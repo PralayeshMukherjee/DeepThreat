@@ -84,6 +84,6 @@ public class VirusTotalService {
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode jsonNode = objectMapper.readTree(fileData);
         String getId = jsonNode.path("data").path("id").asText();
-
+        String newCompleteURLForAnalysis = apiForAnalysis+getId;
     }
 }
