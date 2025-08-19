@@ -1,5 +1,6 @@
 package com.DeepThreat.Service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.JSONObject;
@@ -80,7 +81,7 @@ public class VirusTotalService {
                 .bodyValue(file)
                 .retrieve().bodyToMono(String.class).block();
     }
-    public String getDataAgainstOfFile(String fileData){
+    public String getDataAgainstOfFile(String fileData) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode jsonNode = objectMapper.readTree(fileData);
         String getId = jsonNode.path("data").path("id").asText();
