@@ -10,7 +10,12 @@ import java.io.File;
 public class FileScannerService {
     @Autowired
     private VirusTotalService virusTotalService;
-    public String checkFile(File file) throws JsonProcessingException {
-        return virusTotalService.checkFileStatus(file);
+    public String checkFile(File file){
+        try{
+           return virusTotalService.checkFileStatus(file);
+        }catch (JsonProcessingException e){
+            System.out.println(e.getMessage());
+            return "error";
+        }
     }
 }
