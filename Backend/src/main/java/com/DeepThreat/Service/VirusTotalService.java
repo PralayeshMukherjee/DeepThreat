@@ -94,5 +94,7 @@ public class VirusTotalService {
     public String checkFileStatus(File file) throws JsonProcessingException {
         String getFileCheckingStatus = SendFiles(file);
         String finalStatusValue = getDataAgainstOfFile(getFileCheckingStatus);
+        ObjectMapper mapper = new ObjectMapper();
+
     }
 }
