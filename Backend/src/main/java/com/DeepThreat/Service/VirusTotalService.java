@@ -81,6 +81,6 @@ public class VirusTotalService {
     public String getDataAgainstOfFile(String fileData){
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode jsonNode = objectMapper.readTree(fileData);
-        jsonNode.path("data").path("id").asText();
+        String getId = jsonNode.path("data").path("id").asText();
     }
 }
