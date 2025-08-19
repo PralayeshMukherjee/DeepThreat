@@ -96,6 +96,7 @@ const MainHome = () => {
   const [file, setFile] = useState(null);
   const [previewUrl, setPreviewUrl] = useState("");
   const [uploaded, setUploaded] = useState(false);
+  const [loadingForDoc,setLoadingForDoc] = useState(false)
 
   const handleButtonClick = () => {
     fileInputRef.current.click(); // trigger hidden input
@@ -120,11 +121,19 @@ const MainHome = () => {
     const formData = new FormData();
     formData.append("file", file);
 
-    const response = await fetch("http://localhost:8080/upload", {
+    const response = await fetch("http://localhost:8080/fileScanning/check", {
       method: "POST",
+      credentials: "include",
       body: formData,
     });
     const data = await response.json();
+    if(response.ok){
+      toast.success(data.fileStatus)
+    }else{
+      toast.error("error occur");
+    }
+    setUploaded(false);
+    setPreviewUrl("");
   };
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-gray-100 to-white text-black dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 dark:text-white">
@@ -201,7 +210,7 @@ const MainHome = () => {
                     onClick={handleSend}
                     className="ml-auto flex items-center gap-1 px-3 py-1 text-xs bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
                   >
-                    <Send size={14} />
+                    <Send onClick={handleSend} size={14} />
                     Send
                   </motion.button>
                 )}
