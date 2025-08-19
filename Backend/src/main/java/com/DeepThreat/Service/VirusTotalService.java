@@ -25,6 +25,7 @@ public class VirusTotalService {
     private String apiUrl;
     @Value("${virustotal.api.files}")
     private String apiURLForFiles;
+    private String apiForAnalysis;
     public int virusTotalCheck(String url){
         try{
             HttpClient client = HttpClient.newHttpClient();
@@ -82,5 +83,6 @@ public class VirusTotalService {
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode jsonNode = objectMapper.readTree(fileData);
         String getId = jsonNode.path("data").path("id").asText();
+
     }
 }
