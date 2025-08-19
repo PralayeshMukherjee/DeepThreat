@@ -91,4 +91,7 @@ public class VirusTotalService {
                 .header("x-apikey",apikey)
                 .retrieve().bodyToMono(String.class).block();
     }
+    public String checkFileStatus(File file){
+
+    }
 }
