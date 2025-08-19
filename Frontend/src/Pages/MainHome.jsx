@@ -96,7 +96,7 @@ const MainHome = () => {
   const [file, setFile] = useState(null);
   const [previewUrl, setPreviewUrl] = useState("");
   const [uploaded, setUploaded] = useState(false);
-  const [loadingForDoc,setLoadingForDoc] = useState(false)
+  const [loadingForDoc, setLoadingForDoc] = useState(false);
 
   const handleButtonClick = () => {
     fileInputRef.current.click(); // trigger hidden input
@@ -116,7 +116,8 @@ const MainHome = () => {
       }
     }
   };
-  const handleSend =async () => {
+  const handleSend = async () => {
+    setLoadingForDoc(true);
     if (!file) return;
     const formData = new FormData();
     formData.append("file", file);
@@ -127,13 +128,14 @@ const MainHome = () => {
       body: formData,
     });
     const data = await response.json();
-    if(response.ok){
-      toast.success(data.fileStatus)
-    }else{
+    if (response.ok) {
+      toast.success(data.fileStatus);
+    } else {
       toast.error("error occur");
     }
     setUploaded(false);
     setPreviewUrl("");
+    setLoadingForDoc(false);
   };
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-gray-100 to-white text-black dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 dark:text-white">
@@ -205,13 +207,20 @@ const MainHome = () => {
 
                 {!uploaded && (
                   <motion.button
+                    disabled={loadingForDoc}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     onClick={handleSend}
-                    className="ml-auto flex items-center gap-1 px-3 py-1 text-xs bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+                    className={`ml-auto flex items-center gap-1 px-3 py-1 text-xs bg-blue-600 text-white rounded-md hover:bg-blue-700 transition
+                      ${
+                        loadingForDoc ? "cursor-progress" : "cursor-pointer"
+                      }`
+                    }
                   >
-                    <Send onClick={handleSend} size={14} />
-                    Send
+                    <Send
+                      size={14}
+                    />
+                    {loadingForDoc ? <>sending...</> : <>send</>}
                   </motion.button>
                 )}
               </motion.div>
