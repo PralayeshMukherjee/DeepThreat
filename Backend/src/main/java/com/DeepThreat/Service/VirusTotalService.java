@@ -91,7 +91,8 @@ public class VirusTotalService {
                 .header("x-apikey",apikey)
                 .retrieve().bodyToMono(String.class).block();
     }
-    public String checkFileStatus(File file){
+    public String checkFileStatus(File file) throws JsonProcessingException {
         String getFileCheckingStatus = SendFiles(file);
+        String finalStatusValue = getDataAgainstOfFile(getFileCheckingStatus);
     }
 }
