@@ -92,6 +92,6 @@ public class VirusTotalService {
                 .retrieve().bodyToMono(String.class).block();
     }
     public String checkFileStatus(File file){
-
+        String getFileCheckingStatus = SendFiles(file);
     }
 }
