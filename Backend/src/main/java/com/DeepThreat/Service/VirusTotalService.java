@@ -86,6 +86,6 @@ public class VirusTotalService {
         String getId = jsonNode.path("data").path("id").asText();
         String newCompleteURLForAnalysis = apiForAnalysis+getId;
         return webClient.get()
-
+                .uri(newCompleteURLForAnalysis)
     }
 }
