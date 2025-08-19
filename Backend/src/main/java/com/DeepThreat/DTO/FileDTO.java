@@ -7,4 +7,8 @@ public class FileDTO {
 
     public FileDTO() {
     }
+
+    public FileDTO(File file) {
+        this.file = file;
+    }
 }
