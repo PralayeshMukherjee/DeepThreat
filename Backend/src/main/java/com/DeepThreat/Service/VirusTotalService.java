@@ -88,6 +88,6 @@ public class VirusTotalService {
         return webClient.get()
                 .uri(newCompleteURLForAnalysis)
                 .header("x-apikey",apikey)
-                .retrieve().bodyToMono(String.class)
+                .retrieve().bodyToMono(String.class).block();
     }
 }
