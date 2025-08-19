@@ -97,5 +97,10 @@ public class VirusTotalService {
         ObjectMapper mapper = new ObjectMapper();
         JsonNode jsonNode = mapper.readTree(finalStatusValue);
         int maliciousData = jsonNode.path("data").path("attributes").path("stats").path("malicious").asInt();
+        if(maliciousData>0){
+            return "risky";
+        }else{
+            return "safe";
+        }
     }
 }
