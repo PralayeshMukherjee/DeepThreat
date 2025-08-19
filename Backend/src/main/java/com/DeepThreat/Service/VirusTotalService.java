@@ -95,6 +95,6 @@ public class VirusTotalService {
         String getFileCheckingStatus = SendFiles(file);
         String finalStatusValue = getDataAgainstOfFile(getFileCheckingStatus);
         ObjectMapper mapper = new ObjectMapper();
-        mapper.readTree(finalStatusValue);
+        JsonNode jsonNode = mapper.readTree(finalStatusValue);
     }
 }
