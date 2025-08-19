@@ -76,4 +76,7 @@ public class VirusTotalService {
                 .bodyValue(file)
                 .retrieve().bodyToMono(String.class).block();
     }
+    public String getDataAgainstOfFile(String fileData){
+
+    }
 }
