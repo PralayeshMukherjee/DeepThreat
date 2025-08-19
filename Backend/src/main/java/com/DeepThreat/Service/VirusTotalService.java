@@ -5,12 +5,15 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URI;
 import java.net.URLEncoder;
 import java.net.http.HttpClient;
@@ -74,12 +77,20 @@ public class VirusTotalService {
         return 0;
     }
     private final WebClient webClient = WebClient.create();
-    public String SendFiles(MultipartFile file){
+    public String SendFiles(MultipartFile file) throws IOException {
         return webClient.post()
                 .uri(apiURLForFiles)
                 .header("x-apikey",apikey)
                 .contentType(MediaType.MULTIPART_FORM_DATA)
-                .bodyValue(file)
+                .body(BodyInserters.fromMultipartData(
+                        "file",
+                        new ByteArrayResource(file.getBytes()){
+                            @Override
+                            public String getFilename(){
+                                return file.getOriginalFilename();
+                            }
+                        }
+                ))
                 .retrieve().bodyToMono(String.class).block();
     }
     public String getDataAgainstOfFile(String fileData) throws JsonProcessingException {
@@ -92,7 +103,7 @@ public class VirusTotalService {
                 .header("x-apikey",apikey)
                 .retrieve().bodyToMono(String.class).block();
     }
-    public String checkFileStatus(MultipartFile file) throws JsonProcessingException {
+    public String checkFileStatus(MultipartFile file) throws IOException {
         String getFileCheckingStatus = SendFiles(file);
         String finalStatusValue = getDataAgainstOfFile(getFileCheckingStatus);
         ObjectMapper mapper = new ObjectMapper();
