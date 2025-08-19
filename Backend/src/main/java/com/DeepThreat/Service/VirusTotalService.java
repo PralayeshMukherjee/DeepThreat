@@ -25,6 +25,7 @@ public class VirusTotalService {
     private String apiUrl;
     @Value("${virustotal.api.files}")
     private String apiURLForFiles;
+    @Value("${virustotal.api.analysis}")
     private String apiForAnalysis;
     public int virusTotalCheck(String url){
         try{
