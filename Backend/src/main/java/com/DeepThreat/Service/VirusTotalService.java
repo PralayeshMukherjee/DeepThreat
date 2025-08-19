@@ -96,6 +96,6 @@ public class VirusTotalService {
         String finalStatusValue = getDataAgainstOfFile(getFileCheckingStatus);
         ObjectMapper mapper = new ObjectMapper();
         JsonNode jsonNode = mapper.readTree(finalStatusValue);
-        jsonNode.path("data").path("attributes").path("stats").path("malicious").asInt();
+        int maliciousData = jsonNode.path("data").path("attributes").path("stats").path("malicious").asInt();
     }
 }
