@@ -1,5 +1,6 @@
 package com.DeepThreat.Service;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
@@ -79,5 +80,7 @@ public class VirusTotalService {
     }
     public String getDataAgainstOfFile(String fileData){
         ObjectMapper objectMapper = new ObjectMapper();
+        JsonNode jsonNode = objectMapper.readTree(fileData);
+        jsonNode.path("data").path("id").asText();
     }
 }
