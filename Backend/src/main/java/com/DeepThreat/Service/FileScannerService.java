@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.io.IOException;
 
 @Service
 public class FileScannerService {
@@ -17,6 +18,8 @@ public class FileScannerService {
         }catch (JsonProcessingException e){
             System.out.println(e.getMessage());
             return "error";
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }
