@@ -18,5 +18,6 @@ public class FileCheckerController {
     public ResponseEntity<Map<String,String>> FileScan(FileDTO fileDTO){
         File file = fileDTO.getFile();
         String fileSafetyCheck = fileScannerService.checkFile(file);
+        return ResponseEntity.ok(Map.of("fileStatus",fileSafetyCheck));
     }
 }
