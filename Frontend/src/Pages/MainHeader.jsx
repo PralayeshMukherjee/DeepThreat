@@ -135,7 +135,7 @@ const MainHeader = () => {
                     className="w-12 h-12 rounded-full dark:brightness-90"
                   />
                   <h3>
-                    <Link to="/Profile/Me" className="hover:underline">
+                    <Link to={"/mainlayout/MeSection"} className="hover:underline">
                       Me
                     </Link>
                   </h3>
