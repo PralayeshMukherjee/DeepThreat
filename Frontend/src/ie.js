@@ -15,5 +15,6 @@ import History from "./Pages/History.jsx"
 import Contact from "./Pages/Contact.jsx"
 import EditProfile from "./Pages/EditProfile.jsx"
 import HelpSupport from "./Pages/HelpAndSupport.jsx"
+import MeSection from './Pages/MeSection.jsx';
 
-export {Header,Footer,Layout,Home,ThemeProvider,ThemeBtn,Signin,Signup,JwtSuccess,OTPVerification,MainHome,MainLayout,DeepThreatDashboard,History,Contact,EditProfile,HelpSupport};
+export {Header,Footer,Layout,Home,ThemeProvider,ThemeBtn,Signin,Signup,JwtSuccess,OTPVerification,MainHome,MainLayout,DeepThreatDashboard,History,Contact,EditProfile,HelpSupport,MeSection};
