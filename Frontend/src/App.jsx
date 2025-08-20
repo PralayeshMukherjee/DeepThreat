@@ -19,6 +19,7 @@ import {
   Contact,
   EditProfile,
   HelpSupport,
+  MeSection,
 } from "./ie.js";
 
 import "./App.css";
@@ -45,6 +46,7 @@ function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="editprofile" element={<EditProfile />} />
           <Route path="helpsupport" element={<HelpSupport />} />
+          <Route path="MeSection" element={<MeSection />} />
         </Route>
       </>
     )
