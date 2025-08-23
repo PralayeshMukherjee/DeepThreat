@@ -23,4 +23,68 @@ public class UserAllDetailsDTO {
         this.suspiciousUrlCount = suspiciousUrlCount;
         this.safeUrlCount = safeUrlCount;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public int getUrlSearched() {
+        return urlSearched;
+    }
+
+    public void setUrlSearched(int urlSearched) {
+        this.urlSearched = urlSearched;
+    }
+
+    public int getTotalDocumentScanned() {
+        return totalDocumentScanned;
+    }
+
+    public void setTotalDocumentScanned(int totalDocumentScanned) {
+        this.totalDocumentScanned = totalDocumentScanned;
+    }
+
+    public int getMaliciousUrlCount() {
+        return maliciousUrlCount;
+    }
+
+    public void setMaliciousUrlCount(int maliciousUrlCount) {
+        this.maliciousUrlCount = maliciousUrlCount;
+    }
+
+    public int getSuspiciousUrlCount() {
+        return suspiciousUrlCount;
+    }
+
+    public void setSuspiciousUrlCount(int suspiciousUrlCount) {
+        this.suspiciousUrlCount = suspiciousUrlCount;
+    }
+
+    public int getSafeUrlCount() {
+        return safeUrlCount;
+    }
+
+    public void setSafeUrlCount(int safeUrlCount) {
+        this.safeUrlCount = safeUrlCount;
+    }
 }
