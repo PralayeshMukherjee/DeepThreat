@@ -1,5 +1,6 @@
 package com.DeepThreat.Service;
 
+import com.DeepThreat.DTO.UserAllDetailsDTO;
 import com.DeepThreat.Entity.UserEntity;
 import com.DeepThreat.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,5 +40,8 @@ public class UserDetailsService {
             System.out.println(e.getMessage());
         }
         return afterUpdation;
+    }
+    public UserAllDetailsDTO getUserAllDetails(String email){
+
     }
 }
