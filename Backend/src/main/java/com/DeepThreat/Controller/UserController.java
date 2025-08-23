@@ -63,4 +63,7 @@ public class UserController {
             return ResponseEntity.ok(Map.of("isUpdate","wrong"));
         }
     }
+    public ResponseEntity<Map<String,String>> getUserAllDetails(@RequestParam String email){
+
+    }
 }
