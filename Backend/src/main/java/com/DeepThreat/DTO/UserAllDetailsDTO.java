@@ -9,4 +9,7 @@ public class UserAllDetailsDTO {
     private int maliciousUrlCount;
     private int suspiciousUrlCount;
     private int safeUrlCount;
+
+    public UserAllDetailsDTO() {
+    }
 }
