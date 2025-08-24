@@ -41,7 +41,7 @@ public class UserDetailsService {
         }
         return afterUpdation;
     }
-    public UserAllDetailsDTO getUserAllDetails(String email){
+    public UserAllDetailsDTO getUserIndepthDetails(String email){
 
     }
 }
