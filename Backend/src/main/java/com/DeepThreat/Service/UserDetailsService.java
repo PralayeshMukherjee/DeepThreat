@@ -13,6 +13,7 @@ import java.util.Optional;
 public class UserDetailsService {
     @Autowired
     private UserRepository userRepository;
+    @Autowired
     private UserURLHistoryRepository userURLHistoryRepository;
     public UserEntity getUserAllDetails(String email){
         UserEntity userEntity = new UserEntity();
