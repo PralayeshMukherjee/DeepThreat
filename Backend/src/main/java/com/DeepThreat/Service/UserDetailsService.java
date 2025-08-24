@@ -43,5 +43,7 @@ public class UserDetailsService {
     }
     public UserAllDetailsDTO getUserIndepthDetails(String email){
         UserEntity userEntity = getUserAllDetails(email);
+        UserAllDetailsDTO detailsDTO = new UserAllDetailsDTO();
+        detailsDTO.setName(userEntity.getName());
     }
 }
