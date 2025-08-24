@@ -3,6 +3,7 @@ package com.DeepThreat.Service;
 import com.DeepThreat.DTO.UserAllDetailsDTO;
 import com.DeepThreat.Entity.UserEntity;
 import com.DeepThreat.Repository.UserRepository;
+import com.DeepThreat.Repository.UserURLHistoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,7 @@ import java.util.Optional;
 public class UserDetailsService {
     @Autowired
     private UserRepository userRepository;
+    private UserURLHistoryRepository userURLHistoryRepository;
     public UserEntity getUserAllDetails(String email){
         UserEntity userEntity = new UserEntity();
         try{
@@ -47,5 +49,6 @@ public class UserDetailsService {
         detailsDTO.setName(userEntity.getName());
         detailsDTO.setPhone(userEntity.getPhone());
         detailsDTO.setEmail(email);
+
     }
 }
