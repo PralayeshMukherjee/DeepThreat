@@ -42,6 +42,6 @@ public class UserDetailsService {
         return afterUpdation;
     }
     public UserAllDetailsDTO getUserIndepthDetails(String email){
-
+        UserEntity userEntity = getUserAllDetails(email);
     }
 }
