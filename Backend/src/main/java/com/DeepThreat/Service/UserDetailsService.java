@@ -46,5 +46,6 @@ public class UserDetailsService {
         UserAllDetailsDTO detailsDTO = new UserAllDetailsDTO();
         detailsDTO.setName(userEntity.getName());
         detailsDTO.setPhone(userEntity.getPhone());
+        detailsDTO.setEmail(email);
     }
 }
