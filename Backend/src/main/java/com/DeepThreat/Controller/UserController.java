@@ -70,5 +70,7 @@ public class UserController {
         Map<String,String> map = new HashMap<>();
         map.put("name",userAllDetailsDTO.getName());
         map.put("email",userAllDetailsDTO.getEmail());
+        map.put("phone",userAllDetailsDTO.getPhone());
+
     }
 }
