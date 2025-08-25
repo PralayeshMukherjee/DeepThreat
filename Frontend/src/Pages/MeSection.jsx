@@ -30,7 +30,11 @@ export default function MeSection() {
     }
   };
   const getUserAllDetails = async (email)=>{
-    
+    try{
+      const response = await fetch(`http://localhost:8080/userDetails/indepthDetails?email=${email}`,{
+        
+      })
+    }
   }
   useEffect(()=>{
     const token = localStorage.getItem("jwt");
