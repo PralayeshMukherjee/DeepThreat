@@ -53,5 +53,6 @@ public class UserDetailsService {
         detailsDTO.setPhone(userEntity.getPhone());
         detailsDTO.setEmail(email);
         List<UserURLHistoryEntity> list = userURLHistoryRepository.findByEmail();
+        int countUrlSearched = 0, countMaliciousUrl=0, countSuspiciousUrl = 0, countSafeUrl=0;
     }
 }
