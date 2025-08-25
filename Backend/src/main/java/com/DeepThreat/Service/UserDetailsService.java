@@ -67,5 +67,6 @@ public class UserDetailsService {
         detailsDTO.setMaliciousUrlCount(countMaliciousUrl);
         detailsDTO.setSuspiciousUrlCount(countSuspiciousUrl);
         detailsDTO.setSafeUrlCount(countSafeUrl);
+        detailsDTO.setTotalDocumentScanned(0);
     }
 }
