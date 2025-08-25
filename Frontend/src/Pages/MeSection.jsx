@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ShieldCheck, FileSearch, Link2, Trash2, User } from "lucide-react";
+import { jwtDecode } from "jwt-decode";
 
 export default function MeSection() {
   const [stats, setStats] = useState({
@@ -28,6 +29,15 @@ export default function MeSection() {
       alert("Profile deleted successfully!");
     }
   };
+  useEffect(()=>{
+    const token = localStorage.getItem("jwt");
+    if (token) {
+      const decode = jwtDecode(token);
+      const email = decode.email?.email || decode.email;
+      console.log(email); // support both structures
+      if (email) getHistory(email);
+    } 
+  })
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#F8FAFC] to-[#E2E8F0] text-gray-900 dark:from-[#0F172A] dark:to-[#1E293B] dark:text-white flex flex-col items-center py-12 px-4">
