@@ -64,6 +64,6 @@ public class UserController {
         }
     }
     public ResponseEntity<Map<String,String>> getUserAllDetails(@RequestParam String email){
-
+        userDetailsService.getUserIndepthDetails(email);
     }
 }
