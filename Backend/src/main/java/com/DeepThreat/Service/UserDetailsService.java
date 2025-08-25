@@ -52,22 +52,26 @@ public class UserDetailsService {
         detailsDTO.setName(userEntity.getName());
         detailsDTO.setPhone(userEntity.getPhone());
         detailsDTO.setEmail(email);
-        List<UserURLHistoryEntity> list = userURLHistoryRepository.findByEmail();
-        int countUrlSearched = list.size(), countMaliciousUrl=0, countSuspiciousUrl = 0, countSafeUrl=0;
-        for (UserURLHistoryEntity userURLHistoryEntity : list) {
-            if (userURLHistoryEntity.getMalicious() >= 10) {
-                countMaliciousUrl++;
-            } else if (userURLHistoryEntity.getSuspicious() >= 20) {
-                countSuspiciousUrl++;
-            } else {
-                countSafeUrl++;
+        try{
+            List<UserURLHistoryEntity> list = userURLHistoryRepository.findByEmail();
+            int countUrlSearched = list.size(), countMaliciousUrl=0, countSuspiciousUrl = 0, countSafeUrl=0;
+            for (UserURLHistoryEntity userURLHistoryEntity : list) {
+                if (userURLHistoryEntity.getMalicious() >= 10) {
+                    countMaliciousUrl++;
+                } else if (userURLHistoryEntity.getSuspicious() >= 20) {
+                    countSuspiciousUrl++;
+                } else {
+                    countSafeUrl++;
+                }
             }
+            detailsDTO.setUrlSearched(countUrlSearched);
+            detailsDTO.setMaliciousUrlCount(countMaliciousUrl);
+            detailsDTO.setSuspiciousUrlCount(countSuspiciousUrl);
+            detailsDTO.setSafeUrlCount(countSafeUrl);
+            detailsDTO.setTotalDocumentScanned(0);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
         }
-        detailsDTO.setUrlSearched(countUrlSearched);
-        detailsDTO.setMaliciousUrlCount(countMaliciousUrl);
-        detailsDTO.setSuspiciousUrlCount(countSuspiciousUrl);
-        detailsDTO.setSafeUrlCount(countSafeUrl);
-        detailsDTO.setTotalDocumentScanned(0);
         return detailsDTO;
     }
 }
