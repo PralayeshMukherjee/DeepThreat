@@ -14,5 +14,5 @@ public interface UserURLHistoryRepository extends JpaRepository<UserURLHistoryEn
     @Query(value =  "select * from (select * from userurlhistory_entity where email= :email order by date desc limit 3) as data order by serial_no",nativeQuery = true)
     List<UserURLHistoryEntity> findLastThreeURL(@Param("email")String email);
 
-    List<UserURLHistoryEntity> findByEmail();
+    List<UserURLHistoryEntity> findByEmail(String email);
 }
