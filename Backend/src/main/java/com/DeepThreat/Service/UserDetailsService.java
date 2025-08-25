@@ -56,6 +56,9 @@ public class UserDetailsService {
         int countUrlSearched = 0, countMaliciousUrl=0, countSuspiciousUrl = 0, countSafeUrl=0;
         for(int i=0;i<list.size();i++){
             UserURLHistoryEntity userURLHistoryEntity = list.get(i);
+            if(userURLHistoryEntity.getMalicious()>=10){
+                countMaliciousUrl++;
+            }
         }
     }
 }
