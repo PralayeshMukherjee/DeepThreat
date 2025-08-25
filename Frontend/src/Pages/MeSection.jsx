@@ -35,7 +35,7 @@ export default function MeSection() {
       const decode = jwtDecode(token);
       const email = decode.email?.email || decode.email;
       console.log(email); // support both structures
-      if (email) getHistory(email);
+      if (email) getUserAllDetails(email);
     } 
   })
 
