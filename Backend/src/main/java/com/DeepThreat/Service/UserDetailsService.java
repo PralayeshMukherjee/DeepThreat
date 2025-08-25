@@ -2,11 +2,13 @@ package com.DeepThreat.Service;
 
 import com.DeepThreat.DTO.UserAllDetailsDTO;
 import com.DeepThreat.Entity.UserEntity;
+import com.DeepThreat.Entity.UserURLHistoryEntity;
 import com.DeepThreat.Repository.UserRepository;
 import com.DeepThreat.Repository.UserURLHistoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -50,6 +52,6 @@ public class UserDetailsService {
         detailsDTO.setName(userEntity.getName());
         detailsDTO.setPhone(userEntity.getPhone());
         detailsDTO.setEmail(email);
-
+        List<UserURLHistoryEntity> list = userURLHistoryRepository.findByEmail();
     }
 }
