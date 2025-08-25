@@ -1,5 +1,6 @@
 package com.DeepThreat.Controller;
 
+import com.DeepThreat.DTO.UserAllDetailsDTO;
 import com.DeepThreat.DTO.UserDetailsUpdateDto;
 import com.DeepThreat.Entity.UserEntity;
 import com.DeepThreat.Entity.UserURLHistoryEntity;
@@ -64,6 +65,6 @@ public class UserController {
         }
     }
     public ResponseEntity<Map<String,String>> getUserAllDetails(@RequestParam String email){
-        userDetailsService.getUserIndepthDetails(email);
+        UserAllDetailsDTO userAllDetailsDTO =userDetailsService.getUserIndepthDetails(email);
     }
 }
