@@ -38,6 +38,7 @@ export default function MeSection() {
           "Content-Type":"application/json"
         }
       })
+      const data = await response.json();
     }
   }
   useEffect(()=>{
