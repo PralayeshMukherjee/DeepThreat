@@ -58,6 +58,8 @@ public class UserDetailsService {
             UserURLHistoryEntity userURLHistoryEntity = list.get(i);
             if(userURLHistoryEntity.getMalicious()>=10){
                 countMaliciousUrl++;
+            }else if(userURLHistoryEntity.getSuspicious()>=20){
+                countSuspiciousUrl++;
             }
         }
     }
