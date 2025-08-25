@@ -13,6 +13,6 @@ import java.util.Optional;
 public interface UserURLHistoryRepository extends JpaRepository<UserURLHistoryEntity,Long> {
     @Query(value =  "select * from (select * from userurlhistory_entity where email= :email order by date desc limit 3) as data order by serial_no",nativeQuery = true)
     List<UserURLHistoryEntity> findLastThreeURL(@Param("email")String email);
-
+    @Query(value = "select * from userurlhistory_entity where email= :email")
     List<UserURLHistoryEntity> findByEmail(String email);
 }
