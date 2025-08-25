@@ -47,13 +47,13 @@ export default function MeSection() {
         })
         setStats({
           urlSearches: data.urlSearched,
-          documentSearches: data.documentSearches,
+          documentSearches: data.totalDocumentScanned,
           malicious: data.maliciousUrlCount,
           suspicious: data.suspiciousUrlCount,
           safe: data.safeUrlCount,
         })
       }
-    }
+    }cac
   }
   useEffect(()=>{
     const token = localStorage.getItem("jwt");
