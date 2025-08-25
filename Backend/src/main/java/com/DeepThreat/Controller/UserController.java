@@ -68,5 +68,6 @@ public class UserController {
     public ResponseEntity<Map<String,String>> getUserAllDetails(@RequestParam String email){
         UserAllDetailsDTO userAllDetailsDTO =userDetailsService.getUserIndepthDetails(email);
         Map<String,String> map = new HashMap<>();
+        map.put("name",userAllDetailsDTO.getName());
     }
 }
