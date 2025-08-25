@@ -76,5 +76,6 @@ public class UserController {
         map.put("maliciousUrlCount",String.valueOf(userAllDetailsDTO.getMaliciousUrlCount()));
         map.put("suspiciousUrlCount",String.valueOf(userAllDetailsDTO.getSuspiciousUrlCount()));
         map.put("safeUrlCount",String.valueOf(userAllDetailsDTO.getSafeUrlCount()));
+        return ResponseEntity.ok(map);
     }
 }
