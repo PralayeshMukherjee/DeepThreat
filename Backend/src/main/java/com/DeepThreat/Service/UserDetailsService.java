@@ -65,5 +65,6 @@ public class UserDetailsService {
         }
         detailsDTO.setUrlSearched(countUrlSearched);
         detailsDTO.setMaliciousUrlCount(countMaliciousUrl);
+        detailsDTO.setSuspiciousUrlCount(countSuspiciousUrl);
     }
 }
