@@ -71,6 +71,6 @@ public class UserController {
         map.put("name",userAllDetailsDTO.getName());
         map.put("email",userAllDetailsDTO.getEmail());
         map.put("phone",userAllDetailsDTO.getPhone());
-
+        map.put("urlSearched",userAllDetailsDTO.getUrlSearched())
     }
 }
