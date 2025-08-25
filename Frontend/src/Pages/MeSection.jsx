@@ -53,7 +53,9 @@ export default function MeSection() {
           safe: data.safeUrlCount,
         })
       }
-    }cac
+    }catch(error){
+      console.error("Error fetching user details:", error);
+    }
   }
   useEffect(()=>{
     const token = localStorage.getItem("jwt");
