@@ -63,6 +63,6 @@ public class UserDetailsService {
                 countSafeUrl++;
             }
         }
-
+        detailsDTO.setUrlSearched(countUrlSearched);
     }
 }
