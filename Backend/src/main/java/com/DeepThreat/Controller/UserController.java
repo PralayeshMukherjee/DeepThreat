@@ -73,6 +73,6 @@ public class UserController {
         map.put("phone",userAllDetailsDTO.getPhone());
         map.put("urlSearched",String.valueOf(userAllDetailsDTO.getUrlSearched()));
         map.put("totalDocumentScanned","null");
-        map.put("maliciousUrlCount",userAllDetailsDTO.getMaliciousUrlCount());
+        map.put("maliciousUrlCount",String.valueOf(userAllDetailsDTO.getMaliciousUrlCount()));
     }
 }
