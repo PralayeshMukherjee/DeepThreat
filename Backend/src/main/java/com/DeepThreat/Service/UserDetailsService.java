@@ -60,6 +60,8 @@ public class UserDetailsService {
                 countMaliciousUrl++;
             }else if(userURLHistoryEntity.getSuspicious()>=20){
                 countSuspiciousUrl++;
+            }else{
+                countSafeUrl++;
             }
         }
     }
