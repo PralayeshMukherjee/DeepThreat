@@ -74,6 +74,7 @@ public class UserController {
         map.put("urlSearched",String.valueOf(userAllDetailsDTO.getUrlSearched()));
         map.put("totalDocumentScanned","null");
         map.put("maliciousUrlCount",String.valueOf(userAllDetailsDTO.getMaliciousUrlCount()));
-        map.put("suspiciousUrlCount",String.valueOf(userAllDetailsDTO.getSuspiciousUrlCount()))
+        map.put("suspiciousUrlCount",String.valueOf(userAllDetailsDTO.getSuspiciousUrlCount()));
+        map.put("safeUrlCount",userAllDetailsDTO.getSafeUrlCount())
     }
 }
