@@ -65,7 +65,7 @@ public class UserController {
             return ResponseEntity.ok(Map.of("isUpdate","wrong"));
         }
     }
-    @PostMapping("/indepthDetails")
+    @GetMapping("/indepthDetails")
     public ResponseEntity<Map<String,String>> getUserAllDetails(@RequestParam String email){
         UserAllDetailsDTO userAllDetailsDTO =userDetailsService.getUserIndepthDetails(email);
         Map<String,String> map = new HashMap<>();
