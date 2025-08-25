@@ -69,5 +69,6 @@ public class UserController {
         UserAllDetailsDTO userAllDetailsDTO =userDetailsService.getUserIndepthDetails(email);
         Map<String,String> map = new HashMap<>();
         map.put("name",userAllDetailsDTO.getName());
+        map.put("email",userAllDetailsDTO.getEmail());
     }
 }
