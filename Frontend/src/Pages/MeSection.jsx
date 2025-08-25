@@ -32,7 +32,11 @@ export default function MeSection() {
   const getUserAllDetails = async (email)=>{
     try{
       const response = await fetch(`http://localhost:8080/userDetails/indepthDetails?email=${email}`,{
-        
+        method:"GET",
+        credentials:"include",
+        headers:{
+          "Content-Type":"application/json"
+        }
       })
     }
   }
