@@ -39,6 +39,20 @@ export default function MeSection() {
         }
       })
       const data = await response.json();
+      if(response.ok){
+        setUser({
+          name: data.name,
+          email: data.email,
+          phone: data.phone
+        })
+        setStats({
+          urlSearches: data.urlSearched,
+          documentSearches: data.documentSearches,
+          malicious: data.maliciousUrlCount,
+          suspicious: data.suspiciousUrlCount,
+          safe: data.safeUrlCount,
+        })
+      }
     }
   }
   useEffect(()=>{
