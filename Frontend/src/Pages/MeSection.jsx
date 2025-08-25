@@ -29,6 +29,9 @@ export default function MeSection() {
       alert("Profile deleted successfully!");
     }
   };
+  const getUserAllDetails = async (email)=>{
+    
+  }
   useEffect(()=>{
     const token = localStorage.getItem("jwt");
     if (token) {
