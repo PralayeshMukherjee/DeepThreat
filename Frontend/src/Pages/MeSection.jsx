@@ -65,7 +65,7 @@ export default function MeSection() {
       console.log(email); // support both structures
       if (email) getUserAllDetails(email);
     } 
-  })
+  },[])
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#F8FAFC] to-[#E2E8F0] text-gray-900 dark:from-[#0F172A] dark:to-[#1E293B] dark:text-white flex flex-col items-center py-12 px-4">
