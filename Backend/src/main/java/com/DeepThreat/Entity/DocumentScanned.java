@@ -3,6 +3,8 @@ package com.DeepThreat.Entity;
 import jakarta.persistence.*;
 import org.antlr.v4.runtime.misc.NotNull;
 
+import java.sql.Date;
+
 @Entity
 public class DocumentScanned {
     @Id
@@ -10,4 +12,5 @@ public class DocumentScanned {
     private int serialNo;
     @Column(name = "email",nullable = false)
     private String email;
+    private Date date;
 }
