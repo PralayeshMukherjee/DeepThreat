@@ -1,7 +1,6 @@
 package com.DeepThreat.Entity;
 
 import jakarta.persistence.*;
-import org.antlr.v4.runtime.misc.NotNull;
 
 import java.sql.Date;
 
