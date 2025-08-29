@@ -14,4 +14,7 @@ public class DocumentScanned {
     private String email;
     @Column(name = "date",nullable = false)
     private Date date;
+
+    public DocumentScanned() {
+    }
 }
