@@ -4,4 +4,5 @@ import jakarta.persistence.Entity;
 
 @Entity
 public class DocumentScanned {
+    private int serialNo;
 }
