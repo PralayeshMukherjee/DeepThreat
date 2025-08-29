@@ -8,6 +8,6 @@ public class DocumentScanned {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int serialNo;
-    @Column(name = "email")
+    @Column(name = "email",nullable = false)
     private String email;
 }
