@@ -114,7 +114,7 @@ export default function MeSection() {
               color: "from-blue-400 to-indigo-400",
             },
             {
-              title: "Total Document Searches",
+              title: "Total Document Scanned",
               value: stats.documentSearches,
               icon: FileSearch,
               color: "from-green-400 to-emerald-400",
