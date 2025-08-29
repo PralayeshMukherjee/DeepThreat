@@ -12,5 +12,6 @@ public class DocumentScanned {
     private int serialNo;
     @Column(name = "email",nullable = false)
     private String email;
+    @Column(name = "date")
     private Date date;
 }
