@@ -17,4 +17,10 @@ public class DocumentScanned {
 
     public DocumentScanned() {
     }
+
+    public DocumentScanned(int serialNo, String email, Date date) {
+        this.serialNo = serialNo;
+        this.email = email;
+        this.date = date;
+    }
 }
