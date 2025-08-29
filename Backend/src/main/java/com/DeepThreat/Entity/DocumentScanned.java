@@ -23,4 +23,29 @@ public class DocumentScanned {
         this.email = email;
         this.date = date;
     }
+
+    public int getSerialNo() {
+
+        return serialNo;
+    }
+
+    public void setSerialNo(int serialNo) {
+        this.serialNo = serialNo;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
 }
