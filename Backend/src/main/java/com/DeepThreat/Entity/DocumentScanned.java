@@ -8,7 +8,7 @@ import java.sql.Date;
 public class DocumentScanned {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int serialNo;
+    private Long serialNo;
     @Column(name = "email",nullable = false)
     private String email;
     @Column(name = "date",nullable = false)
@@ -17,18 +17,18 @@ public class DocumentScanned {
     public DocumentScanned() {
     }
 
-    public DocumentScanned(int serialNo, String email, Date date) {
+    public DocumentScanned(long serialNo, String email, Date date) {
         this.serialNo = serialNo;
         this.email = email;
         this.date = date;
     }
 
-    public int getSerialNo() {
+    public long getSerialNo() {
 
         return serialNo;
     }
 
-    public void setSerialNo(int serialNo) {
+    public void setSerialNo(long serialNo) {
         this.serialNo = serialNo;
     }
 
