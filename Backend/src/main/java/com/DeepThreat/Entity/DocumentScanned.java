@@ -10,4 +10,5 @@ public class DocumentScanned {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int serialNo;
+    private String email;
 }
