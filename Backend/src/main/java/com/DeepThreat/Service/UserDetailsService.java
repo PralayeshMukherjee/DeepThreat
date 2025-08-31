@@ -1,6 +1,7 @@
 package com.DeepThreat.Service;
 
 import com.DeepThreat.DTO.UserAllDetailsDTO;
+import com.DeepThreat.Entity.DocumentScanned;
 import com.DeepThreat.Entity.UserEntity;
 import com.DeepThreat.Entity.UserURLHistoryEntity;
 import com.DeepThreat.Repository.UserRepository;
@@ -17,6 +18,7 @@ public class UserDetailsService {
     private UserRepository userRepository;
     @Autowired
     private UserURLHistoryRepository userURLHistoryRepository;
+    private DocumentScanned documentScanned;
     public UserEntity getUserAllDetails(String email){
         UserEntity userEntity = new UserEntity();
         try{
