@@ -12,7 +12,7 @@ import java.io.IOException;
 public class FileScannerService {
     @Autowired
     private VirusTotalService virusTotalService;
-    public String checkFile(MultipartFile file){
+    public String checkFile(MultipartFile file,String email){
         try{
            return virusTotalService.checkFileStatus(file);
         }catch (JsonProcessingException e){
