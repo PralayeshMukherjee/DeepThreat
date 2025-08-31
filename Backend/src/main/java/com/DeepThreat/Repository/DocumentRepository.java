@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 public interface DocumentRepository extends JpaRepository<DocumentScanned,Long> {
-    @Query()
+    @Query(value = "select count(serial_no) from document_scanned where email= :email")
     int countTotalDocumentScanned();
 }
