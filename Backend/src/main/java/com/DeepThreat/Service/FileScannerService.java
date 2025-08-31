@@ -26,6 +26,7 @@ public class FileScannerService {
                LocalDate localDate = LocalDate.now();
                Date date = Date.valueOf(localDate);
                documentScanned.setDate(date);
+               documentScanned.setEmail(email);
            }
         }catch (JsonProcessingException e){
             System.out.println(e.getMessage());
