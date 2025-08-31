@@ -14,7 +14,7 @@ public class FileScannerService {
     private VirusTotalService virusTotalService;
     public String checkFile(MultipartFile file,String email){
         try{
-           return virusTotalService.checkFileStatus(file);
+           String result = virusTotalService.checkFileStatus(file);
         }catch (JsonProcessingException e){
             System.out.println(e.getMessage());
             return "error";
