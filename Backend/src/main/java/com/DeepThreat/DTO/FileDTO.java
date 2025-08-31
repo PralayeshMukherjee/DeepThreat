@@ -11,8 +11,9 @@ public class FileDTO {
     public FileDTO() {
     }
 
-    public FileDTO(MultipartFile file) {
+    public FileDTO(MultipartFile file, String email) {
         this.file = file;
+        this.email = email;
     }
 
     public MultipartFile getFile() {
