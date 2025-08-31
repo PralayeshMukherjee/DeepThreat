@@ -18,6 +18,6 @@ public class RedirectController {
     public void redirectAfterLogin(HttpServletResponse response, Authentication authentication) throws IOException{
         OAuth2User oAuth2User = (OAuth2User) authentication.getPrincipal();
         String jwtToken = jwtUtil.generateTokan(oAuth2User);
-        response.sendRedirect("http://localhost:5173/jwt-success?token=" + jwtToken);
+        response.sendRedirect("https://deepthreat.vercel.app/jwt-success?token=" + jwtToken);
     }
 }
