@@ -18,6 +18,7 @@ public class UserDetailsService {
     private UserRepository userRepository;
     @Autowired
     private UserURLHistoryRepository userURLHistoryRepository;
+    @Autowired
     private DocumentScanned documentScanned;
     public UserEntity getUserAllDetails(String email){
         UserEntity userEntity = new UserEntity();
