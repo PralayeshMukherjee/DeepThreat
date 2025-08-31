@@ -121,6 +121,14 @@ const MainHome = () => {
     if (!file) return;
     const formData = new FormData();
     formData.append("file", file);
+    const token = localStorage.getItem("jwt");
+    let email = "";
+    if (token) {
+      const decode = jwtDecode(token);
+      email = decode.email?.email || decode.email;
+      console.log(data);
+    }
+    formData.append("email",email);
 
     const response = await fetch("http://localhost:8080/fileScanning/check", {
       method: "POST",
