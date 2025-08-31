@@ -4,6 +4,7 @@ import com.DeepThreat.DTO.UserAllDetailsDTO;
 import com.DeepThreat.Entity.DocumentScanned;
 import com.DeepThreat.Entity.UserEntity;
 import com.DeepThreat.Entity.UserURLHistoryEntity;
+import com.DeepThreat.Repository.DocumentRepository;
 import com.DeepThreat.Repository.UserRepository;
 import com.DeepThreat.Repository.UserURLHistoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ public class UserDetailsService {
     @Autowired
     private UserURLHistoryRepository userURLHistoryRepository;
     @Autowired
-    private DocumentScanned documentScanned;
+    private DocumentRepository documentRepository;
     public UserEntity getUserAllDetails(String email){
         UserEntity userEntity = new UserEntity();
         try{
@@ -75,6 +76,7 @@ public class UserDetailsService {
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
+        documentScanned
         return detailsDTO;
     }
 }
