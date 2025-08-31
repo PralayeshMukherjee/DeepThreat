@@ -31,7 +31,7 @@ export default function MeSection() {
   };
   const getUserAllDetails = async (email)=>{
     try{
-      const response = await fetch(`${import.meta.env.BACKEND_URL}/userDetails/indepthDetails?email=${email}`,{
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/userDetails/indepthDetails?email=${email}`,{
         method:"GET",
         credentials:"include",
         headers:{

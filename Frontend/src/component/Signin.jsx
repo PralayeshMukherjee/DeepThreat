@@ -18,7 +18,7 @@ const Signin = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        `${import.meta.env.BACKEND_URL}/user/login?emailId=${formData.emailId}&password=${formData.password}`,
+        `${import.meta.env.VITE_BACKEND_URL}/user/login?emailId=${formData.emailId}&password=${formData.password}`,
         {
           method: "POST",
           credentials: "include",
@@ -59,7 +59,7 @@ const Signin = () => {
     });
   };
   const handleGoogleLogin = () => {
-    window.location.href = `${import.meta.env.BACKEND_URL}/oauth2/authorization/google`;
+    window.location.href = `${import.meta.env.VITE_BACKEND_URL}/oauth2/authorization/google`;
   };
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-gray-900 to-gray-950 dark:from-gray-900 dark:to-gray-950 from-white to-gray-100 px-4 py-10">

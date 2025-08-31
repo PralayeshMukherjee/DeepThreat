@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const Signup = () => {
   const handleGoogleLogin = () => {
-    window.location.href = `${import.meta.env.BACKEND_URL}/oauth2/authorization/google`;
+    window.location.href = `${import.meta.env.VITE_BACKEND_URL}/oauth2/authorization/google`;
   };
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -26,7 +26,7 @@ const Signup = () => {
     setLoading(true);
 
     try {
-      const response = await fetch(`${import.meta.env.BACKEND_URL}/user/signup`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/user/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -68,7 +68,7 @@ const MainHome = () => {
       };
       console.log(payload);
       try {
-        const response = await fetch(`${import.meta.env.BACKEND_URL}/urlChecker/check`, {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/urlChecker/check`, {
           method: "POST",
           credentials: "include",
           headers: {
@@ -129,7 +129,7 @@ const MainHome = () => {
     }
     formData.append("email",email);
 
-    const response = await fetch(`${import.meta.env.BACKEND_URL}/fileScanning/check`, {
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/fileScanning/check`, {
       method: "POST",
       credentials: "include",
       body: formData,

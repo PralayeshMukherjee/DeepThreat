@@ -34,7 +34,7 @@ export default function DeepThreatDashboard() {
   const [threat, setThreat] = useState(0); // if you need this
   const getTraficData = async (email) => {
     const response = await fetch(
-      `${import.meta.env.BACKEND_URL}/lastData/getDatas?email=${email}`,
+      `${import.meta.env.VITE_BACKEND_URL}/lastData/getDatas?email=${email}`,
       {
         method: "POST",
         credentials: "include",

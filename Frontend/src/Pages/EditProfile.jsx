@@ -37,7 +37,7 @@ export default function EditProfile() {
   const handleDataFetching = async (email) => {
     try {
       const response = await fetch(
-        `${import.meta.env.BACKEND_URL}/userDetails/getUser?email=${email}`,
+        `${import.meta.env.VITE_BACKEND_URL}/userDetails/getUser?email=${email}`,
         {
           method: "POST",
           credentials: "include",
@@ -85,7 +85,7 @@ export default function EditProfile() {
       setResending(true);
       setLoadingOTP(true);
       const response = await fetch(
-        `${import.meta.env.BACKEND_URL}/userDetails/sendOTPtoForgot?email=${formData.email}`,
+        `${import.meta.env.VITE_BACKEND_URL}/userDetails/sendOTPtoForgot?email=${formData.email}`,
         {
           method: "POST",
           credentials: "include",
@@ -113,7 +113,7 @@ export default function EditProfile() {
     try {
       setLoadingForgot(true);
       const response = await fetch(
-        `${import.meta.env.BACKEND_URL}/userDetails/verifyotp?email=${formData.email}&otp=${otp}&newPassword=${newPassword}`,
+        `${import.meta.env.VITE_BACKEND_URL}/userDetails/verifyotp?email=${formData.email}&otp=${otp}&newPassword=${newPassword}`,
         {
           method: "POST",
           credentials: "include",
@@ -153,7 +153,7 @@ export default function EditProfile() {
     try {
       setLoading(true);
       const response = await fetch(
-        `${import.meta.env.BACKEND_URL}/userDetails/updateData`,
+        `${import.meta.env.VITE_BACKEND_URL}/userDetails/updateData`,
         {
           method: "PUT",
           credentials: "include",
