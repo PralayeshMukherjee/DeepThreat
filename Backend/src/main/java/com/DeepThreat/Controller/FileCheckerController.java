@@ -20,6 +20,7 @@ public class FileCheckerController {
     @PostMapping("/check")
     public ResponseEntity<Map<String,String>> FileScan(FileDTO fileDTO){
         MultipartFile file = fileDTO.getFile();
+        String email = fileDTO.getEmail();
         String fileSafetyCheck = fileScannerService.checkFile(file);
         return ResponseEntity.ok(Map.of("fileStatus",fileSafetyCheck));
     }
