@@ -24,6 +24,7 @@ public class FileScannerService {
            if(result!=""){
                DocumentScanned documentScanned = new DocumentScanned();
                LocalDate localDate = LocalDate.now();
+               Date date = Date.valueOf(localDate);
            }
         }catch (JsonProcessingException e){
             System.out.println(e.getMessage());
