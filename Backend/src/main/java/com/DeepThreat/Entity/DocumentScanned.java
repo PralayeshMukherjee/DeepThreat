@@ -17,8 +17,7 @@ public class DocumentScanned {
     public DocumentScanned() {
     }
 
-    public DocumentScanned(long serialNo, String email, Date date) {
-        this.serialNo = serialNo;
+    public DocumentScanned(String email, Date date) {
         this.email = email;
         this.date = date;
     }
@@ -26,10 +25,6 @@ public class DocumentScanned {
     public long getSerialNo() {
 
         return serialNo;
-    }
-
-    public void setSerialNo(long serialNo) {
-        this.serialNo = serialNo;
     }
 
     public String getEmail() {
