@@ -13,6 +13,7 @@ import java.io.IOException;
 public class FileScannerService {
     @Autowired
     private VirusTotalService virusTotalService;
+    @Autowired
     private DocumentRepository documentRepository;
     public String checkFile(MultipartFile file,String email){
         try{
