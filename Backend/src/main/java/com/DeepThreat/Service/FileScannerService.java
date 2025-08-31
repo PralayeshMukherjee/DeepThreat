@@ -28,6 +28,7 @@ public class FileScannerService {
                documentScanned.setDate(date);
                documentScanned.setEmail(email);
            }
+           return result;
         }catch (JsonProcessingException e){
             System.out.println(e.getMessage());
             return "error";
