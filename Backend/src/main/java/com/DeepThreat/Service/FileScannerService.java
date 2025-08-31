@@ -1,5 +1,6 @@
 package com.DeepThreat.Service;
 
+import com.DeepThreat.Repository.DocumentRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,7 @@ import java.io.IOException;
 public class FileScannerService {
     @Autowired
     private VirusTotalService virusTotalService;
+    private DocumentRepository documentRepository;
     public String checkFile(MultipartFile file,String email){
         try{
            String result = virusTotalService.checkFileStatus(file);
