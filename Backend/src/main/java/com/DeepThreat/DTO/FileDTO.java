@@ -6,6 +6,7 @@ import java.io.File;
 
 public class FileDTO {
     private MultipartFile file;
+    private String email;
 
     public FileDTO() {
     }
