@@ -128,7 +128,7 @@ export default function History() {
   const getHistory = async (email) => {
     try {
       const response = await fetch(
-        `http://localhost:8080/userDetails/urlHistory?email=${email}`,
+        `${import.meta.env.BACKEND_URL}/userDetails/urlHistory?email=${email}`,
         {
           method: "POST",
           credentials: "include",

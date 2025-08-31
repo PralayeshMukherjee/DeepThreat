@@ -45,7 +45,7 @@ const Home = () => {
       }
       try {
         const response = await fetch(
-          `http://localhost:8080/api/token-validation?token=${token}`,
+          `${import.meta.env.BACKEND_URL}/api/token-validation?token=${token}`,
           {
             method: "GET",
             headers: {
