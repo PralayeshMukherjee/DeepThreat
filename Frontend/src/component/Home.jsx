@@ -45,7 +45,9 @@ const Home = () => {
       }
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_BACKEND_URL}/api/token-validation?token=${token}`,
+          `${
+            import.meta.env.VITE_BACKEND_URL
+          }/api/token-validation?token=${token}`,
           {
             method: "GET",
             headers: {
