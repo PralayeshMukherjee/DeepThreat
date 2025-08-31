@@ -126,7 +126,6 @@ const MainHome = () => {
     if (token) {
       const decode = jwtDecode(token);
       email = decode.email?.email || decode.email;
-      console.log(data);
     }
     formData.append("email",email);
 
