@@ -76,7 +76,7 @@ public class UserDetailsService {
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
-        documentScanned
+        int totalDocScanned = documentRepository.countTotalDocumentScanned(email);
         return detailsDTO;
     }
 }
