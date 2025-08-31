@@ -1,5 +1,6 @@
 package com.DeepThreat.Service;
 
+import com.DeepThreat.Entity.DocumentScanned;
 import com.DeepThreat.Repository.DocumentRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,9 @@ public class FileScannerService {
     public String checkFile(MultipartFile file,String email){
         try{
            String result = virusTotalService.checkFileStatus(file);
+           if(result!=""){
+               DocumentScanned documentScanned = new DocumentScanned();
+           }
         }catch (JsonProcessingException e){
             System.out.println(e.getMessage());
             return "error";
