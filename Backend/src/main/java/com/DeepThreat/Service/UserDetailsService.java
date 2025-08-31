@@ -77,6 +77,7 @@ public class UserDetailsService {
             System.out.println(e.getMessage());
         }
         int totalDocScanned = documentRepository.countTotalDocumentScanned(email);
+        detailsDTO.setTotalDocumentScanned(totalDocScanned);
         return detailsDTO;
     }
 }
