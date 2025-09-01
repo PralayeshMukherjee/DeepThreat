@@ -1,79 +1,94 @@
-# 🛡️ DeepThreat - Your First Line of Defence Against Online Threats 🌐
+# 🛡️ DeepThreat – Smart Cybersecurity Platform
 
-🚀 **Excited to Start a New Project:**  
-Welcome to **DeepThreat**, a smart cybersecurity platform designed to help users stay safe by detecting and classifying potentially malicious URLs **before** they click.
-
-> ⚠️ **Note:** This project is currently under active development. Features and components are being continuously added and improved. Contributions and suggestions are highly welcome!
+[![Live Demo](https://img.shields.io/badge/Live-Demo-green)](https://deepthreat.vercel.app/)  
+**Version:** 1.0 (Stable but still under development)
 
 ---
 
-## 🔍 What is DeepThreat?
+## 🚀 About DeepThreat
+**DeepThreat** is an advanced **cybersecurity web platform** that helps users stay safe from online threats by scanning URLs and documents in real time.  
 
-**DeepThreat** is a real-time URL analysis platform that evaluates suspicious links and provides immediate feedback on whether a link is:
-- ✅ Safe  
-- ⚠️ Suspicious  
-- ❌ Malicious  
-
-It leverages custom logic (with plans to integrate real-time threat intelligence and AI-based scanning) to ensure that users are one step ahead of online threats.
+It uses **custom-built algorithms** along with trusted **third-party APIs** that analyze with **100+ security engines and AI tools**. The platform provides **detailed reports, pie chart visualizations, and proper risk analysis** to help users make safe decisions.  
 
 ---
 
-## 💡 Features (In Progress)
+## ✨ Features
+✅ **URL Scanner**  
+- Detects if a given URL is **Malicious, Suspicious, or Safe**  
+- Uses **custom algorithms** + **external APIs** (AI-powered)  
+- Shows detailed report with **pie chart visualization**
 
-- ✅ Analyze URLs to detect threats  
-- 🚥 Return safety status: Safe, Suspicious, or Malicious  
-- 🔐 Backend secured using Spring Security  
-- 📊 Maintain scan history  
-- 📬 Future goal: Email alert system  
-- 🤖 Future goal: AI-based threat classification  
+✅ **Document Scanner**  
+- Upload files like **PDF, DOC, JPG, etc.**  
+- Detects if the document contains **malware or hidden threats**
 
----
+✅ **Secure Authentication**  
+- **OAuth 2.0** login with Google  
+- **JWT-based authorization**
 
-## 🛠 Built With
+✅ **Tech-Driven Analysis**  
+- Combines **DeepThreat’s custom analysis engine** + **100+ algorithms from third-party APIs**  
+- Provides **comprehensive threat reports**
 
-- **Backend**: Java, Spring Boot, Spring Security  
-- **Frontend**: ReactJS, Tailwind CSS  
-- **Database**: MySQL  
-- **DevOps**: Docker (Containerization & Deployment)  
-- **Planned Additions**:
-  - Threat Intelligence APIs
-  - AI/ML-powered threat detection engine
-
----
-
-## 🎯 Why DeepThreat?
-
-> _Because every click matters._
-
-With phishing and cyberattacks becoming more complex, DeepThreat empowers users to **verify first and click later**. It's your first shield in the fight against cyber threats.
+✅ **User-Friendly Interface**  
+- Modern **React (Vite) + TailwindCSS** frontend  
+- Smooth dashboard with **charts & reports**  
 
 ---
 
-## 🔗 Project Link
-
-🌐 [GitHub Repository](https://lnkd.in/gsryr23V)
-
----
-
-## 🤝 Contributions Welcome
-
-Have ideas? Want to help make the internet a safer place?  
-Feel free to fork the repo, raise an issue, or create a pull request.
-
-Let’s build something impactful together! 👨‍💻💬
+## 🛠️ Tech Stack
+- **Frontend:** React (Vite), Tailwind CSS  
+- **Backend:** Spring Boot (Java)  
+- **Database:** MySQL  
+- **Security:** OAuth 2.0, JWT  
+- **Other Tools:** Third-party safe APIs for malware scanning  
 
 ---
 
-## 📌 License
-
-> This project is currently in **pre-release development** and may not yet be licensed for commercial use. A proper open-source license will be added soon.
-
----
-
-## 📅 Status
-
-> **🚧 DeepThreat is Under Active Development**  
-Follow the repo for updates, releases, and feature rollouts.
+## 📊 How It Works
+1. **Enter a URL** → Get instant classification (**Safe / Suspicious / Malicious**)  
+2. **Upload a File** → System checks for **malware inside documents**  
+3. **View Report** → Detailed analysis + pie chart representation  
+4. **Stay Safe** → Make informed decisions before clicking or downloading  
 
 ---
 
+## 🌐 Live Demo
+🔗 [DeepThreat Website](https://deepthreat.vercel.app/)  
+
+---
+
+## 📅 Roadmap
+- [ ] Add **history tracking** of user scans  
+- [ ] Implement **real-time threat alerts**  
+- [ ] Improve **AI-based document scanning**  
+- [ ] Deploy **mobile app version**  
+- [ ] Add **multi-language support**  
+
+---
+
+## 📸 Screenshots
+_(Add screenshots here once available)_  
+
+---
+
+## 🤝 Contribution
+Contributions are welcome!  
+1. Fork this repo  
+2. Create your feature branch (`git checkout -b feature-xyz`)  
+3. Commit your changes (`git commit -m 'Add xyz feature'`)  
+4. Push to the branch (`git push origin feature-xyz`)  
+5. Open a Pull Request  
+
+---
+
+## 📜 License
+This project is licensed under the **MIT License**.  
+
+---
+
+### 👨‍💻 Author
+Developed with ❤️ by **Raj**  
+🔗 [GitHub Profile](https://github.com/yourusername)  
+
+---
