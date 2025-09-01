@@ -20,7 +20,8 @@ import {
   EditProfile,
   HelpSupport,
   MeSection,
-  About
+  About,
+  Features
 } from "./ie.js";
 
 import "./App.css";
@@ -35,6 +36,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="home" element={<Home />} />
           <Route path="about" element={<About/>}/>
+          <Route path="features" element={<Features/>}/>
         </Route>
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
