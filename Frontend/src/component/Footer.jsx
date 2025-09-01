@@ -10,7 +10,7 @@ const Footer = () => {
           href="mailto:support@securenet.com"
           className="text-cyan-400 hover:underline"
         >
-          support@securenet.com
+          rajmukherjeegcp@gmail.com
         </a>
       </p>
     </footer>
