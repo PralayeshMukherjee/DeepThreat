@@ -50,7 +50,7 @@ const Header = () => {
                   to={link.path}
                   className={({ isActive }) =>
                     `text-white hover:text-cyan-400  ${
-                      isActive ? "font-bold underline" : ""
+                      isActive ? "text-cyan-400 font-bold" : ""
                     }`
                   }
                 >
