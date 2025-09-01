@@ -17,5 +17,6 @@ import EditProfile from "./Pages/EditProfile.jsx"
 import HelpSupport from "./Pages/HelpAndSupport.jsx"
 import MeSection from './Pages/MeSection.jsx';
 import About from './component/About.jsx';
+import Features from './component/Features.jsx';
 
-export {Header,Footer,Layout,Home,ThemeProvider,ThemeBtn,Signin,Signup,JwtSuccess,OTPVerification,MainHome,MainLayout,DeepThreatDashboard,History,Contact,EditProfile,HelpSupport,MeSection,About};
+export {Header,Footer,Layout,Home,ThemeProvider,ThemeBtn,Signin,Signup,JwtSuccess,OTPVerification,MainHome,MainLayout,DeepThreatDashboard,History,Contact,EditProfile,HelpSupport,MeSection,About,Features};
