@@ -83,12 +83,16 @@ Contributions are welcome!
 ---
 
 ## 📜 License
-This project is licensed under the **MIT License**.  
+This project is licensed under the **Apache License**. See the [LICENSE](LICENSE) file for details..  
 
 ---
 
-### 👨‍💻 Author
-Developed with ❤️ by **Raj**  
-🔗 [GitHub Profile](https://github.com/yourusername)  
+## 📩 Contact
+🔗 **GitHub**: [PralayeshMukherjee](https://github.com/PralayeshMukherjee)  
+🔗 **LinkedIn**: [Connect with me](https://www.linkedin.com/in/pralayesh-mukherjee-756a8b276/)  
+💡 Have suggestions? Let's innovate together! 🚀📚
 
+## 🌍 Architecture Diagram
+
+![Bookie Architecture](diagram.png)
 ---
