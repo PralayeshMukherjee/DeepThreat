@@ -10,7 +10,7 @@
 
 It uses **custom-built algorithms** along with trusted **third-party APIs** that analyze with **100+ security engines and AI tools**. The platform provides **detailed reports, pie chart visualizations, and proper risk analysis** to help users make safe decisions.  
 
----
+------
 
 ## ✨ Features
 ✅ **URL Scanner**  
