@@ -10,13 +10,13 @@
 
 It uses **custom-built algorithms** along with trusted **third-party APIs** that analyze with **100+ security engines and AI tools**. The platform provides **detailed reports, pie chart visualizations, and proper risk analysis** to help users make safe decisions.  
 
-------
+---------
 
 ## ✨ Features
 ✅ **URL Scanner**  
 - Detects if a given URL is **Malicious, Suspicious, or Safe**  
 - Uses **custom algorithms** + **external APIs** (AI-powered)  
-- Shows detailed report with **pie chart visualization**
+- Shows a detailed report with **pie chart visualisation**
 
 ✅ **Document Scanner**  
 - Upload files like **PDF, DOC, JPG, etc.**  
