@@ -3,20 +3,20 @@
 [![Live Demo](https://img.shields.io/badge/Live-Demo-green)](https://deepthreat.vercel.app/)  
 **Version:** 1.0 (Stable but still under development)
 
----
+--------------------
 
 ## 🚀 About DeepThreat
 **DeepThreat** is an advanced **cybersecurity web platform** that helps users stay safe from online threats by scanning URLs and documents in real time.  
 
 It uses **custom-built algorithms** along with trusted **third-party APIs** that analyze with **100+ security engines and AI tools**. The platform provides **detailed reports, pie chart visualizations, and proper risk analysis** to help users make safe decisions.  
 
----
+---------
 
 ## ✨ Features
 ✅ **URL Scanner**  
 - Detects if a given URL is **Malicious, Suspicious, or Safe**  
 - Uses **custom algorithms** + **external APIs** (AI-powered)  
-- Shows detailed report with **pie chart visualization**
+- Shows a detailed report with **pie chart visualisation**
 
 ✅ **Document Scanner**  
 - Upload files like **PDF, DOC, JPG, etc.**  
@@ -83,12 +83,16 @@ Contributions are welcome!
 ---
 
 ## 📜 License
-This project is licensed under the **MIT License**.  
+This project is licensed under the **Apache License**. See the [LICENSE](LICENSE) file for details..  
 
 ---
 
-### 👨‍💻 Author
-Developed with ❤️ by **Raj**  
-🔗 [GitHub Profile](https://github.com/yourusername)  
+## 📩 Contact
+🔗 **GitHub**: [PralayeshMukherjee](https://github.com/PralayeshMukherjee)  
+🔗 **LinkedIn**: [Connect with me](https://www.linkedin.com/in/pralayesh-mukherjee-756a8b276/)  
+💡 Have suggestions? Let's innovate together! 🚀📚
 
+## 🌍 Architecture Diagram
+
+![Bookie Architecture](diagram.png)
 ---
