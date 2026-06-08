@@ -34,7 +34,7 @@ It uses **custom-built algorithms** along with trusted **third-party APIs** that
 - Modern **React (Vite) + TailwindCSS** frontend  
 - Smooth dashboard with **charts & reports**  
 
----
+------
 
 ## 🛠️ Tech Stack
 - **Frontend:** React (Vite), Tailwind CSS  
