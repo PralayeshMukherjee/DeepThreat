@@ -43,7 +43,7 @@ It uses **custom-built algorithms** along with trusted **third-party APIs** that
 - **Security:** OAuth 2.0, JWT  
 - **Other Tools:** Third-party safe APIs for malware scanning  
 
----
+------
 
 ## 📊 How It Works
 1. **Enter a URL** → Get instant classification (**Safe / Suspicious / Malicious**)  
