@@ -1,9 +1,10 @@
 # 🛡️ DeepThreat – Smart Cybersecurity Platform
 
 [![Live Demo](https://img.shields.io/badge/Live-Demo-green)](https://deepthreat.vercel.app/)  
-**Version:** 1.0 (Stable but still under development)
+**Version:** 1.0 (Stable)
+**Version:** 2.0 (Ongoing/Under-development)
 
-----------------------
+----------------
 
 ## 🚀 About DeepThreat
 **DeepThreat** is an advanced **cybersecurity web platform** that helps users stay safe from online threats by scanning URLs and documents in real time.  
